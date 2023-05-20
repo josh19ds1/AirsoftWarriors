@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -70,6 +70,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
-# AirsoftWarriors
-Es un proyecto desarrollado por 4 estudiantes de la universidad tecnologica .En la cual implementaremos framework de frondend  y backend y al final subiremos el proyecto aun hosting
->>>>>>> 4aa3f9615923af56d6d30a9ed9ff3966bd716be1
