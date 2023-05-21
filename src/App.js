@@ -1,14 +1,25 @@
 
 import './App.css';
+import PG_Head from './componentes/PG_Head';
+
+import { Diseño } from './componentes/diseño';
+
+
 
 function App() {
   return (
 
-    <header>
-         <h1>sadhjs</h1>
-         <h2>bien</h2>
-       
-    </header>
+
+    <body>
+      <PG_Head />
+     
+      <h1>Probando informacion generada</h1>
+      <Diseño />
+
+    </body>
+
+
+
   );
 }
 
