@@ -10,13 +10,13 @@ function App() {
   return (
 
 
-    <body>
+    <main>
       <PG_Head />
      
       <h1>Probando informacion generada</h1>
       <Diseño />
 
-    </body>
+    </main>
 
 
 
