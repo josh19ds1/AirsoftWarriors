@@ -1,8 +1,9 @@
 
 import './App.css';
-import PG_Head from './componentes/PG_Head';
+import PG_Head from './componentes/head/PG_Head';
+import PaginaPrincipal from './componentes/PaginaPrincipal';
 
-import { Diseño } from './componentes/diseño';
+import { Diseño } from './componentes/head/diseño';
 
 
 
@@ -14,6 +15,8 @@ function App() {
       <PG_Head />
      
       <h1>Probando informacion generada</h1>
+      <PaginaPrincipal />
+
       <Diseño />
 
     </main>
