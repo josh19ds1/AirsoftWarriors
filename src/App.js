@@ -20,15 +20,17 @@ function App() {
       <h1>Probando informacion generada</h1>
 
       <Suspense fallback={<div>Loading....</div>}>
+        
         <ul className="card" style={{ color: "#fff" }}>
           {data?.map((product) => (
             <li key={product.id}>{product.name}
-                    <img src={product.url} alt="product airsoft"/>
-                    {console.log(product.url)}
-            
+                    <img src={product.image_url.url} alt="product airsoft"/>
+                  
+  
             </li>
     
           ))}
+          
         </ul>
       </Suspense>
       <PaginaPrincipal />
