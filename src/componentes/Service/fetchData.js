@@ -30,7 +30,7 @@ const getSuspender = (promise) =>{
                 throw suspender;
                 
             case "error":
-                throw response;
+                throw new Error("Ocurrió un error al cargar los datos.");
                 
             default:
                return response;

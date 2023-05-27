@@ -1,7 +1,7 @@
 *{
     padding: 0 ;
     margin: 0;
-
+    box-sizing: border-box;
 
 
 }
@@ -78,11 +78,3 @@ main {
 }
 
 
-.Cuerpo img{
-    position: relative;
-    width: 100%;
-    height: 539px;
-    left: 0px;
-    top: 0px;
-
-}
