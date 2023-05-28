@@ -1,0 +1,67 @@
+* {
+    background-color: black;
+}
+
+.login-title {
+    text-align: center;
+    padding: 5px;
+    font-size: 50px;
+    color: #E3600D;
+}
+
+.btn-login-google {
+    text-align: center;
+    font-size: 20px;
+    border-radius: 3px;
+    padding: 15px;
+    margin-left: 39.5%;
+    background-color: white;
+}
+
+.line {
+    background-color: #E3600D;
+    height: 5px;
+    width: 95%;
+}
+
+.input-email {
+
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+.input-pasw {
+
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+input {
+    margin-left: 35.5%;
+    text-align: left;
+    border-radius: 5px;
+    padding: 15px 100px 15px 100px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: white;
+}
+
+.btn-send {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #E3600D;
+    border-radius: 5px;
+    padding: 15px 100px 15px 100px;
+    margin-left: 40%;
+}
+
+.p-register {
+    text-align: center;
+    color: white;
+}
+
+.a-register {
+    text-decoration: none;
+    color: #E3600D;
+}

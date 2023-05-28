@@ -1,0 +1,57 @@
+* {
+    background-color: black;
+}
+
+.registro-title {
+    text-align: center;
+    padding: 5px;
+    font-size: 50px;
+    color: #E3600D;
+}
+
+.input-email {
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+.input-pasw {
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+input {
+    margin-left: 35.5%;
+    border-radius: 5px;
+    padding: 15px 100px 15px 100px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+    border-color: #ffff;
+}
+
+.line {
+    background-color: #E3600D;
+    border-color: #E3600D;
+    height: 5px;
+    width: 95%;
+}
+
+.btn-send {
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #E3600D;
+    border-color: #E3600D;
+    border-radius: 17px;
+    padding: 15px 100px 15px 100px;
+    margin-left: 38%;
+}
+
+.p-register {
+    text-align: center;
+    color: #ffff;
+}
+
+.a-register {
+    text-decoration: none;
+    color: #E3600D;
+}
