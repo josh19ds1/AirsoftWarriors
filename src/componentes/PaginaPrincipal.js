@@ -19,6 +19,7 @@ const apiData = fetchData("https://nodejs-restapi-airsoft-warrior-production-8da
 
 
 export default function PaginaPrincipal() {
+
   const data = apiData.read();
   const SlideShow = useRef(null);
   const IntervaloSlideShow = useRef(null);
@@ -58,7 +59,7 @@ export default function PaginaPrincipal() {
 
   const Anterior = () => {
 
-    if (SlideShow.current.children.length > 0) {
+    if (data && data.length > 0 && SlideShow.current && SlideShow.current.children.length > 0) {
       //obtenemos el ultimo elemento del slideshow
       const index = SlideShow.current.children.length - 1;
       const endElement = SlideShow.current.children[index];
@@ -87,16 +88,17 @@ export default function PaginaPrincipal() {
     }, 5000);
   
     // Eliminamos el intervalo al entrar el mouse
-    SlideShow.current.current.addEventListener('mouseenter', () => {
+    SlideShow.current.addEventListener('mouseenter', () => {
       clearInterval(IntervaloSlideShow.current);
     });
   
     // Lo volvemos a agregar al salir el mouse
-    SlideShow.current.current.addEventListener('mouseleave', () => {
+    SlideShow.current.addEventListener('mouseleave', () => {
       IntervaloSlideShow.current = setInterval(() => {
         Siguiente();
       }, 5000);
     });
+
   }, []);
   
 

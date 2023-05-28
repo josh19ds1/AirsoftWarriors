@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../Imagenes/LogoSinLet.png'
+import logo from '../../Imagenes/logoSinLet.png'
 
 function PG_Head() {
     return (
