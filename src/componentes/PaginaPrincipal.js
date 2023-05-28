@@ -32,7 +32,7 @@ export default function PaginaPrincipal() {
       //obtenemos el primer elemento del slideshow
       const firstElement = SlideShow.current.children[0];
       //transicion para el slide
-      SlideShow.current.style.transition = '300ms ease-out all';
+      SlideShow.current.style.transition = '5000ms ease-out all';
       //tomamos el tamaño
       const tamañoSlide = SlideShow.current.children[0].offsetWidth;
       //movemos el slideshow
@@ -73,7 +73,7 @@ export default function PaginaPrincipal() {
       SlideShow.current.style.transform = `translateX(-${tamañoSlide}px)`;
 
       setTimeout(() => {
-        SlideShow.current.style.transition = '300ms ease-out all'
+        SlideShow.current.style.transition = '5000ms ease-out all'
         SlideShow.current.style.transform = 'translateX(0)';
       }, 30);
     }
@@ -82,23 +82,23 @@ export default function PaginaPrincipal() {
 
 
   useEffect(() => {
-
     IntervaloSlideShow.current = setInterval(() => {
       Siguiente();
     }, 5000);
-    //eliminamos el intervalo
-    SlideShow.current.addEventListener('mouseenter', () => {
-       clearInterval(IntervaloSlideShow.current);
-     });   
-     //lo volvemos agregar
-     SlideShow.current.addEventListener('mouseleave', () => {
-      IntervaloSlideShow.current = setInterval(()=>{
-          Siguiente();
-      },5000);
-    },);   
-   
-
+  
+    // Eliminamos el intervalo al entrar el mouse
+    SlideShow.current.current.addEventListener('mouseenter', () => {
+      clearInterval(IntervaloSlideShow.current);
+    });
+  
+    // Lo volvemos a agregar al salir el mouse
+    SlideShow.current.current.addEventListener('mouseleave', () => {
+      IntervaloSlideShow.current = setInterval(() => {
+        Siguiente();
+      }, 5000);
+    });
   }, []);
+  
 
 
 
