@@ -10,14 +10,6 @@ import '../estilos/Principal.css'
 
 const apiData = fetchData("https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events");
 
-
-
-
-
-
-
-
-
 export default function PaginaPrincipal() {
 
   const data = apiData.read();
