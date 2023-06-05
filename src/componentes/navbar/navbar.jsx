@@ -1,16 +1,10 @@
 
-import { Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import React from 'react'
 import '../../estilos/navbar.css'
 
-//aqui traire los elemento de cada pagina
-import PaginaPrincipal from '../PaginaPrincipal'
-import Evento from '../Paginas-Proyecto/Evento'
-import Catalogo from '../Paginas-Proyecto/Catalogo'
-import Tutores from '../Paginas-Proyecto/Tutores'
-import Ranking from '../Paginas-Proyecto/Ranking'
-import Login from '../Paginas-Proyecto/Login'
+
 
 
 

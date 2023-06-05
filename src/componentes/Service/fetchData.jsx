@@ -1,6 +1,4 @@
 
-
-
 const getSuspender = (promise) =>{
     let status = "pending";
     let response;
@@ -30,7 +28,11 @@ const getSuspender = (promise) =>{
                 throw suspender;
                 
             case "error":
-                throw new Error("Ocurrió un error al cargar los datos.");
+                throw new Error(
+                
+                "ocurrio un error al cargar los datos"
+                
+                );
                 
             default:
                return response;

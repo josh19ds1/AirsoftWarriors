@@ -1,5 +1,4 @@
 
-import { fetchData } from "./componentes/Service/fetchData"
 import { Route, Routes } from "react-router-dom";
 
 import './App.css';
@@ -16,9 +15,6 @@ import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
 import Inicio from "./componentes/Paginas-Proyecto/Inicio";
 
 
-
-
-const apiData = fetchData("https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products");
 
 function App() {
 

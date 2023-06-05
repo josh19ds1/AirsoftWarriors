@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../estilos/login.css'
-import PaginaPrincipal from '../PaginaPrincipal'
+
 
 const Login = () => {
   return (
