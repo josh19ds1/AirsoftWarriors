@@ -24,6 +24,7 @@ function NavBar() {
             <li><Link to="/Catalogo" className="nav_link">Productos</Link></li>
             <li><Link to="/Tutores" className="nav_link">Tutorias</Link></li>
             <li><Link to="/Ranking" className="nav_link">Ranking</Link></li>
+            <li><Link to="/Login" className="nav_link">Login</Link></li>
 
           </ul>
         </nav>

@@ -66,7 +66,7 @@ const Productos = ({
     tipoValue }) => {
 
     const apiData = getApiData(ordenValue, dineroValue, tipoValue);
-
+        console.log(apiData);
     const dataUrl =  fetchData(apiData);
   
     const data =  dataUrl.read();
@@ -78,6 +78,7 @@ const Productos = ({
 
 
             <Grid container spacing={3} justifyContent="center">
+
                 <Suspense fallback={<div>Loading....</div>}>
                     {data?.map((producto) => (
 
