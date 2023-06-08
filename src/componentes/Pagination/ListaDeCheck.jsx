@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { fetchData } from '../Service/fetchData'
-import { startTransition } from 'react';
+
 
 
 const apiData = fetchData('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/categories');
@@ -86,8 +86,7 @@ const ListaDeCheck = ({
             name="orden-group"
           >
             <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
-            {startTransition(() => {
-            return data?.map((category) => (
+          {data?.map((category) => (
 
 
 
@@ -95,8 +94,7 @@ const ListaDeCheck = ({
               <div key={category.id}>
                 <FormControlLabel value={category.id} control={<Radio />} label={category.name} />
               </div>
-           ));
-          })}
+           ))}
           </RadioGroup>
         </Suspense>
       </FormControl>
