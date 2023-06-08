@@ -39,12 +39,12 @@ const Catalogo = () => {
           handleToggleDinero={handleToggleDinero}
           handleToggleTipo={handleToggleTipo}
         />
-        {/* <Productos
+        <Productos
           ordenValue={ordenValue}
           dineroValue={dineroValue}
           tipoValue={tipoValue}
 
-        /> */}
+        />
 
 
       </Container>

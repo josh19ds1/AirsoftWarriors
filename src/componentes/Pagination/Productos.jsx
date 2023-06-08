@@ -1,5 +1,6 @@
-import React, { Suspense, useState } from 'react'
-import { fetchData } from '../Service/fetchData';
+import React, { Suspense, useEffect, useState } from 'react'
+
+import fetchData from '../Service/feetchApi';
 import { DataProducto } from '../../vars/Index'
 
 import Card from '@mui/material/Card';
@@ -65,12 +66,18 @@ const Productos = ({
     tipoValue }) => {
 
     const apiData = getApiData(ordenValue, dineroValue, tipoValue);
-        console.log(apiData);
-    const dataUrl =  fetchData(apiData);
+       
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+      const fetchDataFromApi = async () => {
+        const responseData = await fetchData(apiData);
+        setData(responseData);
+      };
   
-    const data =  dataUrl.read();
-
-
+      fetchDataFromApi();
+    }, [apiData]);
+    console.log(data)
 
     return (
         <>
