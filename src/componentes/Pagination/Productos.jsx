@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { fetchData } from '../Service/fetchData';
 import { DataProducto } from '../../vars/Index'
 
@@ -6,61 +6,72 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Alert, AlertTitle, Button, ButtonBase, CardActionArea, CardActions, Grid } from '@mui/material';
+import { Alert, AlertTitle, Button, CardActionArea, CardActions, Grid } from '@mui/material';
+import { Await } from 'react-router-dom';
 
 
 
-const apiData = fetchData('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products');
+
+
+const getApiData = (ordenValue, dineroValue, tipoValue) => {
+    let apiData = '';
+
+    switch (ordenValue) {
+        case 'asc':
+            // Orden ascendente por nombre
+            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=0';
+            break;
+        case 'desc':
+            // Orden descendente por nombre
+            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=1';
+            break;
+        default:
+            // Orden por precio
+            switch (dineroValue) {
+                case 'asc':
+                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=0';
+                    break;
+                case 'desc':
+                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=1';
+                    break;
+                default:
+                    switch (tipoValue) {
+                        case 'Normal':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=all';
+                            break;
+                        case '1':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=1';
+                            break;
+                        case '2':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=2';
+                            break;
+                        case '3':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=3';
+                            break;
+                        default:
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products';
+                    }
+            }
+    }
+
+    return apiData;
+};
+
+
+
 
 const Productos = ({
     ordenValue,
     dineroValue,
     tipoValue }) => {
-    const [originalData, setOriginalData] = useState([]);
-    const [Pagina, setPagina] = useState(1);
-    console.log('estoy en producto')
-    console.log(ordenValue);
-    console.log(dineroValue);
-    console.log(tipoValue);
 
+    const apiData = getApiData(ordenValue, dineroValue, tipoValue);
+
+    const dataUrl =  fetchData(apiData);
   
+    const data =  dataUrl.read();
 
 
-    let data = null;
-    try {
-        data = apiData.read();
-     
-        // Lógica para mostrar los datos
-        data.sort((a, b) => {
-            switch (ordenValue) {
-              case 'asc':
-                // Orden ascendente por nombre
-                return a.name.localeCompare(b.name);
-              case 'desc':
-                // Orden descendente por nombre
-                return b.name.localeCompare(a.name);
-              default:
-                // Orden por precio
-                if (dineroValue === 'asc') {
-                  // Orden ascendente por precio
-                  return a.price - b.price;
-                } else {
-                  // Orden descendente por precio
-                  return b.price - a.price;
-                }
-            }
-          });
-        
-        
-
-    } catch (error) {
-
-        return (
-            <Alert severity="error">
-                <AlertTitle>Error</AlertTitle>
-                No se estan cargando los datos — <strong>DILE A CHATGPT</strong>
-            </Alert>);
-    }
 
     return (
         <>
@@ -91,6 +102,11 @@ const Productos = ({
                                 <CardContent>
                                     <Typography variant="body2" color="text.secondary">
                                         {producto.price}
+                                    </Typography>
+                                </CardContent>
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {producto.id_category}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>

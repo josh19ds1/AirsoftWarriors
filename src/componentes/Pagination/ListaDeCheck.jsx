@@ -86,7 +86,7 @@ const ListaDeCheck = ({
             <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
             {data?.map((category) => (
               <div key={category.id}>
-                <FormControlLabel value={category.name} control={<Radio />} label={category.name} />
+                <FormControlLabel value={category.id} control={<Radio />} label={category.name} />
               </div>
             )
             )}
