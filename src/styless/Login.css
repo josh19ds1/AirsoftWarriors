@@ -18,6 +18,12 @@
     background-color: white;
 }
 
+.login-google{
+    text-decoration: none;
+    background-color: #ffff;
+    color: black;
+}
+
 .line {
     background-color: #E3600D;
     height: 5px;
