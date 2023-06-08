@@ -77,7 +77,6 @@ const Productos = ({
   
       fetchDataFromApi();
     }, [apiData]);
-    console.log(data)
 
     return (
         <>
