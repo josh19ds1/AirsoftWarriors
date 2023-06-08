@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import { fetchData } from '../Service/fetchData';
 import { DataProducto } from '../../vars/Index'
 
@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Alert, AlertTitle, Button, CardActionArea, CardActions, Grid } from '@mui/material';
 import { Await } from 'react-router-dom';
+import { startTransition } from 'react';
 
 
 
@@ -64,14 +65,15 @@ const Productos = ({
     ordenValue,
     dineroValue,
     tipoValue }) => {
-
+   const [data, setData] = useState(null);
     const apiData = getApiData(ordenValue, dineroValue, tipoValue);
-        console.log(apiData);
-    const dataUrl =  fetchData(apiData);
-  
-    const data =  dataUrl.read();
+    
 
-
+        startTransition(() => {
+            const dataUrl = fetchData(apiData);
+            setData(dataUrl.read());
+          });
+          
 
     return (
         <>
@@ -80,10 +82,9 @@ const Productos = ({
             <Grid container spacing={3} justifyContent="center">
 
                 <Suspense fallback={<div>Loading....</div>}>
-                    {data?.map((producto) => (
-
-
-                        <Grid item xs={12} sm={6} md={4} key={producto.id}>
+                {startTransition(() => {
+                         return data?.map((producto) => (
+                            <Grid item xs={12} sm={6} md={4} key={producto.id}>
 
                             <Card sx={{ maxWidth: 450, ml: 2 }}>
                                 <CardActionArea>
@@ -117,7 +118,11 @@ const Productos = ({
                                 </CardActions>
                             </Card>
                         </Grid>
-                    ))}
+
+
+                            ));
+                        })}
+                  
                 </Suspense>
             </Grid>
 
