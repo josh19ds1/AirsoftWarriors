@@ -23,6 +23,7 @@ const Login = () => {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials:"include",
       redirect: 'follow',
       body: JSON.stringify(data),
     })
