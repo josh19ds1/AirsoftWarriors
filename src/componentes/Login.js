@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom/client'
-import '../styless/Login.css'
+import '../estilos/Login.css'
 
 const root = ReactDom.createRoot(document.getElementById('root'))
 
@@ -19,30 +19,3 @@ function Login() {
         <h4 class="p-register">No tieness cuenta? <a class="a-register" href="">Registrate</a></h4>
     </div>
 }
-
-index.post('/Login', (req, res) => {
-    const { email, password } = req.body;
-    const datos = {
-        email,
-        password
-    };
-    const datosJSON = JSON.stringify(datos);
-
-    fs.writeFile('datos.json', datosJSON, (err) => {
-        if (err) throw err;
-        res.send('Datos Guardados');
-    });
-});
-
-const validateLogin = [
-    check("email").exists().notEmpty(),
-    check("password").exists().notEmpty(),
-    (req, res, next) => {
-        validateResult(req, res, next);
-    }
-]
-
-index.post('/Login', validateLogin, loginUser)
-index.post('/login', validateLogin, loginUser)
-index.post('/', multerUpload.single('image'), validateUpdate, updateUser)
-index.get("/me", getCookie)

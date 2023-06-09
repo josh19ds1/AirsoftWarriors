@@ -4,19 +4,19 @@ import { Route, Routes } from "react-router-dom";
 import './App.css';
 
 
-import Registro from './componentes/Registro';
-import { Diseño } from './componentes/head/diseño';
 
 import NavBar from './componentes/navbar/navbar'
-import PG_Head from './componentes/head/PG_Head';
 
 
 import Evento from "./componentes/Paginas-Proyecto/Evento";
 import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
 import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
-import Login from "./componentes/Paginas-Proyecto/Login"; 
+import Login from "./componentes/Paginas-Proyecto/Login/Login"; 
 import Inicio from "./componentes/Paginas-Proyecto/Inicio";
+import PG_Head from "./componentes/head/PG_Head";
+import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
+import CompRegistrar from "./componentes/Paginas-Proyecto/Login/CompRegistrar";
 
 
 
@@ -28,7 +28,7 @@ function App() {
 
 
     <main>
-
+      <PG_Head />
       <NavBar />
       <div style={{ marginTop: '80px' }}>
         <Routes>
@@ -38,7 +38,7 @@ function App() {
           <Route path='/Tutores' element={<Tutores />} />
           <Route path='/Ranking' element={<Ranking />} />
           <Route path='/Login' element={<Login />} />
-          
+          <Route path='/Registrar' element={<Registrar />} />
         </Routes>
 
       </div>
