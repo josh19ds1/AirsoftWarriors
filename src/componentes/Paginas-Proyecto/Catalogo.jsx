@@ -7,9 +7,6 @@ import { Container } from '@mui/material'
 
 const Catalogo = () => {
 
-  const [grupo1, setGrupo1] = useState([]);
-  const [grupo2, setGrupo2] = useState([]);
-  const [grupo3, setGrupo3] = useState([]);
   const [ordenValue, setOrdenValue] = useState('Normal');
   const [dineroValue, setDineroValue] = useState('Normal');
   const [tipoValue, setTipoValue] = useState('Normal');

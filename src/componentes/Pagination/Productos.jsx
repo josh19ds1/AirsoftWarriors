@@ -19,26 +19,23 @@ const getApiData = (ordenValue, dineroValue, tipoValue) => {
     switch (ordenValue) {
         case 'asc':
             // Orden ascendente por nombre
-            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=0';
+            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=1';
             break;
         case 'desc':
             // Orden descendente por nombre
-            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=1';
+            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=0';
             break;
         default:
             // Orden por precio
             switch (dineroValue) {
                 case 'asc':
-                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=0';
+                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=1';
                     break;
                 case 'desc':
-                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=1';
+                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=0';
                     break;
                 default:
                     switch (tipoValue) {
-                        case 'Normal':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=all';
-                            break;
                         case '1':
                             apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=1';
                             break;
@@ -48,6 +45,9 @@ const getApiData = (ordenValue, dineroValue, tipoValue) => {
                         case '3':
                             apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=3';
                             break;
+                        case '4':
+                                apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=4';
+                                break;    
                         default:
                             apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products';
                     }
