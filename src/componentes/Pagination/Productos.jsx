@@ -70,14 +70,16 @@ const Productos = ({
     const [data, setData] = useState(null);
 
     useEffect(() => {
-      const fetchDataFromApi = async () => {
-        const responseData = await fetchData(apiData);
-        setData(responseData);
-      };
-  
-      fetchDataFromApi();
-    }, [apiData]);
-
+        const apiData = getApiData(ordenValue, dineroValue, tipoValue);
+      
+        const fetchDataFromApi = async () => {
+          const responseData = await fetchData(apiData);
+          setData(responseData);
+        };
+        console.log('pasando ')
+        fetchDataFromApi();
+      }, [ordenValue, dineroValue, tipoValue]);
+      
     return (
         <>
 
