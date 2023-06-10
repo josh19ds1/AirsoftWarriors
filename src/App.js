@@ -18,6 +18,7 @@ import PG_Head from "./componentes/head/PG_Head";
 import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
 import CompRegistrar from "./componentes/Paginas-Proyecto/Login/CompRegistrar";
 import DescripProducto from "./componentes/Pagination/DescripProducto";
+import Perfil from "./componentes/Paginas-Proyecto/Perfil";
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/Ranking' element={<Ranking />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Registrar' element={<Registrar />} />
+          <Route path='/Perfil' element={<Perfil />} />
           <Route path='/DescripcionProducto/:id' Component={DescripProducto } />
         </Routes>
 
