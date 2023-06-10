@@ -2,7 +2,7 @@ import React from 'react'
 import PaginaPrincipal from '../PaginaPrincipal'
 import { useState } from 'react';
 import  Button from '@mui/material/Button';
-import '../../estilos/ox.css'
+
 
 const Inicio = () => {
     const [showSlideShow, setShowSlideShow] = useState(true);
