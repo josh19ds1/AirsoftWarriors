@@ -66,19 +66,10 @@ const Productos = ({
     dineroValue,
     tipoValue }) => {
 
-    const [open, setOpen] = useState(false);
-
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-
-
     const [data, setData] = useState(null);
+    const colors = ['#EB965D', '#79EB5D', '#B5EB5D', '#5DEBA7'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    
 
     useEffect(() => {
         const apiData = getApiData(ordenValue, dineroValue, tipoValue);
@@ -87,7 +78,7 @@ const Productos = ({
             const responseData = await fetchData(apiData);
             setData(responseData);
         };
-      
+
         fetchDataFromApi();
     }, [ordenValue, dineroValue, tipoValue]);
 
@@ -99,8 +90,6 @@ const Productos = ({
 
                 <Suspense fallback={<div>Loading....</div>}>
                     {data?.map((producto) => (
-
-
                         <Grid item xs={12} sm={6} md={3} key={producto.id}>
 
                             <Card sx={{
@@ -111,18 +100,11 @@ const Productos = ({
 
                             }}>
 
-                                <Link to="#" onClick={handleOpen} >
-                                    <Dialog open={open}  onClose={handleClose}>
-                                        <DialogTitle>Diálogo de ejemplo</DialogTitle>
-                                        <DialogContent>
-                                            <Typography variant="body1">Contenido del diálogo...</Typography>
-                                        </DialogContent>
-                                        <DialogActions>
-                                            <Button onClick={handleClose}>Cerrar</Button>
-                                        </DialogActions>
+                                <Link to={`/DescripcionProducto/${producto.id}` }  >
 
-                                    </Dialog>
-                                    <CardActionArea >
+                                   
+
+                                    <CardActionArea sx={{background:randomColor}}>
                                         <Typography gutterBottom variant="h1" component="div" textAlign="center" sx={{
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',
@@ -130,7 +112,7 @@ const Productos = ({
                                             textDecoration: 'none',
                                             color: '#0F0A0F',
                                             fontSize: 35
-                                            
+
                                         }}>
                                             {producto.name}
                                         </Typography>
@@ -163,16 +145,16 @@ const Productos = ({
                                 </Link>
 
                                 <CardContent>
-                                    
-                                        <Typography variant="h6" component="h5"  sx={{fontSize: 20}} >Precio:</Typography>
-                                        <Typography component="p" >{producto.price}</Typography>
-                                   
+
+                                    <Typography variant="h6" component="h5" sx={{ fontSize: 20 }} >Precio:</Typography>
+                                    <Typography component="p" >{producto.price}</Typography>
+
                                 </CardContent>
                                 <CardContent>
-                                    
-                                        <Typography variant="h6" component="h5"  sx={{fontSize: 20}}>Categoria:</Typography>
-                                        <Typography component="p">{producto.id_category}</Typography>
-                                   
+
+                                    <Typography variant="h6" component="h5" sx={{ fontSize: 20 }}>Categoria:</Typography>
+                                    <Typography component="p">{producto.id_category}</Typography>
+
 
                                 </CardContent>
                                 <Link to="/carrito">
