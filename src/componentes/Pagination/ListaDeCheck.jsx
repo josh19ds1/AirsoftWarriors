@@ -43,16 +43,18 @@ const ListaDeCheck = ({
   return (
     <Box
       sx={{
-        border: 2,
+
         borderColor: "peru",
         p: 2,
-        bgcolor: "#EB965D",
-        color: "#111",
-        width: 150
+        bgcolor: "#E67D06",
+        color: "#fffff",
+        width: 200
       }}
     >
-      <FormControl>
-        <FormLabel id="Orden-label">Ordenar</FormLabel>
+      <FormControl sx={{
+        alignItems: 'center'
+      }}>
+        <FormLabel id="Orden-label">Ordenar por nombre</FormLabel>
         <RadioGroup
           aria-labelledby="orden-label"
           value={orden}
@@ -64,7 +66,7 @@ const ListaDeCheck = ({
           <FormControlLabel value="desc" control={<Radio />} label="Z-A" />
         </RadioGroup>
         <Divider />
-        <FormLabel id="Dinero-label">Dinero</FormLabel>
+        <FormLabel id="Dinero-label">Ordenar por Dinero</FormLabel>
         <RadioGroup
           aria-labelledby="Dinero-label"
           value={dinero}
@@ -76,7 +78,8 @@ const ListaDeCheck = ({
           <FormControlLabel value="desc" control={<Radio />} label="9999-1" />
         </RadioGroup>
         <Divider />
-        <FormLabel id="Tipo-label">Tipo</FormLabel>
+        <FormLabel
+        id="Tipo-label">Ordenar por Tipo</FormLabel>
         <Suspense fallback={<div>Loading....</div>}>
 
           <RadioGroup
@@ -84,17 +87,17 @@ const ListaDeCheck = ({
             value={tipo}
             onChange={handleChangeTipo}
             name="orden-group"
+            
           >
-            <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
-          {data?.map((category) => (
-
-
-
-
+            <FormControlLabel
+              value="Normal" control={<Radio />} label="Normal" />
+            {data?.map((category) => (
               <div key={category.id}>
-                <FormControlLabel value={category.id} control={<Radio />} label={category.name} />
+            <FormControlLabel
+
+                value={category.id} control={<Radio />} label={category.name} />
               </div>
-           ))}
+            ))}
           </RadioGroup>
         </Suspense>
       </FormControl>

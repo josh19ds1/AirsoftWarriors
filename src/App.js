@@ -30,7 +30,7 @@ function App() {
     <main>
       <PG_Head />
       <NavBar />
-      <div style={{ marginTop: '80px' }}>
+      
         <Routes>
           <Route path='/' element={<Inicio/>} />
           <Route path='/Evento' element={<Evento />} />
@@ -41,8 +41,8 @@ function App() {
           <Route path='/Registrar' element={<Registrar />} />
         </Routes>
 
-      </div>
-      <h1>Probando informacion generada</h1>
+     
+     
 
     </main>
 

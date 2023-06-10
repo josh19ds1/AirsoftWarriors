@@ -27,15 +27,23 @@ const Catalogo = () => {
 
   return (
 
-    <div>
-
-      <Container >
-
-        <ListaDeCheck
+    <div style={{
+      display:'flex',
+    
+      }}>
+    <ListaDeCheck 
           handleToggleOrden={handleToggleOrden}
           handleToggleDinero={handleToggleDinero}
           handleToggleTipo={handleToggleTipo}
         />
+
+      <Container  sx={{
+        position:'relative',
+        top:0,
+        marginTop: 5
+    }}>
+
+      
         <Productos
           ordenValue={ordenValue}
           dineroValue={dineroValue}
