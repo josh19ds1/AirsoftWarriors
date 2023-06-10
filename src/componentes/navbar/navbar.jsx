@@ -10,9 +10,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import StoreIcon from '@mui/icons-material/Store';
 
 
-const pages = ['Inicio', 'Evento', 'Catalogo', 'Tutores','Ranking'];
+const pages = [ 'Evento', 'Catalogo', 'Tutores','Ranking'];
 const settings = ['Login','Perfil', 'Carrito', 'Cerrar Secion'];
-
+pages.unshift("");
 function NavBar() {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -71,7 +71,7 @@ function NavBar() {
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">{page || "Inicio"}</Typography>
                 </Link>
               </MenuItem>
             ))}
@@ -104,7 +104,7 @@ function NavBar() {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-              {page}
+             {page || "Inicio"}
             </Button>
           ))}
         </Box>
