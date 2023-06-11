@@ -1,13 +1,12 @@
-import React, { Suspense, useEffect, useState} from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 import fetchData from '../Service/feetchApi';
-import { DataProducto } from '../../vars/Index'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Alert, AlertTitle, Box, Button, CardActionArea, CardActions, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Hidden } from '@mui/material';
+import { Box, CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
@@ -69,7 +68,7 @@ const Productos = ({
     const [data, setData] = useState(null);
     const colors = ['#EB965D', '#79EB5D', '#B5EB5D', '#5DEBA7'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    
+
 
     useEffect(() => {
         const apiData = getApiData(ordenValue, dineroValue, tipoValue);
@@ -100,11 +99,11 @@ const Productos = ({
 
                             }}>
 
-                                <Link to={`/DescripcionProducto/${producto.id}` }  >
+                                <Link to={`/DescripcionProducto/${producto.id}`}  >
 
-                                   
 
-                                    <CardActionArea sx={{background:randomColor}}>
+
+                                    <CardActionArea sx={{ background: randomColor }}>
                                         <Typography gutterBottom variant="h1" component="div" textAlign="center" sx={{
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',

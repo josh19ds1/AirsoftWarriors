@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Paginacion from '../Pagination/Productos'
 import ListaDeCheck from '../Pagination/ListaDeCheck'
 import Productos from '../Pagination/Productos'
 import { Container } from '@mui/material'

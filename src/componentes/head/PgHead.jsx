@@ -1,10 +1,9 @@
 import React from 'react'
 import logo from '../../Imagenes/logoSinLet.webp'
-import NavBar from '../navbar/navbar'
-import '../../estilos/navbar.css'
+
 import { CardMedia } from '@mui/material'
 
-function PG_Head() {
+function PgHead() {
     return (
         <header className='Cabeza'>
 
@@ -18,4 +17,4 @@ function PG_Head() {
     )
 }
 
-export default PG_Head
+export default PgHead
