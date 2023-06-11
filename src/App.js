@@ -11,7 +11,7 @@ import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
 import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
 import Login from "./componentes/Paginas-Proyecto/Login/Login"; 
-import Inicio from "./componentes/Paginas-Proyecto/Inicio";
+import Inicio from "./componentes/Paginas-Proyecto/Inicio/Inicio";
 import PgHead from "./componentes/head/PgHead";
 import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
 import DescripProducto from "./componentes/Pagination/DescripProducto";

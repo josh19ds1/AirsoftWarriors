@@ -48,6 +48,13 @@ const getApiData = (ordenValue, dineroValue, tipoValue) => {
                         case '4':
                             apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=4';
                             break;
+                        case '5':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=5';
+                            break;
+                        case '6':
+                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=6';
+                            break;
+
                         default:
                             apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products';
                     }
