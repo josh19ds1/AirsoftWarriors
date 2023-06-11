@@ -1,5 +1,5 @@
-import { Suspense } from 'react';
-import { fetchData } from './Service/fetchData'
+import { Suspense, useState } from 'react';
+import  fetchData  from './Service/feetchApi'
 
 import { ReactComponent as FlechIzquierda } from '../Imagenes/iconmonstr-angel-left-thin.svg';
 import { ReactComponent as FlechDerecha } from '../Imagenes/iconmonstr-angel-right-thin.svg';
@@ -8,20 +8,32 @@ import React, { useRef, useEffect } from 'react'
 
 import '../estilos/Principal.css'
 
-const apiData = fetchData("https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events");
+const apiData ="https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events";
 
 export default function PaginaPrincipal() {
 
-  const data = apiData.read();
+
   const SlideShow = useRef(null);
   const IntervaloSlideShow = useRef(null);
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    
+
+    const fetchDataFromApi = async () => {
+        const responseData = await fetchData(apiData);
+        setData(responseData);
+    };
+
+    fetchDataFromApi();
+}, []);
 
 
   const Siguiente = () => {
 
     //comprobamos que tenga datos el slideshow
-    if (SlideShow.current.children.length > 0) {
+    if (SlideShow.current && SlideShow.current.children.length > 0) {
       //obtenemos el primer elemento del slideshow
       const firstElement = SlideShow.current.children[0];
       //transicion para el slide
