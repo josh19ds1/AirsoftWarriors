@@ -50,7 +50,7 @@ const CompLogin = () => {
           <input type="password" placeholder="Introduce tu contraseña" id="password" required /><br /><br />
           <input className="btn-send" type="submit" value="LOGIN" />
         </form>
-        <h4 className="p-register">¿No tienes cuenta?  <Link to="/Registrar" className="a-register" >Regístrate</Link> </h4>
+        <h4 className="p-register">¿No tienes cuenta?  <Link to="/Registrar" className="a-register" > Regístrate</Link> </h4>
       </div>
     </div>
   );
