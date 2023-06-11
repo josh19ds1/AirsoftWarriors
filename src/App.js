@@ -6,8 +6,6 @@ import './App.css';
 
 
 import NavBar from './componentes/navbar/navbar'
-
-
 import Evento from "./componentes/Paginas-Proyecto/Evento";
 import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
@@ -22,7 +20,6 @@ import Carrito from "./componentes/Paginas-Proyecto/Carrito";
 
 
 
-
 function App() {
 
   return (
@@ -31,6 +28,9 @@ function App() {
     <main>
       <PgHead />
       <NavBar />
+      
+
+
         <Routes>
           <Route path='/' element={<Inicio/>} />
           <Route path='/Evento' element={<Evento />} />

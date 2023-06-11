@@ -1,6 +1,8 @@
 import React from 'react'
-import PaginaPrincipal from '../PaginaPrincipal'
+import Carusel from "../Tools/Carousel";
 import  Button from '@mui/material/Button';
+
+const url = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events'
 
 
 const Inicio = () => {
@@ -8,10 +10,9 @@ const Inicio = () => {
 
   return (
     <>
-        <h1>Pagina Principal</h1>
 
-     <PaginaPrincipal/> 
-    <Button className="ox" >Mi primer boton</Button> 
+        <Carusel apiUrl={url}  />
+         
     </>    
 
 
