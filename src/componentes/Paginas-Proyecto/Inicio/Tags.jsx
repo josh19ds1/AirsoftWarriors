@@ -19,7 +19,7 @@ const Tags = () => {
                             position: 'absolute',
                             width: 350,
                             height: 500,
-                            top: 848,
+                            top: 1248,
                             left: 55,
                             zIndex: 14
                         }}>
@@ -60,7 +60,7 @@ const Tags = () => {
                             position: 'absolute',
                             width: 350,
                             height: 500,
-                            top: 848,
+                            top: 1248,
                             left: 500,
                             zIndex: 14
                         }}>
@@ -100,7 +100,7 @@ const Tags = () => {
                             position: 'absolute',
                             width: 350,
                             height: 500,
-                            top: 848,
+                            top: 1248,
                             right: 76,
                             zIndex: 14
                         }}>
