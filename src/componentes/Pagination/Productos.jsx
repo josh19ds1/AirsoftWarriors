@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState} from 'react'
 
 import fetchData from '../Service/feetchApi';
 import { DataProducto } from '../../vars/Index'

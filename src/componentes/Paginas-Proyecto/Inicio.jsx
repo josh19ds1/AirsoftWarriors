@@ -11,7 +11,7 @@ const Inicio = () => {
     <>
         <h1>Pagina Principal</h1>
 
-
+     <PaginaPrincipal/> 
     <Button className="ox" >Mi primer boton</Button> 
     </>    
 

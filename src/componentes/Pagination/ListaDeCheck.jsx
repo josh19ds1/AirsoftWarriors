@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import {
   Divider,
   FormControl,
@@ -8,11 +8,9 @@ import {
   RadioGroup
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { fetchData } from '../Service/fetchData'
+import  fetchData  from '../Service/feetchApi';
 
-
-
-const apiData = fetchData('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/categories');
+const apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/categories';
 
 const ListaDeCheck = ({
   handleToggleOrden,
@@ -23,7 +21,20 @@ const ListaDeCheck = ({
   const [dinero, setDinero] = useState('Normal');
   const [tipo, setTipo] = useState('Normal');
 
-  const data = apiData.read();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchDataFromApi = async () => {
+      try {
+        const responseData = await fetchData(apiData);
+        setData(responseData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataFromApi();
+  }, []);
 
   const handleChangeOrden = (event) => {
     setOrden(event.target.value);
@@ -43,7 +54,6 @@ const ListaDeCheck = ({
   return (
     <Box
       sx={{
-
         borderColor: "peru",
         p: 2,
         bgcolor: "#E67D06",
@@ -78,25 +88,22 @@ const ListaDeCheck = ({
           <FormControlLabel value="desc" control={<Radio />} label="9999-1" />
         </RadioGroup>
         <Divider />
-        <FormLabel
-        id="Tipo-label">Ordenar por Tipo</FormLabel>
+        <FormLabel id="Tipo-label">Ordenar por Tipo</FormLabel>
         <Suspense fallback={<div>Loading....</div>}>
-
           <RadioGroup
             aria-labelledby="Tipo-label"
             value={tipo}
             onChange={handleChangeTipo}
             name="orden-group"
-            
           >
-            <FormControlLabel
-              value="Normal" control={<Radio />} label="Normal" />
+            <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
             {data?.map((category) => (
-              <div key={category.id}>
-            <FormControlLabel
-
-                value={category.id} control={<Radio />} label={category.name} />
-              </div>
+              <FormControlLabel
+                key={category.id}
+                value={category.id}
+                control={<Radio />}
+                label={category.name}
+              />
             ))}
           </RadioGroup>
         </Suspense>
