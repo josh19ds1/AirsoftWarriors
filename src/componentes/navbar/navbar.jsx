@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import '../../estilos/navbar.css'
 import { AppBar, Container, IconButton, Toolbar, Typography ,Button,Avatar,Box,Menu,Tooltip} from '@mui/material'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import StoreIcon from '@mui/icons-material/Store';

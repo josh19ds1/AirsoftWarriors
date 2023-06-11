@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import fetchData from '../Service/feetchApi';
 import { Alert, Button, CardMedia, Container, Typography } from '@mui/material';
-import { ReceiptLong } from '@mui/icons-material';
+
 
 
 
@@ -12,6 +12,7 @@ const DescripProducto = () => {
   const [producto, setProducto] = useState(null);
   const colors = ['#EB965D', '#79EB5D', '#B5EB5D', '#5DEBA7'];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
   useEffect(() => {
     const fetchDataFromApi = async () => {
       const responseData = await fetchData(`https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products/${id}`);
