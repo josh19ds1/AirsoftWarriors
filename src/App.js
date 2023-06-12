@@ -11,21 +11,13 @@ import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
 import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
 import Footer from "./componentes/footer/footer"
-<<<<<<< HEAD
 import Login from "./componentes/Paginas-Proyecto/Login/Login";
-=======
-import Login from "./componentes/Paginas-Proyecto/Login/Login"; 
->>>>>>> 10e7affff17ec73d38cfa893ab1eaaf059f6919d
 import Inicio from "./componentes/Paginas-Proyecto/Inicio/Inicio";
 import PgHead from "./componentes/head/PgHead";
 import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
 import DescripProducto from "./componentes/Pagination/DescripProducto";
 import Perfil from "./componentes/Paginas-Proyecto/Perfil";
 import Carrito from "./componentes/Paginas-Proyecto/Carrito";
-<<<<<<< HEAD
-=======
-
->>>>>>> 10e7affff17ec73d38cfa893ab1eaaf059f6919d
 
 
 function App() {
@@ -39,7 +31,7 @@ function App() {
 
 
 
-<<<<<<< HEAD
+
       <Routes>
         <Route path='/' element={<Inicio />} />
         <Route path='/Evento' element={<Evento />} />
@@ -55,19 +47,16 @@ function App() {
 
 
       <Footer />
-=======
+
      
      
 
-    </main >
-=======
 
-      <Footer />
 
      
      
     </main>
->>>>>>> 10e7affff17ec73d38cfa893ab1eaaf059f6919d
+
     
 
 
