@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root{
-    --main-color:#3867d6;
+    --main-color:#f3a20d;
+    --main-color2:#3867d6;
 }
 
+
+/* Home Section Starts */
 section{
     padding: 2rem 9%;
 }
 
+/* Bottom CSS Starts */
 .btn{
     margin-top: 1rem;
     display: inline-block;
@@ -24,6 +28,11 @@ section{
 .btn:hover{
     background: var(--main-color);
 }
+
+/* Bottom CSS Ends */
+
+
+
 
 .home .content{
     text-align: center;
@@ -57,6 +66,10 @@ section{
     width: 100%;
     object-fit: cover;
 }
+
+/*home section ends*/
+
+/* Service section start */
 
 .heading{
     text-align: center;
@@ -111,6 +124,10 @@ section{
     
 }
 
+/* Service section ends */
+
+/* about section starts */
+
 .about .row{
     display: flex;
     align-items: center;
@@ -147,6 +164,10 @@ section{
     padding: 1rem 0;
     line-height: 2;
 }
+
+/* about section ends */
+
+/* Gallery section starts */
 
 .gallery .box-container{
     display: grid;
@@ -190,29 +211,15 @@ section{
     top: 0;
 }
 
-.gallery .box-container .box .icons{
-    position: absolute;
-    bottom: -10rem;
-    left: 0;
-    right: 0;
-    background: #333;
-    padding-top: 1rem;
-    text-align: center;
-}
-
-.gallery .box-container .box:hover .icons{
-    bottom: 0;
-}
-
-.gallery .box-container .box .icons a{
-    font-size: 2rem;
-    margin: .5rem 1rem;
-    color: #fff;
-}
 
 .gallery .box-container .box .icons a:hover{
     color: var(--main-color);
 }
+
+/* Gallery section Ends */
+
+
+/* Price section Starts */
 
 .price .box-container{
     display: grid;
@@ -266,57 +273,6 @@ section{
 
 /* Price section Ends */
 
-
-/* Review client section Starts */
-
-.review .box{
-    border-radius: .5rem;
-    background: #333;
-    padding: 2rem;
-    position: relative;
-}
-
-.review .box .fa-quote-right{
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    color: var(--main-color);
-    font-size: 5rem;
-}
-
-.review .box .user{
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-bottom: 1rem;
-}
-
-.review .box .user img{
-    height: 7rem;
-    width: 7rem;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.review .box .user h3{
-    font-size: 2rem;
-    color: #fff;
-
-}
-
-.review .box .user span{
-    font-size: 1.5rem;
-    color: #eee;
-    
-}
-
-.review .box p{
-    line-height: 2;
-    color: #eee;
-    padding: .5rem 0;
-    font-size: 1.6rem;
-
-}
 
 @media (max-width: 991px){
     html{

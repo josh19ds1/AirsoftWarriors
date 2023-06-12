@@ -13,6 +13,7 @@ import Ranking from "./componentes/Paginas-Proyecto/Ranking";
 import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
 import Login from "./componentes/Paginas-Proyecto/Login"; 
 import Inicio from "./componentes/Paginas-Proyecto/Inicio";
+import Footer from "./componentes/footer/footer"
 
 
 
@@ -37,8 +38,9 @@ function App() {
 
       </div>
       <h1>Probando informacion generada</h1>
-  
+      <Footer />
     </main>
+    
 
 
 
