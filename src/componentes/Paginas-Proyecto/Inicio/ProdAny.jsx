@@ -30,7 +30,7 @@ const ProdAny = () => {
         // Renderizar el elemento aleatorio
         return (
             <Container sx={{ overflow: 'hidden' ,
-            background:'rgba(235, 150, 93, 0.8)',
+            background:'#ffff',
             width:1201,
             height:600,
            borderRadius:5,
@@ -62,6 +62,7 @@ const ProdAny = () => {
                         position: 'relative',
                         left: 1,
                         borderRadius:5
+                     
                     }}
                 />
 
@@ -84,7 +85,7 @@ const ProdAny = () => {
                     textOverflow: 'ellipsis',
                     position:'absolute',
                     fontSize:17,
-                    right:100,
+                    left:600,
                     top:150,
                     textAlign:'center'
 
@@ -107,7 +108,17 @@ const ProdAny = () => {
                     {Product.price}$
                 </Typography>
 
-                <Button>VER MAS</Button>
+                <Button variant='contained' sx={{
+                        position:'absolute',
+                        width:150,
+                        height:50,
+                        right:270,
+                        bottom:100,
+                        background:'#2F1E2F'
+                        
+
+
+                }}>VER MAS</Button>
 
                 {/* Agrega aquí cualquier otra información que desees mostrar */}
             </Container>
