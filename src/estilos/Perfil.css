@@ -1,0 +1,75 @@
+.perfil-body{
+    background-color: #5E5E3D;
+    padding: 25px;
+}
+.square-perfil {
+    background-color: #1a170e;
+    display: flex;
+    width: 95%;
+    border-radius: 25px;
+    margin: 25px;
+}
+
+.square-photo {
+  
+    width: 150px;
+    border-radius: 5px;
+    flex: 1;
+    margin: 10%;
+}
+
+.square-photo img{
+    border-radius: 25px;
+}
+
+.square-text {
+    padding: 50px;
+    margin: 100px;
+    color: #fff;
+    text-align: center;
+}
+
+.teams-perfil{
+    display: flex;
+    margin: 25px;
+}
+
+.title-teams{
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+.logo-teams{
+    flex: 1;
+    padding: 50px 120px 50px 120px;
+    margin: 0 50px 0 50px;
+    
+}
+
+.logo-teams img{
+    width: 300%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.teams-members{
+    padding: 50px 120px 50px 120px;
+    margin: 0 50px 0 50px;
+    color: #fff;
+}
+
+.title-member{
+    text-transform: uppercase;
+    background-color: #1a170e;
+    border-radius: 100px;
+    padding: 35px 100px 35px 100px;
+}
+
+.teams-members li{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: larger;
+    font-weight: bolder;
+    list-style: none;
+}

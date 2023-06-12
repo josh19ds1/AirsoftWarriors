@@ -22,3 +22,32 @@ function Registro() {
     </div>
 }
 
+index.post('/Registro', (req, res) => {
+    const { email, password, cpassword, age, image } = req.body;
+    const datos = {
+        email,
+        password,
+        cpassword,
+        age,
+        image
+    };
+    const datosJSON = JSON.stringify(datos);
+
+    fs.writeFile('datos.json', datosJSON, (err) => {
+        if (err) throw err;
+        res.send('Datos Guardados');
+    });
+});
+
+const validateRegister = [
+    check("email").exists().notEmpty().isEmail(),
+    check("age").exists().notEmpty(),
+    check("password").exists().notEmpty().isLength({ min: 8, max: 16 }),
+    check("cpassword").exists().notEmpty().isLength({ min: 8, max: 16 }),
+    check("image").exists().notEmpty().optional(),
+    (req, res, next) => {
+        validateResult(req, res, next);
+    }
+]
+
+index.post("/register", multerUpload.single('image'), validateRegister, createUser)
