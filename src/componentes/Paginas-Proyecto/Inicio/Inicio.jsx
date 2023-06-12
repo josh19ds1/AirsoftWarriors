@@ -1,9 +1,9 @@
 import React from 'react'
 import Carusel from "../../Tools/Carousel";
-
 import { Container} from '@mui/system';
 import { Box, Typography } from '@mui/material'
 import Tags from './Tags';
+import ProdAny from './ProdAny';
 
 
 const url = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events'
@@ -52,7 +52,15 @@ const Inicio = () => {
           <Tags/>
 
       </Box>
+      
+      <Box mt={80} ml={10} sx={{
 
+      
+
+      }}  >
+      
+        <ProdAny />
+      </Box>
 
 
 

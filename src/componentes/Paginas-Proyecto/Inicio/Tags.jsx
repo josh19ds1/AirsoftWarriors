@@ -1,5 +1,4 @@
 
-
 import image1 from '../../../Imagenes/BBs.webp'
 import image2 from '../../../Imagenes/Equipo.webp'
 import image3 from '../../../Imagenes/arms.webp'
