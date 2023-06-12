@@ -4,8 +4,8 @@ import { Container} from '@mui/system';
 import { Box, Typography } from '@mui/material'
 import Tags from './Tags';
 import ProdAny from './ProdAny';
-import Targeta from '../../Evento/Targeta';
-import Lugares from '../../Evento/Lugares';
+import Targeta from '../Evento/Targeta';
+import Lugares from '../Evento/Lugares';
 
 
 const url = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events'

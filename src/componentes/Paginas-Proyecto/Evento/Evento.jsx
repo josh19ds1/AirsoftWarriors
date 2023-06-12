@@ -1,11 +1,11 @@
 import React from 'react'
-import '../../estilos/events.css'
+import '../../../estilos/events.css'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import 'swiper/css/free-mode'; 
-import prueba from '../../Imagenes/portada.png'
+import prueba from '../../../Imagenes/portada.png'
 import { EffectCoverflow, Pagination } from "swiper";
 import SwiperCore, { Autoplay,FreeMode } from 'swiper';
 import 'font-awesome/css/font-awesome.min.css';
@@ -105,7 +105,9 @@ const Evento = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, esse!</p>
           </div>
         </div>
-      </section><section class="gallery" id="gallery">
+      </section>
+      
+      <section class="gallery" id="gallery">
         <h1 class="heading">Play <span>Places</span></h1>
         <div class="box-container">
           <div class="box">

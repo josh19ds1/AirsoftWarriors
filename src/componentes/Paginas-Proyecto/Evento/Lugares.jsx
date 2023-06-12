@@ -1,5 +1,5 @@
 import React from 'react'
-import prueba from '../../Imagenes/portada.png'
+import prueba from '../../../Imagenes/portada.png'
 
 
 const Lugares = () => {
