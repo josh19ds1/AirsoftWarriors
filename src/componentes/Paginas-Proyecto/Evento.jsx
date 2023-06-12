@@ -4,14 +4,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import 'swiper/css/free-mode'; 
 import prueba from '../../Imagenes/portada.png'
 import { EffectCoverflow, Pagination } from "swiper";
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay,FreeMode } from 'swiper';
 import 'font-awesome/css/font-awesome.min.css';
 
 
 const Evento = () => {
-  SwiperCore.use([Autoplay]);
+  SwiperCore.use([Autoplay,FreeMode]);
   return (
     <>
     <>
@@ -33,6 +34,7 @@ const Evento = () => {
           slideShadows: true,
         }}
         loop={true}
+        FreeMode={true}
         modules={[EffectCoverflow, Pagination]}
         pagination={true}
         autoplay={{
