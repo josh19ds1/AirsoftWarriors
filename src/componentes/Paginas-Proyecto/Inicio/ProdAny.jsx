@@ -1,6 +1,7 @@
 import { Button, CardMedia, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import fetchData from '../../Service/feetchApi';
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,13 +30,14 @@ const ProdAny = () => {
 
         // Renderizar el elemento aleatorio
         return (
-            <Container sx={{ overflow: 'hidden' ,
-            background:'#ffff',
-            width:1201,
-            height:600,
-           borderRadius:5,
-           position:'relative',
-           right:50
+            <Container sx={{
+                overflow: 'hidden',
+                background: '#ffff',
+                width: 1201,
+                height: 600,
+                borderRadius: 5,
+                position: 'relative',
+                right: 50
             }}>
 
 
@@ -43,11 +45,11 @@ const ProdAny = () => {
                     m: (0, 2, 0, 2), whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    textAlign:'start',
-                    
-                    
+                    textAlign: 'start',
+
+
                 }}>
-                 {Product.name}
+                    {Product.name}
                 </Typography>
 
                 <CardMedia
@@ -61,35 +63,35 @@ const ProdAny = () => {
                         height: 400,
                         position: 'relative',
                         left: 1,
-                        borderRadius:5
-                     
+                        borderRadius: 5
+
                     }}
                 />
 
                 <Typography variant="h4" component='p' color="text.secondary"
-                sx={{
-                            position:'absolute',
-                            right:290,
-                            top:95
+                    sx={{
+                        position: 'absolute',
+                        right: 290,
+                        top: 95
 
 
 
-                }}      
-                
-                
+                    }}
+
+
                 >Descripción</Typography>
 
                 <Typography variant="h6" component='p' color="text.secondary" sx={{
                     m: (0, 2, 0, 2), whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    position:'absolute',
-                    fontSize:17,
-                    left:600,
-                    top:150,
-                    textAlign:'center'
+                    position: 'absolute',
+                    fontSize: 17,
+                    left: 600,
+                    top: 150,
+                    textAlign: 'center'
 
-                    
+
                 }}>
                     {Product.description}
                 </Typography>
@@ -98,9 +100,9 @@ const ProdAny = () => {
                     m: (0, 2, 0, 2), whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    position:'absolute',
-                    right:280,
-                    bottom:250
+                    position: 'absolute',
+                    right: 280,
+                    bottom: 250
 
 
 
@@ -108,17 +110,21 @@ const ProdAny = () => {
                     {Product.price}$
                 </Typography>
 
-                <Button variant='contained' sx={{
-                        position:'absolute',
-                        width:150,
-                        height:50,
-                        right:270,
-                        bottom:100,
-                        background:'#2F1E2F'
-                        
-
-
-                }}>VER MAS</Button>
+                <Link to="/catalogo">
+                    <Button
+                        variant="contained"
+                        sx={{
+                            position: 'absolute',
+                            width: 150,
+                            height: 50,
+                            right: 270,
+                            bottom: 100,
+                            background: '#2F1E2F',
+                        }}
+                    >
+                        VER MAS
+                    </Button>
+                </Link>
 
                 {/* Agrega aquí cualquier otra información que desees mostrar */}
             </Container>
