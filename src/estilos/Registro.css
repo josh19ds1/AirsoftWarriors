@@ -10,6 +10,14 @@
     color: #E3600D;
 }
 
+.success-message{
+    color: #ffff;
+    font-size: xx-large;
+    font-weight: 400;
+    text-decoration: underline;
+    text-align: center;
+}
+
 .input-name{
     margin-left: 35%;
     color: #E3600D;
