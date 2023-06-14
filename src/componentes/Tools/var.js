@@ -1,0 +1,10 @@
+export const Dominio = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/';
+export const ApiEvento = 'events';
+export const ApiProducto = 'products';
+export const ApiCategorias='categories'
+export const ApiTutores = 'instructor';
+export const ApiLogin = '';
+export const ApiPerfil = '';
+export const ApiTeams = 'teams';
+export const ApiModos = 'modes';
+export const ApiLugares = 'place';

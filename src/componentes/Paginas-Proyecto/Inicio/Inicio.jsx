@@ -6,9 +6,10 @@ import Tags from './Tags';
 import ProdAny from './ProdAny';
 import Targeta from '../Evento/Targeta';
 import Lugares from '../Evento/Lugares';
+import { Dominio,ApiEvento } from '../../Tools/var';
 
 
-const url = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/events'
+const url = `${Dominio}${ApiEvento}`;
 
 
 const Inicio = () => {

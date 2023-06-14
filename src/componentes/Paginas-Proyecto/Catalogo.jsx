@@ -6,9 +6,9 @@ import { Container } from '@mui/material'
 
 const Catalogo = () => {
 
-  const [ordenValue, setOrdenValue] = useState('Normal');
-  const [dineroValue, setDineroValue] = useState('Normal');
-  const [tipoValue, setTipoValue] = useState('Normal');
+  const [ordenValue, setOrdenValue] = useState('');
+  const [dineroValue, setDineroValue] = useState('');
+  const [tipoValue, setTipoValue] = useState('');
 
   const handleToggleOrden = (group, value) => {
     setOrdenValue(value);
