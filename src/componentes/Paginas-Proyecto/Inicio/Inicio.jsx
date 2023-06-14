@@ -9,7 +9,7 @@ import Lugares from '../Evento/Lugares';
 import { Dominio,ApiEvento } from '../../Tools/var';
 
 
-const url = `${Dominio}${ApiEvento}`;
+const url = `${Dominio}/${ApiEvento}`;
 
 
 const Inicio = () => {

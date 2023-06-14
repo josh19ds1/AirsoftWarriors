@@ -16,7 +16,7 @@ import { Dominio,ApiProducto } from '../Tools/var';
 const getApiData = (ordenValue, dineroValue, tipoValue) => {
     let apiData = '';
 
-    apiData = `${Dominio}${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
+    apiData = `${Dominio}/${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
 
     return apiData;
 };

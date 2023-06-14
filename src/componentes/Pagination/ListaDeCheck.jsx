@@ -13,7 +13,7 @@ import { Dominio,ApiCategorias } from '../Tools/var';
 
 
 
-const apiData = `${Dominio}${ApiCategorias} `;
+const apiData = `${Dominio}/${ApiCategorias} `;
 
 const ListaDeCheck = ({
   handleToggleOrden,

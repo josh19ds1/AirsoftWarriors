@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Targeta = () => {
   return (
@@ -18,7 +19,7 @@ const Targeta = () => {
               <li><i className="fa fa-check"></i>Full services</li>
 
             </ul>
-            <a href="" className="btn">Check Out</a>
+            <Link to="/" className="btn">Check Out</Link>
           </div>
 
           <div className="box">
@@ -32,7 +33,7 @@ const Targeta = () => {
               <li><i className="fa fa-check"></i>Full services</li>
 
             </ul>
-            <a href="" className="btn">Check Out</a>
+            <Link to="/" className="btn">Check Out</Link>
           </div>
         </div>
 

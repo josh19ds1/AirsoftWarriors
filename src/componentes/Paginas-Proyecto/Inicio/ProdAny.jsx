@@ -2,10 +2,10 @@ import { Button, CardMedia, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import fetchData from '../../Service/feetchApi';
 import { Link } from 'react-router-dom';
+import { Dominio,ApiProducto } from '../../Tools/var';
 
 
-
-const apiUrl = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products'
+const apiUrl = `${Dominio}/${ApiProducto}`
 
 const ProdAny = () => {
     const [data, setData] = useState(null);
