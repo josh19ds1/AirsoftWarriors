@@ -23,19 +23,19 @@
     color: #fff;
 }
 
-.footer .box-container .box a{
+.footer .box-container .box p{
     display: block;
     font-size: 1.5rem;
     padding: 1rem 0;
     color: #eee;
 }
 
-.footer .box-container .box a i{
+.footer .box-container .box p i{
     padding-right: .5rem;
     color: var(--main-color);
 }
 
-.footer .box-container .box a:hover i{
+.footer .box-container .box p:hover i{
     padding-right: 1.5rem;
     color: #fff;
 }
