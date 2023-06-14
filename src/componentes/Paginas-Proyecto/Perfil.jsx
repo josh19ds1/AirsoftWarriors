@@ -2,7 +2,7 @@ import React from 'react'
 import { useState} from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
-
+import { Dominio,ApiPerfil } from '../Tools/var'
 
 const Perfil = () => {
 
@@ -16,7 +16,7 @@ const Perfil = () => {
       data[key] = value;
     });
     console.log('La imagen se ha cargado');
-    fetch('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/auth/profile', {
+    fetch(`${Dominio}/${ApiPerfil}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
