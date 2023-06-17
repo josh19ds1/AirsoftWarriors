@@ -17,14 +17,11 @@ const [data,setData] = useState(null);
         fetchDataFromApi();
     }, []);
 console.log(data)
-    if (data === false) {
-        return (
-            <h1>No existe</h1>
-        )
-    }else{
-  return (
-   <h1>Existe</h1>
-  )
-}}
+if (data && data.loggedIn === true) {
+    return <h1>Existe</h1>;
+  } else {
+    return <h1>No existe</h1>;
+  }
+};  
 
 export default UserExist
