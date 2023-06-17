@@ -20,7 +20,7 @@ const UserExist = () => {
 
   if (data && typeof data.isSuccess === 'boolean') {
 
-    console.log(data.loggedIn)
+    console.log(data.isSuccess)
     if (data.isSuccess) {
       return <h1>Existe</h1>;
     } else {
