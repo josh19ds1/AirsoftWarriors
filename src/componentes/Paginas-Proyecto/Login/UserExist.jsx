@@ -17,7 +17,7 @@ const [data,setData] = useState(null);
         fetchDataFromApi();
     }, []);
 console.log(data)
-    if (!data === false) {
+    if (data === false) {
         return (
             <h1>No existe</h1>
         )
