@@ -20,8 +20,8 @@ const UserExist = () => {
 
   if (data && typeof data.isSuccess === 'boolean') {
 
-    console.log(data.isSuccess)
-    if (data.isSuccess) {
+    console.log("variable que busco q cambie="+data.isSuccess)
+    if (data.isSuccess===true) {
       return <h1>Existe</h1>;
     } else {
       return <h1>No existe</h1>;
