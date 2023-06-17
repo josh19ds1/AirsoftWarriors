@@ -26,7 +26,7 @@ function App() {
 
 
     <main>
-      <PgHead />
+    
       <NavBar />
 
 

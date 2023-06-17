@@ -35,7 +35,7 @@ function NavBar() {
 
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#E67D06' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#12644c' }}>
     <Container maxWidth="xl">
       <Toolbar disableGutters >
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none'},justifyContent:'center' }}>
@@ -44,8 +44,9 @@ function NavBar() {
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
+            
             onClick={handleOpenNavMenu}
-            color="primary"
+            sx={{color:'#ffff'}}
           >
             <MenuIcon/>
           </IconButton>
