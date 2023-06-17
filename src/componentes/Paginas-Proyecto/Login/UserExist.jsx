@@ -21,7 +21,7 @@ const UserExist = () => {
   if (data && typeof data.isSuccess === 'boolean') {
 
     console.log(data.loggedIn)
-    if (data.loggedIn) {
+    if (data.isSuccess) {
       return <h1>Existe</h1>;
     } else {
       return <h1>No existe</h1>;
