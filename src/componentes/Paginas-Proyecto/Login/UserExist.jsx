@@ -19,6 +19,8 @@ const UserExist = () => {
   console.log(data);
 
   if (data && typeof data.loggedIn === 'boolean') {
+
+    console.log(data.loggedIn)
     if (data.loggedIn) {
       return <h1>Existe</h1>;
     } else {
