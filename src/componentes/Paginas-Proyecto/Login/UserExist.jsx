@@ -16,9 +16,11 @@ const [data,setData] = useState(null);
 
         fetchDataFromApi();
     }, []);
-
-    if (!data || data.length === false) {
-        return null;
+console.log(data)
+    if (!data === false) {
+        return (
+            <h1>No existe</h1>
+        )
     }else{
   return (
    <h1>Existe</h1>
