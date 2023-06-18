@@ -20,7 +20,7 @@ const Inicio = () => {
     <>
 
       <Carusel apiUrl={url} />
-      <UserExist/>
+      
       <Container sx={{
         background: '#5E5E3D',
         width: '70%',
