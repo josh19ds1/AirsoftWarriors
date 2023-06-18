@@ -9,7 +9,8 @@ const UserExist = () => {
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
-      const responseData = await fetchData(apiUrl);
+      const responseData = await fetchData(apiUrl, { credentials: 'include' });
+     
       setData(responseData);
     };
 
