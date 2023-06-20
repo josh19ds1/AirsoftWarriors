@@ -28,6 +28,7 @@ const CompLogin = () => {
       .then((data) => {
         console.log(data);
         if (data.url) {
+          console.log("data-url="+data.url)
           window.location.href = data.url;
         }
       })
@@ -53,12 +54,14 @@ const CompLogin = () => {
 
         <hr className="line"></hr>
         <form id="login-form" onSubmit={handleLoginFormSubmit}>
-            <label htmlFor="email" className="input-email">Email</label>
+            <label htmlForm="email" className="input-email">Email</label>
             <input type="text" placeholder="Introduce tu correo" id="email" name='email' required></input>
             
             <label htmlFor="password" className="input-pasw">Contraseña</label>
             <input type="password" placeholder="Introduce tu contraseña" id="password" name='password' required/>
             <br></br><br></br>
+            <Button type="submit" variant="contained" color="primary" value="LOGIN">   
+      </Button>
             <input className="btn-send" type="submit" id='submit' value="LOGIN"></input>
         </form>
         <h4 className="p-register">¿No tienes cuenta?  <Link to="/Registrar" className="a-register" > Regístrate</Link> </h4>
