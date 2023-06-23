@@ -35,43 +35,64 @@ function NavBar() {
 
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#12644c' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#12644c'}}>
     <Container maxWidth="xl">
-      <Toolbar disableGutters >
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none'},justifyContent:'center' }}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            
-            onClick={handleOpenNavMenu}
-            sx={{color:'#ffff'}}
-          >
+      <Toolbar disableGutters  >
+        <Box sx={{ 
+          flexGrow: 2, 
+          display: { xs: 'flex', md: 'none'},
+          justifyContent:'initial',
+      
+          }}>
+         
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              
+              onClick={handleOpenNavMenu}
+              sx={{justifyContent:'center', color:'inherit',
+              
+            }}
+            >
             <MenuIcon/>
           </IconButton>
           <Menu
+         
             id="menu-appbar"
             anchorEl={anchorElNav}
             anchorOrigin={{
               vertical: 'bottom',
-              horizontal: 'left',
+              horizontal: 'right',
+              
             }}
             keepMounted
             transformOrigin={{
               vertical: 'top',
-              horizontal: 'left',
+              horizontal: 'center',
+             
             }}
             open={Boolean(anchorElNav)}
             onClose={handleCloseNavMenu}
             sx={{
               display: { xs: 'block', md: 'none' },
+              color: '#ffff'
+            
+              
+            }}
+            PaperProps={{
+              sx: {
+                padding: 0,
+                background:'#12644c',
+                color:'#ffff'
+              },
             }}
           >
-            {pages.map((page) => (
+        {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <Link to={`/${page}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography textAlign="center">{page || "Inicio"}</Typography>
+                <Typography sx={{width:75 ,textAlign:'center'}}>{page || "Inicio"}</Typography>
                 </Link>
               </MenuItem>
             ))}
@@ -84,9 +105,9 @@ function NavBar() {
           component={Link}
           to="/"
           sx={{
-            mr: 2,
-            display: { xs: 'flex', md: 'none' },
-            flexGrow: 1,        
+          
+            display: { xs: 'block', md: 'none' },
+            flexGrow: 2,        
             fontWeight: 700,
             letterSpacing: '.3rem',
             color: 'inherit',
@@ -102,21 +123,22 @@ function NavBar() {
               component={Link}
               to={`/${page}`}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              sx={{ my: 3, color: 'white', display: 'block' }}
             >
              {page || "Inicio"}
             </Button>
           ))}
         </Box>
 
-        <Box sx={{ flexGrow: 0 }}>
+        <Box  sx={{ flexGrow: 0 }}>
           <Tooltip title="Configuración">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
             </IconButton>
           </Tooltip>
           <Menu
-            sx={{ mt: '45px' }}
+           
+           sx={{ mt: '45px' }}
             id="menu-appbar"
             anchorEl={anchorElUser}
             anchorOrigin={{
@@ -136,7 +158,7 @@ function NavBar() {
               <MenuItem key={setting} onClick={handleCloseUserMenu} sx={{ justifyContent:'center'}}>
                 
                 <Link to={`/${setting}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography sx={{width:75 ,textAlign:'center'}}>{setting}</Typography>
                 </Link>
               </MenuItem>
             ))}
