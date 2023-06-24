@@ -46,14 +46,13 @@ const Productos = ({
 
     return (
         <>
-
-
+{/*  contenedor de cada producto */}
             <Grid container spacing={2} justifyContent="center">
-
                 <Suspense fallback={<div>Loading....</div>}>
                     {data?.map((producto) => (
-                        <Grid item xs={12} sm={6} md={3} key={producto.id}>
 
+                        <Grid item xs={12} sm={6} md={3} key={producto.id}>
+                            {/*  carta que te llevara a la descripcion del producto */}
                             <Card sx={{
                                 maxWidth: 260,
                                 ml: 1,
@@ -63,8 +62,6 @@ const Productos = ({
                             }}>
 
                                 <Link to={`/DescripcionProducto/${producto.id}`}  >
-
-
 
                                     <CardActionArea sx={{ background: randomColor }}>
                                         <Typography gutterBottom variant="h1" component="div" textAlign="center" sx={{
@@ -76,22 +73,24 @@ const Productos = ({
                                             fontSize: 35
 
                                         }}>
+                                             {/* nombre del producto */}
                                             {producto.name}
                                         </Typography>
+                                                {/* imagen del producto */}
                                         <CardMedia
                                             component="img"
 
                                             image={producto.image_url.url}
                                             alt={producto.description}
-
+                                            
                                             sx={{
                                                 width: 181,
                                                 height: 130,
                                                 position: 'relative',
                                                 left: 34
-
                                             }}
                                         />
+                                                {/* Descripcion  del producto */}
                                         <Typography variant="body2" component='p' color="text.secondary" sx={{
                                             m: (0, 2, 0, 2), whiteSpace: 'nowrap',
                                             overflow: 'hidden',
@@ -99,10 +98,6 @@ const Productos = ({
                                         }}>
                                             {producto.description}
                                         </Typography>
-
-
-
-
                                     </CardActionArea>
                                 </Link>
 
@@ -120,9 +115,6 @@ const Productos = ({
 
                                 </CardContent>
                                 <Link to="/carrito">
-
-
-
                                     <Box sx={{
                                         background: '#2F1E2F',
                                         width: '50px',
@@ -134,14 +126,12 @@ const Productos = ({
                                         position: 'relative',
                                         bottom: '26px',
                                         left: '183px',
-
-                                    }}   >
-                                        <AddShoppingCartIcon
-                                            sx={{
-                                                color: '#ffff'
-                                            }} />
+                                    }} >
+                                             <AddShoppingCartIcon
+                                                sx={{
+                                                    color: '#ffff'
+                                                }} />
                                     </Box>
-
                                 </Link>
 
 
