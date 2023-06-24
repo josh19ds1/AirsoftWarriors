@@ -3,6 +3,8 @@ import { useState} from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
 import { Dominio,ApiPerfil } from '../Tools/var'
+import UserExist from './Login/UserExist'
+
 
 const Perfil = () => {
 
@@ -17,7 +19,7 @@ const Perfil = () => {
     });
     console.log('La imagen se ha cargado');
     fetch(`${Dominio}/${ApiPerfil}`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -34,12 +36,18 @@ const Perfil = () => {
       })
       .catch((error) => console.log(error));
   };
-
+ 
 
   return (
-    <div className="perfil-body">
+
+    <div>
+       <div className="perfil-body">
       <div className="square-perfil">
         <div className="square-photo">
+      
+
+
+
         {imageLoaded ? (
         <img src="../../" alt="Imagen" />
       ) : (
@@ -85,11 +93,19 @@ const Perfil = () => {
         style={{ display: 'none' }}
       />
         </div>
-        <div className="teams-members">
-          <h1 className="title-member">Miembros</h1>
-        </div>
+        
       </div>
     </div>
+
+
+
+
+
+
+
+
+    </div>
+   
   )
 }
 
