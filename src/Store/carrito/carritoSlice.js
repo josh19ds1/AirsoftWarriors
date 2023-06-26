@@ -25,7 +25,10 @@ const cartSlice = createSlice({
     removeFromCart: (state, action) => {
       const {id} = action.payload;
       const updatedCart = state.products.filter(item => item.id !== id);
-      return updatedCart;
+      state.products = updatedCart;
+      console.log("pase")
+      console.log(JSON.stringify(updatedCart, null, 2));
+    
     },
 
 

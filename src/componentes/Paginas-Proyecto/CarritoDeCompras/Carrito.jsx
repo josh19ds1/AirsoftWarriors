@@ -11,7 +11,7 @@ console.log("car",cart.length)
 
   const handleRemoveFromCart = (productId) => {
     console.log("id:"+productId)
-    dispatch(removeFromCart({ productId }));
+    dispatch(removeFromCart({ id: productId }));
   };
 
   return (
