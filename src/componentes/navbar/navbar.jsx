@@ -20,7 +20,7 @@ import StoreIcon from '@mui/icons-material/Store'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { obtenerValorTrue } from './ExistKK'
-
+import { useSelector} from 'react-redux';
 
 
 const pages = ['Evento', 'Catalogo', 'Tutores', 'Ranking']
@@ -31,6 +31,8 @@ function NavBar({ userExists }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
+
+  const count = useSelector(state => state.cartCount.contador);
 
 
   const [valor, setValor] = useState(null);
@@ -178,7 +180,7 @@ function NavBar({ userExists }) {
             <Tooltip title="">
               <Link to="/carrito" style={{ textDecoration: 'none' }}>
                 <IconButton sx={{ marginRight: 2 }}>
-                  <Badge badgeContent={1} color="error">
+                  <Badge badgeContent={count} color="error">
                     <ShoppingCartCheckoutIcon sx={{ fontSize: '2.5rem' }} />
                   </Badge>
                 </IconButton>

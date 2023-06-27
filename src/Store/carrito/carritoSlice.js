@@ -12,13 +12,12 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { id, name } = action.payload;
      
-      const existingProduct = state.products.find(item => item.id === id,
-        console.log("existe"),
-        );
+      const existingProduct = state.products.find(item => item.id === id);
       
       if (!existingProduct) {
         state.products.push({ id, name }); 
         // Agrega el producto al carrito si no existe
+        
       }
     },
     
@@ -26,9 +25,7 @@ const cartSlice = createSlice({
       const {id} = action.payload;
       const updatedCart = state.products.filter(item => item.id !== id);
       state.products = updatedCart;
-      console.log("pase")
-      console.log(JSON.stringify(updatedCart, null, 2));
-    
+  
     },
 
 
