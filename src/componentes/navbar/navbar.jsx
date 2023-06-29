@@ -31,8 +31,7 @@ function NavBar({ userExists }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-
-  const count = useSelector(state => state.cartCount.contador);
+  const cartCounter = useSelector(state => state.cart.counter);
 
 
   const [valor, setValor] = useState(null);
@@ -43,7 +42,7 @@ function NavBar({ userExists }) {
     setValor(resultado);
   }, []);
 
-  console.log('el valor de la funcion: ' + valor);
+  console.log('el valor de cartCounter: ' + cartCounter);
 
 
 
@@ -180,7 +179,7 @@ function NavBar({ userExists }) {
             <Tooltip title="">
               <Link to="/carrito" style={{ textDecoration: 'none' }}>
                 <IconButton sx={{ marginRight: 2 }}>
-                  <Badge badgeContent={count} color="error">
+                  <Badge badgeContent={ cartCounter } color="error">
                     <ShoppingCartCheckoutIcon sx={{ fontSize: '2.5rem' }} />
                   </Badge>
                 </IconButton>

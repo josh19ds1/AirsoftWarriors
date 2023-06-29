@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../../../Store/carrito/carritoSlice';
-import { decrement } from '../../../Store/carrito/CountProduct';
+import { removeFromCart} from '../../../Store/carrito/carritoSlice';
+import {  Contador} from '../../../Store/carrito/carritoSlice'
 import { habilitar } from '../../../Store/carrito/ableButton';
 
 const Carrito = () => {
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart.products);
+  const cartCounter = useSelector(state => state.cart.counter);
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart({ id: productId }));
-    dispatch(decrement());
     dispatch(habilitar()); // Habilitar el botón después de eliminar un producto
   };
 

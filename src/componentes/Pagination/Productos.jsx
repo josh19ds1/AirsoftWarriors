@@ -9,8 +9,7 @@ import { CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
-import { increment } from '../../Store/carrito/CountProduct';
-import {habilitar, deshabilitar } from '../../Store/carrito/ableButton';
+import {habilitar } from '../../Store/carrito/ableButton';
 import { Button } from '@mui/base';
 import { Dominio, ApiProducto } from '../Tools/var';
 
@@ -44,9 +43,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
     if (!isButtonDisabled) {
       const producto = { id, name };
       dispatch(addToCart(producto));
-      dispatch(increment());
-
-    
+      
     }
   };
 
