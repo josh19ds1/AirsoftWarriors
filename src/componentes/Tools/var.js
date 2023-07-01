@@ -16,3 +16,7 @@ export const ApiTeams = 'teams';
 export const ApiModos = 'modes';
 export const ApiLugares = 'place';
 export const ApiEvento = 'events';
+
+//carrito
+
+export const ApiCreateOrder = 'orders/create-order';

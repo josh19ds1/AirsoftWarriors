@@ -30,8 +30,8 @@ function NavBar() {
 
   const [anchorElUser, setAnchorElUser] = React.useState(null)
  
-  const userExist =  useSelector(state=>state.user.userExist);
-
+ const userExist =  useSelector(state=>state.user.userExist);
+//const userExist = true;
   console.log(userExist);
  
 
