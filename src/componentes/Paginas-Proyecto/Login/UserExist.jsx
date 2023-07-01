@@ -9,7 +9,7 @@ const apiUrl = `${Dominio}/${ApiUserExist}`;
 const UserExist = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
-  console.log("url del servidor que estoy usando:"+apiUrl);
+
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
@@ -42,10 +42,10 @@ const UserExist = () => {
     fetchDataFromApi();
   }, []);
 
-  console.log("data:"+data);
+
 
   if (data && typeof data.isSuccess === 'boolean') {
-    console.log("variable que busco=" + data.isSuccess);
+   
    
     if (data.isSuccess) {
       dispatch(setUserExist(true));
