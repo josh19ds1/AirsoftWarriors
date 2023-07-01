@@ -9,7 +9,7 @@ import { CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
-import { Button } from '@mui/base';
+import {Button} from '@mui/material'
 import { Dominio, ApiProducto } from '../Tools/var';
 
 const getApiData = (ordenValue, dineroValue, tipoValue) => {
@@ -118,24 +118,23 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                   <Typography component="p">{producto.id_category}</Typography>
                 </CardContent>
                 <Button
-                  sx={{
-                    background: '#2F1E2F',
-                    width: '50px',
-                    height: '50px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '34px',
-                    position: 'relative',
-                    bottom: '26px',
-                    left: '183px',
-                  }}
+                  variant='primary'
                   onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url)}
-                 
+                  sx={{
+                      width:50,
+                      height:50,
+                      position:'relative',
+                      bottom:80,
+                      left:150,
+                      borderRadius:'50%',
+                      background:'#5DEBA7'
+
+
+                  }}  
                 >
                   <AddShoppingCartIcon
                     sx={{
-                      color: '#ffff',
+                      color: 'black',
                     }}
                   />
                 </Button>
