@@ -8,6 +8,7 @@ const Perfil = () => {
 
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  
   const handleImageLoad = (e) => {
     setImageLoaded(true);
     const formData = new FormData(e.target);
