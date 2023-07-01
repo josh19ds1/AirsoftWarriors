@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import ListaDeCheck from '../Pagination/ListaDeCheck'
 import Productos from '../Pagination/Productos'
-import { Button, Container } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import {resetCart} from '../../Store/carrito/carritoSlice';
+import { Container } from '@mui/material'
 
 
 const Catalogo = () => {
@@ -25,11 +23,7 @@ const Catalogo = () => {
   };
   
 
-const dispatch = useDispatch();
 
-  const handleReset = () => {
-    dispatch(resetCart());
-  };
 
 
   return (
@@ -58,7 +52,7 @@ const dispatch = useDispatch();
 
         />
 
-      <Button onClick={handleReset}>reset</Button>
+   
 
       </Container>
 

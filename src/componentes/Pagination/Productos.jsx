@@ -12,6 +12,7 @@ import { addToCart } from '../../Store/carrito/carritoSlice';
 import {Button} from '@mui/material'
 import { Dominio, ApiProducto } from '../Tools/var';
 
+
 const getApiData = (ordenValue, dineroValue, tipoValue) => {
   let apiData = '';
   apiData = `${Dominio}/${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
@@ -38,13 +39,14 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
     fetchDataFromApi();
   }, [ordenValue, dineroValue, tipoValue]);
 
-  const handleAddToCart = (id, name,price,image) => {
-  
-      const producto = { id, name ,price,image};
+  const handleAddToCart = (id, name,price,image,quantity) => {
+      const producto = { id, name ,price,image,quantity};
       dispatch(addToCart(producto));
       
-    
   };
+
+
+ 
 
 
   return (
@@ -119,7 +121,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                 </CardContent>
                 <Button
                   variant='primary'
-                  onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url)}
+                  onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url,1)}
                   sx={{
                       width:50,
                       height:50,
