@@ -11,29 +11,26 @@ import {
   Avatar,
   Box,
   Menu,
-  Tooltip,
-  Badge
+  Tooltip
+  
 } from '@mui/material'
 import MenuItem from '@mui/material/MenuItem'
-import MenuIcon from '@mui/icons-material/Menu'
 import StoreIcon from '@mui/icons-material/Store'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { obtenerValorTrue } from './ExistKK'
-import { useSelector} from 'react-redux';
+
+import SubMenu from './SubMenuNavBar/SubMenu'
+import EmpName from './SubMenuNavBar/EmpName'
+import CarritoNav from './SubMenuNavBar/CarritoNav'
 
 
-const pages = ['Evento', 'Catalogo', 'Tutores', 'Ranking']
+
 const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
-pages.unshift("")
+
 
 function NavBar({ userExists }) {
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
+
   const [anchorElUser, setAnchorElUser] = React.useState(null)
-
-  const cartCounter = useSelector(state => state.cart.counter);
-
-
   const [valor, setValor] = useState(null);
 
   // Llamada a la función y actualización del estado con el valor devuelto
@@ -42,33 +39,13 @@ function NavBar({ userExists }) {
     setValor(resultado);
   }, []);
 
-  console.log('el valor de cartCounter: ' + cartCounter);
 
-
-
-
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget)
-  }
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget)
   }
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
-  }
-
-  if (userExists === true) {
-    console.log('existe en el navBar')
-    console.log('usuario existe en navBar: ' + userExists)
-  } else if (userExists === false) {
-    console.log('no existe en el navBar')
   }
 
   return (
@@ -84,66 +61,16 @@ function NavBar({ userExists }) {
               justifyContent: 'initial',
             }}
           >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              sx={{
-                justifyContent: 'center',
-                color: 'inherit',
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-                color: '#ffff',
-              }}
-              PaperProps={{
-                sx: {
-                  padding: 0,
-                  background: '#12644c',
-                  color: '#ffff',
-                },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link
-                    to={`/${page}`}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    <Typography sx={{ width: 75, textAlign: 'center' }}>
-                      {page || 'Inicio'}
-                    </Typography>
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+            {/* //Primer menu */}
+            <SubMenu />
           </Box>
           {/* Primer menu del mobile*/}
+
 
           {/* aqui se mostrara el nombre del negocio*/}
           <StoreIcon
             sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
           />
-
           <Typography
             variant="h5"
             noWrap
@@ -161,41 +88,27 @@ function NavBar({ userExists }) {
             Airsoft warrior
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                component={Link}
-                to={`/${page}`}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 3, color: 'white', display: 'block' }}
-              >
-                {page || 'Inicio'}
-              </Button>
-            ))}
+            <EmpName />
           </Box>
+
+
+
           {/* segundo menu donde mostrara el avatar en caso de no estar iniciado */}
           <Box sx={{ flexGrow: 0 }}>
             {/* se evalua se existe el usuario  */}
-            <Tooltip title="">
-              <Link to="/carrito" style={{ textDecoration: 'none' }}>
-                <IconButton sx={{ marginRight: 2 }}>
-                  <Badge badgeContent={ cartCounter } color="error">
-                    <ShoppingCartCheckoutIcon sx={{ fontSize: '2.5rem' }} />
-                  </Badge>
-                </IconButton>
-              </Link>
-            </Tooltip>
-
-
+        
             {valor ? (
-
+            <>
+               <CarritoNav/>
+              
               <Tooltip title="Configuración">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                   <ArrowDropDownIcon />
                 </IconButton>
               </Tooltip>
-              //si no manda un boton de iniciar secion
+             
+              </>
             ) : (
               <Button component={Link} to="/login" sx={{ color: 'white' }}>
                 Iniciar sesión

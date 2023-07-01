@@ -11,11 +11,11 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const { id, name } = action.payload;
+      const { id, name,price,image} = action.payload;
       const existingProduct = state.products.find(item => item.id === id);
 
       if (!existingProduct) {
-        state.products.push({ id, name });
+        state.products.push({ id, name ,price,image});
         state.counter = state.products.length; // Actualiza el contador
       }
     },

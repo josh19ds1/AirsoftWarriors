@@ -39,9 +39,9 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
     fetchDataFromApi();
   }, [ordenValue, dineroValue, tipoValue]);
 
-  const handleAddToCart = (id, name) => {
+  const handleAddToCart = (id, name,price,image) => {
     if (!isButtonDisabled) {
-      const producto = { id, name };
+      const producto = { id, name ,price,image};
       dispatch(addToCart(producto));
       
     }
@@ -134,7 +134,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                     bottom: '26px',
                     left: '183px',
                   }}
-                  onClick={() => handleAddToCart(producto.id, producto.name)}
+                  onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url)}
                   disabled={isButtonDisabled}
                 >
                   <AddShoppingCartIcon
