@@ -19,18 +19,18 @@ const EnvioCarrito = () => {
     setOpen(false);
 
     try {
-        const order = carrito.map((producto) => ({
-            id: producto.id,
-            quantity: producto.quantity
-          }));
-      console.log(order)
+      const order = carrito.map((producto) => ({
+        id: producto.id,
+        quantity: producto.quantity
+      }));
+
       const response = await fetch(`${Dominio}/${ApiCreateOrder}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({order:order}),
+        body: JSON.stringify({ order }),
       });
 
       if (!response.ok) {
@@ -38,7 +38,12 @@ const EnvioCarrito = () => {
       }
 
       const responseData = await response.json();
-      console.log(responseData); // Maneja la respuesta del servidor como desees
+      console.log(responseData);
+
+      // Redirigir a la URL proporcionada en responseData
+      if (responseData && responseData.url) {
+        window.location.href = responseData.url;
+      }
     } catch (error) {
       console.log(error);
     }
