@@ -8,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import { Dominio,ApiProducto } from '../Tools/var';
 
 
 
@@ -16,50 +16,7 @@ import { Link } from 'react-router-dom';
 const getApiData = (ordenValue, dineroValue, tipoValue) => {
     let apiData = '';
 
-    switch (ordenValue) {
-        case 'asc':
-            // Orden ascendente por nombre
-            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=1';
-            break;
-        case 'desc':
-            // Orden descendente por nombre
-            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&name=0';
-            break;
-        default:
-            // Orden por precio
-            switch (dineroValue) {
-                case 'asc':
-                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=1';
-                    break;
-                case 'desc':
-                    apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&price=0';
-                    break;
-                default:
-                    switch (tipoValue) {
-                        case '1':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=1';
-                            break;
-                        case '2':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=2';
-                            break;
-                        case '3':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=3';
-                            break;
-                        case '4':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=4';
-                            break;
-                        case '5':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=5';
-                            break;
-                        case '6':
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products?p=1&tags=6';
-                            break;
-
-                        default:
-                            apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/products';
-                    }
-            }
-    }
+    apiData = `${Dominio}/${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
 
     return apiData;
 };
@@ -79,7 +36,6 @@ const Productos = ({
 
     useEffect(() => {
         const apiData = getApiData(ordenValue, dineroValue, tipoValue);
-
         const fetchDataFromApi = async () => {
             const responseData = await fetchData(apiData);
             setData(responseData);

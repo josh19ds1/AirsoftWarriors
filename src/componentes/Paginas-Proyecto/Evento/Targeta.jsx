@@ -1,38 +1,39 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Targeta = () => {
   return (
-    <section class="price" id="price">
+    <section className="price" id="price">
 
-        <h1 class="heading"> Nuestros <span>Precios</span></h1>
-        <div class="box-container">
+        <h1 className="heading"> Nuestros <span>Precios</span></h1>
+        <div className="box-container">
        
-          <div class="box">
-            <h3 class="title">Package 3</h3>
-            <h3 class="amount">$550.99</h3>
+          <div className="box">
+            <h3 className="title">Package 3</h3>
+            <h3 className="amount">$550.99</h3>
             <ul>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
 
             </ul>
-            <a href="" class="btn">Check Out</a>
+            <Link to="/" className="btn">Check Out</Link>
           </div>
 
-          <div class="box">
-            <h3 class="title">Package 4</h3>
-            <h3 class="amount">$850.99</h3>
+          <div className="box">
+            <h3 className="title">Package 4</h3>
+            <h3 className="amount">$850.99</h3>
             <ul>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
-              <li><i class="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
+              <li><i className="fa fa-check"></i>Full services</li>
 
             </ul>
-            <a href="" class="btn">Check Out</a>
+            <Link to="/" className="btn">Check Out</Link>
           </div>
         </div>
 

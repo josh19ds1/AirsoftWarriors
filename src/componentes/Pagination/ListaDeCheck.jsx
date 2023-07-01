@@ -9,8 +9,11 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import  fetchData  from '../Service/feetchApi';
+import { Dominio,ApiCategorias } from '../Tools/var';
 
-const apiData = 'https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/categories';
+
+
+const apiData = `${Dominio}/${ApiCategorias} `;
 
 const ListaDeCheck = ({
   handleToggleOrden,
@@ -20,11 +23,18 @@ const ListaDeCheck = ({
   const [orden, setOrden] = useState('Normal');
   const [dinero, setDinero] = useState('Normal');
   const [tipo, setTipo] = useState('Normal');
-
   const [data, setData] = useState(null);
 
+
   useEffect(() => {
+
+     // Asignar los valores iniciales a las variables correspondientes
+     setOrden(''); // Establecer el valor inicial para el orden
+     setDinero(''); // Establecer el valor inicial para el dinero
+     setTipo('all'); // Establecer el valor inicial para el tipo (en este caso, "all")
+ 
     const fetchDataFromApi = async () => {
+     
       try {
         const responseData = await fetchData(apiData);
         setData(responseData);
@@ -71,9 +81,9 @@ const ListaDeCheck = ({
           onChange={handleChangeOrden}
           name="orden-group"
         >
-          <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
-          <FormControlLabel value="asc" control={<Radio />} label="A-Z" />
-          <FormControlLabel value="desc" control={<Radio />} label="Z-A" />
+          <FormControlLabel value="" control={<Radio />} label="Normal" />
+          <FormControlLabel value="1" control={<Radio />} label="A-Z" />
+          <FormControlLabel value="0" control={<Radio />} label="Z-A" />
         </RadioGroup>
         <Divider />
         <FormLabel id="Dinero-label">Ordenar por Dinero</FormLabel>
@@ -83,9 +93,9 @@ const ListaDeCheck = ({
           onChange={handleChangeDinero}
           name="orden-group"
         >
-          <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
-          <FormControlLabel value="asc" control={<Radio />} label="1-9999" />
-          <FormControlLabel value="desc" control={<Radio />} label="9999-1" />
+          <FormControlLabel value="" control={<Radio />} label="Normal" />
+          <FormControlLabel value="1" control={<Radio />} label="1-9999" />
+          <FormControlLabel value="0" control={<Radio />} label="9999-1" />
         </RadioGroup>
         <Divider />
         <FormLabel id="Tipo-label">Ordenar por Tipo</FormLabel>
@@ -96,7 +106,7 @@ const ListaDeCheck = ({
             onChange={handleChangeTipo}
             name="orden-group"
           >
-            <FormControlLabel value="Normal" control={<Radio />} label="Normal" />
+            <FormControlLabel value="all" control={<Radio />} label="Normal" />
             {data?.map((category) => (
               <FormControlLabel
                 key={category.id}

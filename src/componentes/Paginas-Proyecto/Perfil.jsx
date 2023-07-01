@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
 
@@ -38,9 +38,9 @@ const Perfil = () => {
 
 
   return (
-    <div class="perfil-body">
-      <div class="square-perfil">
-        <div class="square-photo">
+    <div className="perfil-body">
+      <div className="square-perfil">
+        <div className="square-photo">
         {imageLoaded ? (
         <img src="../../" alt="Imagen" />
       ) : (
@@ -54,7 +54,7 @@ const Perfil = () => {
       />
          
         </div>
-        <div class="square-text">
+        <div className="square-text">
           <h1>Isabella Gonzales</h1>
 
           <h3>29 años</h3>
@@ -71,9 +71,9 @@ const Perfil = () => {
       </div>
 
 
-      <h1 class="title-teams">los tigres del sur</h1>
-      <div class="teams-perfil">
-        <div class="logo-teams">
+      <h1 className="title-teams">los tigres del sur</h1>
+      <div className="teams-perfil">
+        <div className="logo-teams">
         {imageLoaded ? (
         <img src="../../" alt="Imagen" />
       ) : (
@@ -86,8 +86,8 @@ const Perfil = () => {
         style={{ display: 'none' }}
       />
         </div>
-        <div class="teams-members">
-          <h1 class="title-member">Miembros</h1>
+        <div className="teams-members">
+          <h1 className="title-member">Miembros</h1>
         </div>
       </div>
     </div>

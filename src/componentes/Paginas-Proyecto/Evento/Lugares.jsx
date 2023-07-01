@@ -4,27 +4,27 @@ import prueba from '../../../Imagenes/portada.png'
 
 const Lugares = () => {
   return (
-    <section class="gallery" id="gallery">
-    <h1 class="heading">Play <span>Places</span></h1>
-    <div class="box-container">
-      <div class="box">
+    <section className="gallery" id="gallery">
+    <h1 className="heading">Play <span>Places</span></h1>
+    <div className="box-container">
+      <div className="box">
         <img src={prueba} alt="" />
-        <h3 class="title">Zona Urbana</h3>
+        <h3 className="title">Zona Urbana</h3>
       </div>
 
-      <div class="box">
+      <div className="box">
         <img src={prueba} alt="" />
-        <h3 class="title">Zona Urbane</h3>
+        <h3 className="title">Zona Urbane</h3>
       </div>
 
-      <div class="box">
+      <div className="box">
         <img src={prueba} alt="" />
-        <h3 class="title">Zona Urbana</h3>
+        <h3 className="title">Zona Urbana</h3>
       </div>
 
-      <div class="box">
+      <div className="box">
         <img src={prueba} alt="" />
-        <h3 class="title">Zona Urbana</h3>
+        <h3 className="title">Zona Urbana</h3>
       </div>
 
      
