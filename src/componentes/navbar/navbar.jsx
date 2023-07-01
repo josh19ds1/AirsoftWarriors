@@ -31,6 +31,7 @@ function NavBar() {
  
   const userExist =  useSelector(state=>state.user.userExist);
 
+  console.log(userExist);
  
 
 
