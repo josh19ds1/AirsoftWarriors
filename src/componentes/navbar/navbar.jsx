@@ -21,7 +21,7 @@ import SubMenu from './SubMenuNavBar/SubMenu'
 import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
-import UserExist from '../Paginas-Proyecto/Login/UserExist'
+
 
 const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
@@ -46,7 +46,7 @@ function NavBar() {
   return (
     //contenedor del navBar
     <AppBar position="static" sx={{ backgroundColor: '#12644c' }}>
-      <UserExist/>
+     
       <Container maxWidth="xl">
         {/* Primer menu */}
         <Toolbar disableGutters>

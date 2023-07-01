@@ -14,6 +14,7 @@ import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
 import DescripProducto from "./componentes/Pagination/DescripProducto";
 import Perfil from "./componentes/Paginas-Proyecto/Perfil";
 import Carrito from "./componentes/Paginas-Proyecto/CarritoDeCompras/Carrito";
+import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
 
 
 
@@ -25,10 +26,10 @@ function App() {
     <main>
 
 
-
+      <UserExist/>
 
       <NavBar />
-
+     
 
 
 
