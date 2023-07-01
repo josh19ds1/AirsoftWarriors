@@ -10,12 +10,12 @@ const UserExist = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
   console.log("url del servidor que estoy usando:"+apiUrl);
-  
+
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
         const response = await fetch(apiUrl, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
