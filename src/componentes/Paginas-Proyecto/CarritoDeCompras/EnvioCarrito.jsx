@@ -29,7 +29,7 @@ const EnvioCarrito = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(order),
+        body: JSON.stringify({order:order}),
       });
 
       if (!response.ok) {
