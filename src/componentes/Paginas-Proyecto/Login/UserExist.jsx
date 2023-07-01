@@ -14,7 +14,7 @@ const UserExist = () => {
     const fetchDataFromApi = async () => {
       try {
         const response = await fetch(apiUrl, {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
