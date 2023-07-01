@@ -7,9 +7,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
-import {habilitar } from '../../Store/carrito/ableButton';
 import { Button } from '@mui/base';
 import { Dominio, ApiProducto } from '../Tools/var';
 
@@ -26,7 +25,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
 
 
   const dispatch = useDispatch();
-  const isButtonDisabled = useSelector((state) => state.ButtonProd.isButtonDisabled);
+ 
 
 
   useEffect(() => {
@@ -40,17 +39,14 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
   }, [ordenValue, dineroValue, tipoValue]);
 
   const handleAddToCart = (id, name,price,image) => {
-    if (!isButtonDisabled) {
+  
       const producto = { id, name ,price,image};
       dispatch(addToCart(producto));
       
-    }
+    
   };
 
-  const handleOtherAction = () => {
-    // Lógica para habilitar el botón nuevamente
-    dispatch(habilitar());
-  };
+
   return (
     <>
       <Grid container spacing={2} justifyContent="center">
@@ -135,7 +131,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                     left: '183px',
                   }}
                   onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url)}
-                  disabled={isButtonDisabled}
+                 
                 >
                   <AddShoppingCartIcon
                     sx={{

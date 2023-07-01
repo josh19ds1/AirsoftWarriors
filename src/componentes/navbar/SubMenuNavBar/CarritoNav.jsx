@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, Typography, IconButton, Menu, MenuItem, Tooltip, Button, TableRow, TableContainer, TableHead, TableCell, Paper, TableBody, CardMedia } from '@mui/material';
+import { Badge, Typography, IconButton, Menu, MenuItem, Tooltip, } from '@mui/material';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { useSelector, useDispatch } from 'react-redux';
-import CloseIcon from '@mui/icons-material/Close';
-import { removeFromCart } from '../../../Store/carrito/carritoSlice';
-
+import { useSelector} from 'react-redux';
+import CarritoNavBar from '../../Paginas-Proyecto/CarritoDeCompras/CarritNavBar';
 
 const CarritoNav = () => {
   const cartCounter = useSelector((state) => state.cart.counter);
+
   const cart = useSelector((state) => state.cart.products);
-  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleIconClick = (event) => {
@@ -21,10 +18,7 @@ const CarritoNav = () => {
     setAnchorEl(null);
   };
 
-  //borrar producto
-  const handleRemoveFromCart = (productId) => {
-    dispatch(removeFromCart({ id: productId }));
-  };
+
 
   return (
     <>
@@ -54,55 +48,7 @@ const CarritoNav = () => {
             <Typography>vacio</Typography>
           </MenuItem>
         ) : (
-          <>
-            {cart.map((product) => (
-              <MenuItem key={product.id} onClick={handleCloseMenu}>
-                <TableContainer component={Paper}>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Producto</TableCell>
-                      <TableCell>Precio</TableCell>
-                      <TableCell>Eliminar</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableCell component="th" scope="row">
-                      <CardMedia
-                        component="img"
-                        image={product.image}
-                        alt={product.id}
-                        sx={{
-                          width: 195,
-                          height: 75,
-                        }}
-                      />
-                      <Typography>{product.name}</Typography>
-                    </TableCell>
-                    <TableCell align='right'><Typography>{product.price}</Typography></TableCell>
-                    
-                    <TableCell align='right'>
-                      <Button
-                        onClick={() => handleRemoveFromCart(product.id)}
-                      >
-                        <CloseIcon />
-                      </Button>
-                    </TableCell>
-
-
-                    
-                  </TableBody>
-                </TableContainer>
-              </MenuItem>
-            ))}
-            <MenuItem>
-              <Button
-                component={Link}
-                to="/carrito"
-              >
-                Ver todos
-              </Button>
-            </MenuItem>
-          </>
+            <CarritoNavBar/>
         )}
       </Menu>
     </>
