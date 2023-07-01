@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Dominio, ApiUserExist } from '../../Tools/var';
+import { useDispatch } from 'react-redux';
+import { setUserExist } from '../../../Store/userLogin/userExist';
+
 
 const apiUrl = `${Dominio}/${ApiUserExist}`;
 
 const UserExist = () => {
   const [data, setData] = useState(null);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
@@ -37,18 +42,17 @@ const UserExist = () => {
     fetchDataFromApi();
   }, []);
 
-  console.log(data);
+
 
   if (data && typeof data.isSuccess === 'boolean') {
-    console.log("variable que busco=" + data.isSuccess);
+   
+   
     if (data.isSuccess) {
-      return <h1>Existe</h1>;
+      dispatch(setUserExist(true));
     } else {
-      return <h1>No existe</h1>;
+      dispatch(setUserExist(false))
     }
-  } else {
-    return null; // Otra opción es mostrar un mensaje de carga mientras se obtiene la respuesta
-  }
+  } 
 };
 
 export default UserExist;

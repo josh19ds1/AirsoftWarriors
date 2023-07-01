@@ -5,26 +5,37 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import { Provider } from 'react-redux'
+import { store } from './Store';
+
+
 const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#000e35",
-      },
-      secondary: {
-        main: "#f50057",
-      },
+  palette: {
+    primary: {
+      main: '#12644c',
     },
-  });
+    secondary: {
+      main: '#3e7469',
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
 
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
+      <BrowserRouter>
+          <ThemeProvider theme={theme}>
             <App />
-            </ThemeProvider>
-        </BrowserRouter>
+          </ThemeProvider>
+      </BrowserRouter>
 
-    </React.StrictMode>
+      
+    </Provider>
+
+ 
+
+
+  </React.StrictMode>
 );

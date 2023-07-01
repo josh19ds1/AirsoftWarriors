@@ -2,9 +2,6 @@
 import { Route, Routes } from "react-router-dom";
 
 import './App.css';
-
-
-
 import NavBar from './componentes/navbar/navbar'
 import Evento from "./componentes/Paginas-Proyecto/Evento/Evento";
 import Tutores from "./componentes/Paginas-Proyecto/Tutores";
@@ -13,12 +10,12 @@ import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
 import Footer from "./componentes/footer/footer"
 import Login from "./componentes/Paginas-Proyecto/Login/Login";
 import Inicio from "./componentes/Paginas-Proyecto/Inicio/Inicio";
-import PgHead from "./componentes/head/PgHead";
 import Registrar from "./componentes/Paginas-Proyecto/Login/Registrar";
 import DescripProducto from "./componentes/Pagination/DescripProducto";
 import Perfil from "./componentes/Paginas-Proyecto/Perfil";
-import Carrito from "./componentes/Paginas-Proyecto/Carrito";
+import Carrito from "./componentes/Paginas-Proyecto/CarritoDeCompras/Carrito";
 import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
+
 
 
 function App() {
@@ -27,10 +24,12 @@ function App() {
 
 
     <main>
-      <UserExist/>
-      <PgHead />
-      <NavBar />
 
+
+      <UserExist/>
+
+      <NavBar />
+     
 
 
 
@@ -50,16 +49,16 @@ function App() {
 
       <Footer />
 
-     
-     
 
 
 
-     
-     
+
+
+
+
     </main>
 
-    
+
 
 
 

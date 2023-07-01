@@ -7,7 +7,7 @@ import ProdAny from './ProdAny';
 import Targeta from '../Evento/Targeta';
 import Lugares from '../Evento/Lugares';
 import { Dominio,ApiEvento } from '../../Tools/var';
-import UserExist from '../Login/UserExist';
+
 
 
 const url = `${Dominio}/${ApiEvento}`;

@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
+import { Dominio,ApiPerfil } from '../Tools/var'
+import UserExist from './Login/UserExist'
 
 
 const Perfil = () => {
@@ -17,8 +19,8 @@ const Perfil = () => {
       data[key] = value;
     });
     console.log('La imagen se ha cargado');
-    fetch('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/auth/profile', {
-      method: 'POST',
+    fetch(`${Dominio}/${ApiPerfil}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -35,12 +37,18 @@ const Perfil = () => {
       })
       .catch((error) => console.log(error));
   };
-
+ 
 
   return (
-    <div class="perfil-body">
-      <div class="square-perfil">
-        <div class="square-photo">
+
+    <div>
+       <div className="perfil-body">
+      <div className="square-perfil">
+        <div className="square-photo">
+      
+
+
+
         {imageLoaded ? (
         <img src="../../" alt="Imagen" />
       ) : (
@@ -86,11 +94,19 @@ const Perfil = () => {
         style={{ display: 'none' }}
       />
         </div>
-        <div class="teams-members">
-          <h1 class="title-member">Miembros</h1>
-        </div>
+        
       </div>
     </div>
+
+
+
+
+
+
+
+
+    </div>
+   
   )
 }
 

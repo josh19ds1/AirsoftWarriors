@@ -21,6 +21,8 @@ const Catalogo = () => {
   const handleToggleTipo = (group, value) => {
     setTipoValue(value);
   };
+  
+
 
 
 
@@ -50,6 +52,7 @@ const Catalogo = () => {
 
         />
 
+   
 
       </Container>
 
