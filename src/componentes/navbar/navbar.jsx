@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import React from 'react'
 import '../../estilos/navbar.css'
 import {
   AppBar,
@@ -17,28 +17,21 @@ import {
 import MenuItem from '@mui/material/MenuItem'
 import StoreIcon from '@mui/icons-material/Store'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import { obtenerValorTrue } from './ExistKK'
-
 import SubMenu from './SubMenuNavBar/SubMenu'
 import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
-
-
+import { useSelector } from 'react-redux'
 
 const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
 
-function NavBar({ userExists }) {
+function NavBar() {
 
   const [anchorElUser, setAnchorElUser] = React.useState(null)
-  const [valor, setValor] = useState(null);
+ 
+  const userExist =  useSelector(state=>state.user.userExist);
 
-  // Llamada a la función y actualización del estado con el valor devuelto
-  useState(() => {
-    const resultado = obtenerValorTrue();
-    setValor(resultado);
-  }, []);
-
+ 
 
 
   const handleOpenUserMenu = (event) => {
@@ -97,7 +90,7 @@ function NavBar({ userExists }) {
           <Box sx={{ flexGrow: 0 }}>
             {/* se evalua se existe el usuario  */}
         
-            {valor ? (
+            {userExist ? (
             <>
                <CarritoNav/>
               
