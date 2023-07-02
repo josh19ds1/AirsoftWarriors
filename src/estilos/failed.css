@@ -1,0 +1,26 @@
+.back-one-failed {
+    background-color:#1a170e;
+    height: 750px;
+    width: 100%;
+    padding: 100px;
+}
+
+.back-two-failed {
+    background-color:  #4b1717;
+    height: 600px;
+    width: 100%;
+    padding: 50px;
+}
+
+.back-two-failed h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+}
+
+.back-two-failed i {
+    font-size: 150px;
+    padding-top: 65px;
+    color: #f01111;
+    padding-bottom: 100px;
+}
