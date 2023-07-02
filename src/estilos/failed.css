@@ -1,21 +1,22 @@
 .back-one-failed {
-    background-color:#1a170e;
+    background-color:#0a0a0b;
     height: 750px;
     width: 100%;
     padding: 100px;
 }
 
 .back-two-failed {
-    background-color:  #4b1717;
+    background-color:  #b84a22;
     height: 600px;
     width: 100%;
     padding: 50px;
+    border-radius: 20px;
 }
 
 .back-two-failed h1 {
     text-align: center;
-    font-size: 50px;
-    color: #fff;
+    font-size: 40px;
+    color: #ffffff;
 }
 
 .back-two-failed i {
@@ -24,3 +25,24 @@
     color: #f01111;
     padding-bottom: 100px;
 }
+
+.back-two-failed a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/*
+temple 1
+--text: #ffffff;
+--background: #0a0a0b;
+--primary-button: #215bf0;
+--secondary-button: #252939;
+--accent: #ffffff;
+
+template 5
+#030203
+#d0cdca
+#b84a22
+#4b7794
+*/

@@ -17,6 +17,7 @@ import Carrito from "./componentes/Paginas-Proyecto/CarritoDeCompras/Carrito";
 import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
 import Success from "./componentes/Paginas-Proyecto/CarritoDeCompras/Success";
 import Failed from "./componentes/Paginas-Proyecto/CarritoDeCompras/Failed";
+import NotFoundPage from "./componentes/NotFoundPage/404";
 
 
 
@@ -48,6 +49,7 @@ function App() {
         <Route path='/DescripcionProducto/:id' Component={DescripProducto} />
         <Route path='/Success' element={<Success />} />
         <Route path='/Failed' element={<Failed />} />
+        <Route path='/404' element={<NotFoundPage />} />
       </Routes>
 
 
