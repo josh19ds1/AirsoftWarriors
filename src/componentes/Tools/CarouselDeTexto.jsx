@@ -1,4 +1,4 @@
-import { useMediaQuery, Box, CardMedia, Container, Grid, Paper, useTheme, Typography } from '@mui/material';
+import { useMediaQuery, Box, CardMedia, Container, Grid, Paper, useTheme, Typography, CardActionArea } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,6 +8,7 @@ import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Dominio, ApiProducto } from './var';
 import fetchData from '../Service/feetchApi';
 import '../../estilos/swpr.css';
+import { Link } from 'react-router-dom';
 
 const apiUrl = `${Dominio}/${ApiProducto}`;
 
@@ -48,6 +49,10 @@ const CarouselText = () => {
       {randomProducts.map((product, index) => (
         <SwiperSlide key={index}>
           <Container>
+
+          <Link to="/Catalogo" >
+            <CardActionArea>
+
             <Box sx={{ width: '100%', height: isMobile ? 250 : 400 }}>
               <CardMedia
                 component="img"
@@ -62,9 +67,15 @@ const CarouselText = () => {
             </Box>
             <Typography variant="h3" 
             sx={{ 
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              backgroundColor: 'rgba(10, 29, 77, 1)',
               color:'#ffff',
-              fontFamily: '"Rubik", sans-serif',}}>{testo[index]}</Typography> {/* Acceder al texto correspondiente */}
+              fontFamily: '"Rubik", sans-serif',
+              borderRadius: '15px 15px 0 0px',
+              
+              }}>{testo[index]}</Typography> {/* Acceder al texto correspondiente */}
+            </CardActionArea>
+          </Link>
+
           </Container>
         </SwiperSlide>
       ))}
