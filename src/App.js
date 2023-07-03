@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 
 import './App.css';
 import NavBar from './componentes/navbar/navbar'
-import Evento from "./componentes/Paginas-Proyecto/Evento/EventoStart";
+import Eventos from "./componentes/Paginas-Proyecto/Evento/Eventos";
+import Evento from "./componentes/Paginas-Proyecto/Evento/Evento";
 import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
 import Catalogo from "./componentes/Paginas-Proyecto/Catalogo";
@@ -17,7 +18,6 @@ import Carrito from "./componentes/Paginas-Proyecto/CarritoDeCompras/Carrito";
 import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
 
 
-
 function App() {
 
   return (
@@ -29,12 +29,9 @@ function App() {
       <UserExist/>
 
       <NavBar />
-     
-
-
-
       <Routes>
         <Route path='/' element={<Inicio />} />
+        <Route path='/Eventos' element={<Eventos />} />
         <Route path='/Evento' element={<Evento />} />
         <Route path='/Catalogo' element={<Catalogo />} />
         <Route path='/Tutores' element={<Tutores />} />

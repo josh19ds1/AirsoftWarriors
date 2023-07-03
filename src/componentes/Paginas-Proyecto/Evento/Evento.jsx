@@ -54,7 +54,7 @@ const Evento = () => {
       </section>
 
       <section className="service" id="service">
-        <h1 className="heading">Nuestros <span>Servicios</span></h1>
+        <h1 className="heading">Game <span>Modes</span></h1>
         <div className="box-container">
           <div className="box">
             <i className="fa fa-flag"></i>
@@ -94,7 +94,7 @@ const Evento = () => {
         </div>
       </section>
 
-      <section className="about" id="about">
+      {/* <section className="about" id="about">
         <h1 className="heading">About <span>Us</span></h1>
         <div className="row">
           <div className="image">
@@ -106,7 +106,7 @@ const Evento = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, esse!</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="gallery" id="gallery">
         <h1 className="heading">Play <span>Places</span></h1>
@@ -144,7 +144,7 @@ const Evento = () => {
       </section>
 
       <section className="price" id="price">
-        <h1 className="heading">Nuestros <span>Precios</span></h1>
+        <h1 className="heading">Our <span>Packages</span></h1>
         <div className="box-container">
           <div className="box">
             <h3 className="title">Package 1</h3>

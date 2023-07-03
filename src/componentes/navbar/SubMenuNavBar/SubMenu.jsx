@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const pages = ['Evento', 'Catalogo', 'Tutores', 'Ranking'];
+const pages = ['Eventos', 'Catalogo', 'Tutores', 'Ranking'];
 pages.unshift("");
 
 const SubMenu = () => {

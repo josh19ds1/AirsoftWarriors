@@ -7,7 +7,7 @@ const EventoStart = () => {
   return (
     <>
     <section className='home'>
-        <div className="content">
+        <div className="title">
           <h3>Airsoft <span>Event</span></h3>
         </div>
     </section>

@@ -30,21 +30,21 @@ body {
     flex-wrap: wrap;
 }
 
-.home .content{
+.home .title{
     text-align: center;
     padding-top: 1rem;
     margin: 2rem auto;
     max-width: 70rem;
 }
 
-.home .content h3{
+.home .title h3{
     color: var(--text-color);
     font-size: 4.5rem;
     text-transform: uppercase;
     
 }
 
-.home .content h3 span{
+.home .title h3 span{
     color: var(--text2-color);
     text-transform: uppercase;
     
