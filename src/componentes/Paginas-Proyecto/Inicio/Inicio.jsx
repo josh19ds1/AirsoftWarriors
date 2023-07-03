@@ -7,7 +7,7 @@ import ProdAny from './ProdAny';
 import Targeta from '../Evento/Targeta';
 import Lugares from '../Evento/Lugares';
 import { Dominio,ApiEvento } from '../../Tools/var';
-
+import CarouselText from '../../Tools/CarouselDeTexto';
 
 
 const url = `${Dominio}/${ApiEvento}`;
@@ -19,8 +19,11 @@ const Inicio = () => {
   return (
     <>
 
-      <Carusel apiUrl={url} />
-      
+      {/* <Carusel apiUrl={url} /> */}
+
+      <CarouselText/>
+
+
       <Container sx={{
         background: '#5E5E3D',
         width: '70%',
@@ -34,42 +37,19 @@ const Inicio = () => {
       <Typography variant='h1' component='div' textalign='center'
 
         sx={{
-          width: '79%',
+          width: '60%',
           height: 'auto',
           position: 'relative',
-          fontSize: 80,
+          fontSize: 70,
           zIndex: 2,
           background: '#2F1E2F',
           color: '#ffff',
           top: 75,
-          left: 50
-
+          left: 50,
+          fontFamily: '"Rubik", sans-serif',
         }} >
         CATALOGO DE PRODUCTO
       </Typography>
-
-
-
-
-      <Box mt={40} ml={10}>
-      
-          <Tags/>
-
-      </Box>
-      
-      <Box mt={40} ml={10}   >
-      
-        <ProdAny />
-      </Box>
-      
-      <Box mt={40} ml={10}   >
-      
-       <Targeta/>
-      </Box>
-      <Box mt={40} ml={10}   >
-      
-       <Lugares/>
-      </Box>
 
 
 

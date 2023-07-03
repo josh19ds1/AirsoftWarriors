@@ -21,6 +21,8 @@ import SubMenu from './SubMenuNavBar/SubMenu'
 import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
+import '../../estilos/font.css';
+
 
 
 const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
@@ -45,7 +47,7 @@ function NavBar() {
 
   return (
     //contenedor del navBar
-    <AppBar position="static" sx={{ backgroundColor: '#12644c' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#215bf0' }}>
      
       <Container maxWidth="xl">
         {/* Primer menu */}
@@ -55,6 +57,7 @@ function NavBar() {
               flexGrow: 2,
               display: { xs: 'flex', md: 'none' },
               justifyContent: 'initial',
+              fontFamily: '"Rubik", sans-serif',
             }}
           >
             {/* //Primer menu */}
@@ -79,6 +82,7 @@ function NavBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontFamily: '"Rubik", sans-serif',
             }}
           >
             Airsoft warrior
@@ -106,7 +110,7 @@ function NavBar() {
              
               </>
             ) : (
-              <Button component={Link} to="/login" sx={{ color: 'white' }}>
+              <Button component={Link} to="/login" sx={{ color: 'white', fontFamily: '"Rubik", sans-serif', }}>
                 Iniciar sesión
               </Button>
             )}
@@ -117,8 +121,9 @@ function NavBar() {
               PaperProps={{
                 sx: {
                   padding: 0,
-                  background: '#12644c',
+                  background: '#215bf0',
                   color: '#ffff',
+                  fontFamily: '"Rubik", sans-serif',
                 },
               }}
               id="menu-appbar"
