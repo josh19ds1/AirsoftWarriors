@@ -48,7 +48,7 @@ export default function CerrarSecion() {
 
 
   if (data && typeof data.isSuccess === 'boolean') {
-   
+   console.log('es tru o fal:'+data.isSuccess)
    
     if (data.isSuccess) {
       dispatch(setUserExist(false))
