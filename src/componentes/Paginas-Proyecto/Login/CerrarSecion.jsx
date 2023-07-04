@@ -46,7 +46,7 @@ const CerrarSesion = () => {
     }
   }, [data, dispatch]);
 
-  return null; // No se muestra ningún elemento visualmente en este componente
+  return null;
 };
 
 export default CerrarSesion;

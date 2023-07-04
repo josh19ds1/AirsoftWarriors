@@ -23,7 +23,7 @@ import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
 import '../../estilos/font.css';
 import { Dominio, ApiPerfil } from '../Tools/var'
-import CerrarSecion from '../Paginas-Proyecto/Login/CerrarSecion';
+import CerrarSesion from '../Paginas-Proyecto/Login/CerrarSecion';
 
 
 const apiUrl = `${Dominio}/${ApiPerfil}`
@@ -81,8 +81,9 @@ function NavBar() {
 
 
   const handleLogout = () => {
-    CerrarSecion();
-  }
+    CerrarSesion();
+  };
+  
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget)
