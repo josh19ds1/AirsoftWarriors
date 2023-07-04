@@ -8,6 +8,7 @@ export const ApiTutores = 'instructor';
 
 //user connection
 export const ApiLogin = 'auth/Login';
+export const ApiLogout = 'auth/Logout';
 export const ApiPerfil = 'auth/profile';
 export const ApiUserExist = 'auth/me';
 //event 
