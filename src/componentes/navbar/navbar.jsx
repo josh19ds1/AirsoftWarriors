@@ -81,7 +81,7 @@ function NavBar() {
 
 
   const handleLogout = () => {
-    CerrarSecion()
+    CerrarSecion();
   }
 
   const handleOpenUserMenu = (event) => {
