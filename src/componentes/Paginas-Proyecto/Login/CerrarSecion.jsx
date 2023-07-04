@@ -27,8 +27,9 @@ const CerrarSesion = () => {
   
         const responseData = await response.json();
         setData(responseData);
-  
+        
         if (responseData && responseData.url) {
+          console.log(responseData.url)
           window.location.href = responseData.url;
         }
       } catch (error) {
