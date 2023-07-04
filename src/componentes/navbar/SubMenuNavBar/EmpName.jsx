@@ -17,7 +17,7 @@ const EmpName = () => {
           component={Link}
           to={page === 'Inicio' ? '/' : `/${page}`}
           onClick={handleCloseNavMenu}
-          sx={{ my: 3, color: 'white', display: 'block' }}
+          sx={{ my: 3, color: 'white', display: 'block', fontFamily: '"Rubik", sans-serif', }}
         >
           {page}
         </Button>

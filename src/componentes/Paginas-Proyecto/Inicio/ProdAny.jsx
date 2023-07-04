@@ -1,14 +1,16 @@
-import { Button, CardMedia, Container, Typography } from '@mui/material';
+import {useMediaQuery, useTheme,Button, CardMedia, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import fetchData from '../../Service/feetchApi';
 import { Link } from 'react-router-dom';
-import { Dominio,ApiProducto } from '../../Tools/var';
+import { Dominio, ApiProducto } from '../../Tools/var';
 
 
 const apiUrl = `${Dominio}/${ApiProducto}`
 
 const ProdAny = () => {
     const [data, setData] = useState(null);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         const fetchDataFromApi = async () => {
@@ -32,22 +34,23 @@ const ProdAny = () => {
         return (
             <Container sx={{
                 overflow: 'hidden',
-                background: '#ffff',
-                width: 1201,
-                height: 600,
-                borderRadius: 5,
+                background: '#252939',
+                width: isMobile?'100%':'100%',
+                height: isMobile ? '25vh ': '70vh',
+                borderRadius: 4,
                 position: 'relative',
-                right: 50
+                left: 5
             }}>
 
 
                 <Typography variant="h3" component='div' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    textAlign: 'start',
-
-
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'center',
+                    fontSize: '1.5rem',
+                    height:isMobile? '4vh':'13vh',
+                   
+                  
                 }}>
                     {Product.name}
                 </Typography>
@@ -59,74 +62,70 @@ const ProdAny = () => {
                     alt={Product.description}
 
                     sx={{
-                        width: 500,
-                        height: 400,
+                        width: isMobile?'12vh':'30vh',
+                        height: isMobile?'8vh':'25vh',
                         position: 'relative',
-                        left: 1,
-                        borderRadius: 5
+                        left:isMobile?'1vh':'2vh',
+                        borderRadius: 2,
+                        mt:isMobile?'.5':1,
 
                     }}
                 />
 
-                <Typography variant="h4" component='p' color="text.secondary"
-                    sx={{
-                        position: 'absolute',
-                        right: 290,
-                        top: 95
 
-
-
-                    }}
-
-
-                >Descripción</Typography>
 
                 <Typography variant="h6" component='p' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'justify',
+                    height:isMobile?'3.5vh':'8vh',
+                    fontSize:isMobile?'0.8rem':'.7rem',
+                    mt: 2,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                    position: 'absolute',
-                    fontSize: 17,
-                    left: 600,
-                    top: 150,
-                    textAlign: 'center'
-
-
+                    
+                  
                 }}>
+            
                     {Product.description}
                 </Typography>
 
                 <Typography variant="h2" component='p' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    position: 'absolute',
-                    right: 280,
-                    bottom: 250
-
-
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'justify',
+                    fontSize: '1.5rem',
+                    position:'absolute',
+                    bottom:isMobile?'4':'13vh',
+                    mt:isMobile?1:'',
+               
 
                 }}>
+                    Costo: 
                     {Product.price}$
                 </Typography>
 
                 <Link to="/catalogo">
                     <Button
-                        variant="contained"
+
+
                         sx={{
                             position: 'absolute',
-                            width: 150,
-                            height: 50,
-                            right: 270,
-                            bottom: 100,
-                            background: '#2F1E2F',
+                            width:isMobile? '15vh':'25vh',
+                            right: isMobile?'1.5vh':60,
+                            bottom: isMobile?10:20,
+                            backgroundColor: '#215bf0',
+                            color: '#fff',
+                            fontFamily: '"Rubik", sans-serif',
+                            fontSize:'1rem'
                         }}
                     >
                         VER MAS
                     </Button>
                 </Link>
 
-                {/* Agrega aquí cualquier otra información que desees mostrar */}
+
+
             </Container>
         );
     };

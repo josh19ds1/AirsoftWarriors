@@ -8,6 +8,7 @@ export const ApiTutores = 'instructor';
 
 //user connection
 export const ApiLogin = 'auth/Login';
+export const ApiLogout = 'auth/Logout';
 export const ApiPerfil = 'auth/profile';
 export const ApiUserExist = 'auth/me';
 //event 
@@ -16,3 +17,7 @@ export const ApiTeams = 'teams';
 export const ApiModos = 'modes';
 export const ApiLugares = 'place';
 export const ApiEvento = 'events';
+
+//carrito
+
+export const ApiCreateOrder = 'orders/create-order';
