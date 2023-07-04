@@ -35,9 +35,9 @@ const ProdAny = () => {
             <Container sx={{
                 overflow: 'hidden',
                 background: '#252939',
-                width: '100%',
-                height: isMobile ? '45vh ': '70vh',
-                borderRadius: 5,
+                width: isMobile?'100%':'100%',
+                height: isMobile ? '25vh ': '70vh',
+                borderRadius: 4,
                 position: 'relative',
                 left: 5
             }}>
@@ -47,8 +47,8 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'center',
-                    fontSize: '2.5rem',
-                    height:isMobile? '10vh':'16vh',
+                    fontSize: '2rem',
+                    height:isMobile? '5vh':'16vh',
                 }}>
                     {Product.name}
                 </Typography>
@@ -60,11 +60,11 @@ const ProdAny = () => {
                     alt={Product.description}
 
                     sx={{
-                        width: isMobile?'34vh':'50vh',
-                        height: isMobile?'20vh':'30vh',
+                        width: isMobile?'12vh':'50vh',
+                        height: isMobile?'8vh':'30vh',
                         position: 'relative',
                         left:isMobile?'2vh':'20vh',
-                    borderRadius: 5
+                    borderRadius: 2
 
                     }}
                 />
@@ -75,8 +75,8 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'justify',
-                    height:isMobile?'5vh':'8vh',
-                    fontSize: '1rem',
+                    height:isMobile?'2.5vh':'8vh',
+                    fontSize:isMobile?'0.8rem':'1rem',
                     mt: 2,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
@@ -90,7 +90,7 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'justify',
-                    fontSize: '2.5rem',
+                    fontSize: '1.5rem',
                     position:'absolute',
                     bottom:isMobile?'5':20,
                   
@@ -102,11 +102,13 @@ const ProdAny = () => {
 
                 <Link to="/catalogo">
                     <Button
+
+
                         sx={{
                             position: 'absolute',
-                            width:isMobile? '35vh':'30vh',
-                            right: isMobile?'4vh':100,
-                            bottom: 20,
+                            width:isMobile? '15vh':'30vh',
+                            right: isMobile?'1.5vh':100,
+                            bottom: isMobile?10:20,
                             backgroundColor: '#215bf0',
                             color: '#fff',
                             fontFamily: '"Rubik", sans-serif',
