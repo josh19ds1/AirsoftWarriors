@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-
+import { useDispatch } from "react-redux";
 import {
   AppBar,
   Container,
@@ -22,57 +22,14 @@ import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
 import '../../estilos/font.css';
-import { Dominio, ApiPerfil,ApiLogout } from '../Tools/var'
-import { useDispatch } from "react-redux";
-import { setUserExist } from '../../Store/userLogin/userExist'
+import { Dominio, ApiPerfil } from '../Tools/var'
+import CerrarSesion from '../Paginas-Proyecto/Login/CerrarSecion';
+import { setUserExist } from '../../Store/userLogin/userExist';
 
 
 const apiUrl = `${Dominio}/${ApiPerfil}`
-const apiUrlLs = `${Dominio}/${ApiLogout}`;
 
-const CerrarSesion = () => {
-  const [data, setData] = useState(null);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchDataFromApi = async () => {
-      try {
-        const response = await fetch(apiUrlLs, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          redirect: "follow",
-        });
-
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
-        }
-
-        const responseData = await response.json();
-        setData(responseData);
-
-        if (responseData.url) {
-          console.log("data-url=" + responseData.url);
-          window.location.href = responseData.url;
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchDataFromApi();
-  }, []);
-
-  useEffect(() => {
-    if (data && typeof data.isSuccess === "boolean") {
-      dispatch(setUserExist(!data.isSuccess));
-    }
-  }, [data, dispatch]);
-
-  return null;
-};
 
 const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
@@ -81,6 +38,7 @@ function NavBar() {
 
   const [anchorElUser, setAnchorElUser] = React.useState(null)
   const [data, setData] = useState({});
+  const dispatch = useDispatch();
 
   const userExist = useSelector(state => state.user.userExist);
   useEffect(() => {
@@ -126,6 +84,7 @@ function NavBar() {
 
   const handleLogout = () => {
     CerrarSesion();
+    dispatch(setUserExist(false));
   };
   
 

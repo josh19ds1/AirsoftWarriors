@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { Dominio, ApiLogout } from "../../Tools/var";
-import { useDispatch } from "react-redux";
-import { setUserExist } from "../../../Store/userLogin/userExist";
+
 
 const apiUrl = `${Dominio}/${ApiLogout}`;
 
 const CerrarSesion = () => {
   const [data, setData] = useState(null);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
@@ -39,12 +37,6 @@ const CerrarSesion = () => {
 
     fetchDataFromApi();
   }, []);
-
-  useEffect(() => {
-    if (data && typeof data.isSuccess === "boolean") {
-      dispatch(setUserExist(!data.isSuccess));
-    }
-  }, [data, dispatch]);
 
   return null;
 };
