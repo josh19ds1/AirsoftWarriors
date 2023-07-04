@@ -12,7 +12,7 @@ import {
   Box,
   Menu,
   Tooltip
-  
+
 } from '@mui/material'
 import MenuItem from '@mui/material/MenuItem'
 import StoreIcon from '@mui/icons-material/Store'
@@ -22,11 +22,11 @@ import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
 import '../../estilos/font.css';
-import { Dominio,ApiPerfil } from '../Tools/var'
-import fetchData from '../Service/feetchApi'
+import { Dominio, ApiPerfil } from '../Tools/var'
 
 
-const apiUrl=`${Dominio}/${ApiPerfil}`
+
+const apiUrl = `${Dominio}/${ApiPerfil}`
 
 
 
@@ -34,30 +34,52 @@ const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
 
 function NavBar() {
- 
-const [anchorElUser, setAnchorElUser] = React.useState(null)
- const [data,setData] = useState({});
 
-const userExist =  useSelector(state=>state.user.userExist);
- useEffect(() => {
-  if (userExist) {
+  const [anchorElUser, setAnchorElUser] = React.useState(null)
+  const [data, setData] = useState({});
+
+  const userExist = useSelector(state => state.user.userExist);
+  useEffect(() => {
+    if (userExist) {
     const fetchDataFromApi = async () => {
-      const responseData = await fetchData(apiUrl);
-      setData(responseData);
-    };
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          redirect: 'follow',
+        });
   
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+  
+        const responseData = await response.json();
+        setData(responseData);
+  
+        if (responseData.url) {
+          console.log("data-url=" + responseData.url);
+          window.location.href = responseData.url;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchDataFromApi();
   }
-}, [userExist]);
+  }, [userExist]);
 
 
-//const userExist = true;
+  //const userExist = true;
   console.log(userExist);
   console.log(data)
 
- 
 
- 
+
+
 
 
   const handleOpenUserMenu = (event) => {
@@ -70,7 +92,7 @@ const userExist =  useSelector(state=>state.user.userExist);
   return (
     //contenedor del navBar
     <AppBar position="static" sx={{ backgroundColor: '#215bf0' }}>
-     
+
       <Container maxWidth="xl">
         {/* Primer menu */}
         <Toolbar disableGutters>
@@ -118,16 +140,16 @@ const userExist =  useSelector(state=>state.user.userExist);
           {/* segundo menu donde mostrara el avatar en caso de no estar iniciado */}
           <Box sx={{ flexGrow: 0 }}>
             {/* se evalua se existe el usuario  */}
-        
+
             {userExist ? (
-            <>
-                 <CarritoNav/>
+              <>
+                <CarritoNav />
                 {/* Verificar si hay datos de usuario disponibles */}
                 {data && data.name && (
                   <Tooltip title={data.name}>
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar 
-                        alt={data.name} 
+                      <Avatar
+                        alt={data.name}
                         src={data.image_url.url}
                       />
                       <ArrowDropDownIcon />
