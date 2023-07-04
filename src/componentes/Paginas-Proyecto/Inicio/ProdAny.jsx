@@ -75,9 +75,12 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'justify',
+                    height:isMobile?'5vh':'8vh',
                     fontSize: '1rem',
                     mt: 2,
-
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                 
                 }}>
             
                     {Product.description}
@@ -89,9 +92,8 @@ const ProdAny = () => {
                     textAlign: 'justify',
                     fontSize: '2.5rem',
                     position:'absolute',
-                    bottom:isMobile?'5':20
-
-
+                    bottom:isMobile?'5':20,
+                  
 
                 }}>
                     Costo: 

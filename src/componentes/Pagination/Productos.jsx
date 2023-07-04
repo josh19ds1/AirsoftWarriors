@@ -61,10 +61,11 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                   ml: 1,
                   borderRadius: 5,
                   background: '#',
+                  textDecoration: 'none'
                 }}
               >
-                <Link to={`/DescripcionProducto/${producto.id}`}>
-                  <CardActionArea sx={{ background: randomColor }}>
+                <Link to={`/DescripcionProducto/${producto.id}` } className="link-no-underline">
+                  <CardActionArea sx={{ background: randomColor ,textDecoration: 'none'}}>
                     <Typography
                       gutterBottom
                       variant="h1"
@@ -101,6 +102,8 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
+                        
+                        textDecoration: 'none',
                       }}
                     >
                       {producto.description}
