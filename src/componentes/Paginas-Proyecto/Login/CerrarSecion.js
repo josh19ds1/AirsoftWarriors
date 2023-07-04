@@ -1,10 +1,14 @@
 
+import { useEffect, useState } from "react";
 import { Dominio,ApiLogout } from "../../Tools/var";
+import { useDispatch } from "react-redux";
+import { setUserExist } from "../../../Store/userLogin/userExist";
+
 
 const apiUrl=`${Dominio}/${ApiLogout}`
 
 
-function CerrarSecion() {
+export default function CerrarSecion() {
 
     const [data, setData] = useState(null);
   const dispatch = useDispatch();

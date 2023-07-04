@@ -23,7 +23,7 @@ import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
 import '../../estilos/font.css';
 import { Dominio, ApiPerfil } from '../Tools/var'
-
+import CerrarSecion from '../Paginas-Proyecto/Login/CerrarSecion';
 
 
 const apiUrl = `${Dominio}/${ApiPerfil}`
@@ -41,35 +41,35 @@ function NavBar() {
   const userExist = useSelector(state => state.user.userExist);
   useEffect(() => {
     if (userExist) {
-    const fetchDataFromApi = async () => {
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          redirect: 'follow',
-        });
-  
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
-        }
-  
-        const responseData = await response.json();
-        setData(responseData);
-  
-        if (responseData.url) {
-          console.log("data-url=" + responseData.url);
-          window.location.href = responseData.url;
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      const fetchDataFromApi = async () => {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            redirect: 'follow',
+          });
 
-    fetchDataFromApi();
-  }
+          if (!response.ok) {
+            throw new Error(`Request failed with status ${response.status}`);
+          }
+
+          const responseData = await response.json();
+          setData(responseData);
+
+          if (responseData.url) {
+            console.log("data-url=" + responseData.url);
+            window.location.href = responseData.url;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      fetchDataFromApi();
+    }
   }, [userExist]);
 
 
@@ -80,7 +80,9 @@ function NavBar() {
 
 
 
-
+  const handleLogout = () => {
+    CerrarSecion()
+  }
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget)
@@ -156,6 +158,12 @@ function NavBar() {
                     </IconButton>
                   </Tooltip>
                 )}
+
+                <Button onClick={handleLogout} sx={{ color: 'white', fontFamily: '"Rubik", sans-serif' }}>
+                  Cerrar sesión
+                </Button>
+
+
               </>
             ) : (
               <Button component={Link} to="/login" sx={{ color: 'white', fontFamily: '"Rubik", sans-serif', }}>
