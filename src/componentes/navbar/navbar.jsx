@@ -83,7 +83,6 @@ function NavBar() {
 
 
   const handleLogout = () => {
-    CerrarSesion();
     dispatch(setUserExist(false));
   };
   
@@ -165,6 +164,7 @@ function NavBar() {
 
                 <Button onClick={handleLogout} sx={{ color: 'white', fontFamily: '"Rubik", sans-serif' }}>
                   Cerrar sesión
+                  <CerrarSesion/>
                 </Button>
 
 
