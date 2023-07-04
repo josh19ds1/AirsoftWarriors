@@ -35,28 +35,27 @@ const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
 function NavBar() {
  
-const [anchorElUser, setAnchorElUser] = React.useState({})
+const [anchorElUser, setAnchorElUser] = React.useState(null)
+ const [data,setData] = useState({});
 
- const [data, setData] = useState(null);
- const userExist = useSelector(state => state.user.userExist);
- 
+const userExist =  useSelector(state=>state.user.userExist);
  useEffect(() => {
-   const fetchDataFromApi = async () => {
-     const responseData = await fetchData(apiUrl);
-     setData(responseData);
-   };
- 
-   if (userExist) {
-     fetchDataFromApi();
-   }
- }, [userExist]);
+  if (userExist) {
+    const fetchDataFromApi = async () => {
+      const responseData = await fetchData(apiUrl);
+      setData(responseData);
+    };
+  
+    fetchDataFromApi();
+  }
+}, [userExist]);
+
+
 //const userExist = true;
   console.log(userExist);
-  console.log('Los datos:'+data);
-  if (!data || data.length === 0) {
-    return console.log('vacios: ->'+data);
-  }
+  console.log(data)
 
+ 
 
  
 
@@ -122,17 +121,19 @@ const [anchorElUser, setAnchorElUser] = React.useState({})
         
             {userExist ? (
             <>
-               <CarritoNav/>
-              
-              <Tooltip title={data.name}>
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar 
-                   alt={data.name} 
-                   src={data.image_url.url}/>
-                  <ArrowDropDownIcon />
-                </IconButton>
-              </Tooltip>
-             
+                 <CarritoNav/>
+                {/* Verificar si hay datos de usuario disponibles */}
+                {data && data.name && (
+                  <Tooltip title={data.name}>
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar 
+                        alt={data.name} 
+                        src={data.image_url.url}
+                      />
+                      <ArrowDropDownIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
               </>
             ) : (
               <Button component={Link} to="/login" sx={{ color: 'white', fontFamily: '"Rubik", sans-serif', }}>
