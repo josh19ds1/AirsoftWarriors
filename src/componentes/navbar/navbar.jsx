@@ -35,7 +35,7 @@ const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
 function NavBar() {
  
-const [anchorElUser, setAnchorElUser] = React.useState(null)
+const [anchorElUser, setAnchorElUser] = React.useState({})
 
  const [data, setData] = useState(null);
  const userExist = useSelector(state => state.user.userExist);
