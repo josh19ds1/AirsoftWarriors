@@ -68,7 +68,7 @@ function NavBar() {
     }
   }, [userExist]);
 
-  
+  // funciones que maneja el navBar
   const handleLogout = () => {
     dispatch(setUserExist(false));
   };
@@ -175,7 +175,9 @@ function NavBar() {
                 <MenuItem
                   key={setting}
                   onClick={handleCloseUserMenu}
-                  sx={{ justifyContent: 'center', width: 95 }}
+                  sx={{ justifyContent: 'center', 
+                  
+                  width: 'auto' }}
                 >
                   {/* Renderizar el botón de cerrar sesión en "Cerrar Sesión" */}
                   {setting === 'Cerrar Sesión' ? (
