@@ -26,9 +26,9 @@ const Categ = () => {
   }
 
   return (
-    <Box component={Link} to="/Catalogo" sx={{position:'relative',display:'block',height:'117vh'}}>
-      <Container sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '15vh', width: '100%', mt: 2 }}>
-        <CardActionArea sx={{ gridColumn: '1 / span 2', background: 'black', position: 'relative',height:'60vh'}}>
+    <Box component={Link} to="/Catalogo" sx={{position:'relative',display:'block',height:'117vh',textDecoration:'none'}}>
+      <Container sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '15vh', width: '100%', mt: 2 ,textDecoration:'none'}}>
+        <CardActionArea sx={{ gridColumn: '1 / span 2', background: 'black', position: 'relative',height:'50vh',textDecoration:'none'}}>
           <CardMedia
             component="img"
             image={imagen}
@@ -37,7 +37,9 @@ const Categ = () => {
                 width:' 100%',
                 height: '100%',
                 objectFit: 'cover',
-                position:'relative'
+                position:'relative',
+                textDecoration:'none'
+
             }}
           />
           <Typography
@@ -47,7 +49,8 @@ const Categ = () => {
             position:'relative',
             textAlign:'center',
             bottom:100,
-            fontSize:'3rem'
+            fontSize:'3rem',
+            textDecoration:'none'
             }}
           
           >{data[0].name}</Typography>

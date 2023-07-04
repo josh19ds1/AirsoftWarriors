@@ -36,7 +36,7 @@ const ProdAny = () => {
                 overflow: 'hidden',
                 background: '#252939',
                 width: '100%',
-                height: isMobile ? '60vh ': '70vh',
+                height: isMobile ? '45vh ': '70vh',
                 borderRadius: 5,
                 position: 'relative',
                 left: 5
@@ -60,10 +60,10 @@ const ProdAny = () => {
                     alt={Product.description}
 
                     sx={{
-                        width: '50vh',
-                        height: '30vh',
+                        width: isMobile?'34vh':'50vh',
+                        height: isMobile?'20vh':'30vh',
                         position: 'relative',
-                        left:isMobile?'5vh':'20vh',
+                        left:isMobile?'2vh':'20vh',
                     borderRadius: 5
 
                     }}
@@ -89,7 +89,7 @@ const ProdAny = () => {
                     textAlign: 'justify',
                     fontSize: '2.5rem',
                     position:'absolute',
-                    bottom:20
+                    bottom:isMobile?'5':20
 
 
 
@@ -102,8 +102,8 @@ const ProdAny = () => {
                     <Button
                         sx={{
                             position: 'absolute',
-                            width:isMobile? '25vh':'30vh',
-                            right: 100,
+                            width:isMobile? '35vh':'30vh',
+                            right: isMobile?'4vh':100,
                             bottom: 20,
                             backgroundColor: '#215bf0',
                             color: '#fff',

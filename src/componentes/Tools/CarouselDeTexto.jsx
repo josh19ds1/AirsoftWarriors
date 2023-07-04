@@ -48,12 +48,12 @@ const CarouselText = () => {
     >
       {randomProducts.map((product, index) => (
         <SwiperSlide key={index}>
-          <Container>
+          <Container sx={{textDecoration:'none'}}>
 
-          <Link to="/Catalogo" >
-            <CardActionArea>
+          <Link to="/Catalogo"  >
+            <CardActionArea sx={{textDecoration:'none'}}>
 
-            <Box sx={{ width: '100%', height: isMobile ? 250 : 400 }}>
+            <Box sx={{ width: '100%', height: isMobile ? 250 : 400,textDecoration:'none' }}>
               <CardMedia
                 component="img"
                 image={product.image_url.url}
@@ -62,6 +62,7 @@ const CarouselText = () => {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
+                  textDecoration:'none'
                 }}
               />
             </Box>
@@ -71,7 +72,7 @@ const CarouselText = () => {
               color:'#ffff',
               fontFamily: '"Rubik", sans-serif',
               borderRadius: '15px 15px 0 0px',
-              
+              textDecoration:'none'
               }}>{testo[index]}</Typography> {/* Acceder al texto correspondiente */}
             </CardActionArea>
           </Link>
