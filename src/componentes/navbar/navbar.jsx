@@ -52,7 +52,7 @@ const [anchorElUser, setAnchorElUser] = React.useState(null)
  }, [userExist]);
 //const userExist = true;
   console.log(userExist);
-  
+  console.log('Los datos:'+data);
 
  
 
