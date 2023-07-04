@@ -53,8 +53,10 @@ const [anchorElUser, setAnchorElUser] = React.useState(null)
 //const userExist = true;
   console.log(userExist);
   console.log('Los datos:'+data);
+  if (!data || data.length === 0) {
+    return console.log('vacios: ->'+data);
+  }
 
- 
 
  
 
@@ -125,8 +127,8 @@ const [anchorElUser, setAnchorElUser] = React.useState(null)
               <Tooltip title={data.name}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar 
-                  alt={data.name} 
-                  src={data.image_url.url}/>
+                   alt={data.name} 
+                   src={data.image_url.url}/>
                   <ArrowDropDownIcon />
                 </IconButton>
               </Tooltip>
