@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   AppBar,
   Container,
@@ -11,36 +11,30 @@ import {
   Avatar,
   Box,
   Menu,
-  Tooltip
-
-} from '@mui/material'
-import MenuItem from '@mui/material/MenuItem'
-import StoreIcon from '@mui/icons-material/Store'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import SubMenu from './SubMenuNavBar/SubMenu'
-import EmpName from './SubMenuNavBar/EmpName'
-import CarritoNav from './SubMenuNavBar/CarritoNav'
-import { useSelector } from 'react-redux'
+  Tooltip,
+} from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import StoreIcon from '@mui/icons-material/Store';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import SubMenu from './SubMenuNavBar/SubMenu';
+import EmpName from './SubMenuNavBar/EmpName';
+import CarritoNav from './SubMenuNavBar/CarritoNav';
+import { useSelector } from 'react-redux';
 import '../../estilos/font.css';
-import { Dominio, ApiPerfil } from '../Tools/var'
+import { Dominio, ApiPerfil } from '../Tools/var';
 import CerrarSesion from '../Paginas-Proyecto/Login/CerrarSecion';
 import { setUserExist } from '../../Store/userLogin/userExist';
 
+const apiUrl = `${Dominio}/${ApiPerfil}`;
 
-const apiUrl = `${Dominio}/${ApiPerfil}`
-
-
-
-const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
-
+const settings = ['Perfil', 'Carrito', 'Cerrar Sesión'];
 
 function NavBar() {
-
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [data, setData] = useState({});
   const dispatch = useDispatch();
 
-  const userExist = useSelector(state => state.user.userExist);
+  const userExist = useSelector((state) => state.user.userExist);
   useEffect(() => {
     if (userExist) {
       const fetchDataFromApi = async () => {
@@ -62,7 +56,7 @@ function NavBar() {
           setData(responseData);
 
           if (responseData.url) {
-            console.log("data-url=" + responseData.url);
+            console.log('data-url=' + responseData.url);
             window.location.href = responseData.url;
           }
         } catch (error) {
@@ -74,33 +68,23 @@ function NavBar() {
     }
   }, [userExist]);
 
-
-  //const userExist = true;
-  console.log(userExist);
-  console.log(data)
-
-
-
-
+  
   const handleLogout = () => {
     dispatch(setUserExist(false));
   };
-  
 
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+    setAnchorElUser(null);
+  };
 
   return (
-    //contenedor del navBar
     <AppBar position="static" sx={{ backgroundColor: '#215bf0' }}>
-
       <Container maxWidth="xl">
-        {/* Primer menu */}
         <Toolbar disableGutters>
+          {/* Primer menú */}
           <Box
             sx={{
               flexGrow: 2,
@@ -109,16 +93,11 @@ function NavBar() {
               fontFamily: '"Rubik", sans-serif',
             }}
           >
-            {/* //Primer menu */}
             <SubMenu />
           </Box>
-          {/* Primer menu del mobile*/}
 
-
-          {/* aqui se mostrara el nombre del negocio*/}
-          <StoreIcon
-            sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-          />
+          {/* Nombre del negocio */}
+          <StoreIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -136,48 +115,40 @@ function NavBar() {
           >
             Airsoft warrior
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <EmpName />
           </Box>
 
-
-
-          {/* segundo menu donde mostrara el avatar en caso de no estar iniciado */}
+          {/* Segundo menú */}
           <Box sx={{ flexGrow: 0 }}>
-            {/* se evalua se existe el usuario  */}
-
             {userExist ? (
               <>
                 <CarritoNav />
-                {/* Verificar si hay datos de usuario disponibles */}
+
+                {/* Avatar y menú desplegable */}
                 {data && data.name && (
                   <Tooltip title={data.name}>
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar
-                        alt={data.name}
-                        src={data.image_url.url}
-                      />
+                      <Avatar alt={data.name} src={data.image_url.url} />
                       <ArrowDropDownIcon />
                     </IconButton>
                   </Tooltip>
                 )}
 
-                <Button onClick={handleLogout} sx={{ color: 'white', fontFamily: '"Rubik", sans-serif' }}>
-                  Cerrar sesión
-                  <CerrarSesion/>
-                </Button>
-
-
               </>
             ) : (
-              <Button component={Link} to="/login" sx={{ color: 'white', fontFamily: '"Rubik", sans-serif', }}>
+              <Button
+                component={Link}
+                to="/login"
+                sx={{ color: 'white', fontFamily: '"Rubik", sans-serif' }}
+              >
                 Iniciar sesión
               </Button>
             )}
 
-            {/* Aqui se desplegara las navegaciones del usuario conectado */}
+            {/* Menú desplegable */}
             <Menu
-
               PaperProps={{
                 sx: {
                   padding: 0,
@@ -205,16 +176,23 @@ function NavBar() {
                   key={setting}
                   onClick={handleCloseUserMenu}
                   sx={{ justifyContent: 'center', width: 95 }}
-
                 >
-                  <Link
-                    to={`/${setting}`}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    <Typography sx={{ width: 75, textAlign: 'center' }}>
-                      {setting}
-                    </Typography>
-                  </Link>
+                  {/* Renderizar el botón de cerrar sesión en "Cerrar Sesión" */}
+                  {setting === 'Cerrar Sesión' ? (
+                    <Button onClick={handleLogout} sx={{ color: 'white' }}>
+                      Cerrar sesión
+                      <CerrarSesion/>
+                    </Button>
+                  ) : (
+                    <Link
+                      to={`/${setting}`}
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      <Typography sx={{ width: 75, textAlign: 'center' }}>
+                        {setting}
+                      </Typography>
+                    </Link>
+                  )}
                 </MenuItem>
               ))}
             </Menu>
@@ -222,7 +200,7 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

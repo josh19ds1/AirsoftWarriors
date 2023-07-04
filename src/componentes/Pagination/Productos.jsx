@@ -64,7 +64,7 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
                   textDecoration: 'none'
                 }}
               >
-                <Link to={`/DescripcionProducto/${producto.id}` } className="link-no-underline">
+                <Link to={`/DescripcionProducto/${producto.id}` } style={{ textDecoration: 'none', color: 'inherit' }}>
                   <CardActionArea sx={{ background: randomColor ,textDecoration: 'none'}}>
                     <Typography
                       gutterBottom
