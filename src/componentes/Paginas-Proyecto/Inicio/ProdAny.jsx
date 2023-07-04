@@ -47,8 +47,10 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'center',
-                    fontSize: '2rem',
-                    height:isMobile? '5vh':'16vh',
+                    fontSize: '1.5rem',
+                    height:isMobile? '4vh':'13vh',
+                   
+                  
                 }}>
                     {Product.name}
                 </Typography>
@@ -60,11 +62,12 @@ const ProdAny = () => {
                     alt={Product.description}
 
                     sx={{
-                        width: isMobile?'12vh':'50vh',
-                        height: isMobile?'8vh':'30vh',
+                        width: isMobile?'12vh':'30vh',
+                        height: isMobile?'8vh':'25vh',
                         position: 'relative',
-                        left:isMobile?'2vh':'20vh',
-                    borderRadius: 2
+                        left:isMobile?'1vh':'2vh',
+                        borderRadius: 2,
+                        mt:isMobile?'.5':1,
 
                     }}
                 />
@@ -75,12 +78,13 @@ const ProdAny = () => {
                     color: '#ffff',
                     fontFamily: '"Rubik", sans-serif',
                     textAlign: 'justify',
-                    height:isMobile?'2.5vh':'8vh',
-                    fontSize:isMobile?'0.8rem':'1rem',
+                    height:isMobile?'3.5vh':'8vh',
+                    fontSize:isMobile?'0.8rem':'.7rem',
                     mt: 2,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
-                 
+                    
+                  
                 }}>
             
                     {Product.description}
@@ -92,8 +96,9 @@ const ProdAny = () => {
                     textAlign: 'justify',
                     fontSize: '1.5rem',
                     position:'absolute',
-                    bottom:isMobile?'5':20,
-                  
+                    bottom:isMobile?'4':'13vh',
+                    mt:isMobile?1:'',
+                  backgroundColor:'red'
 
                 }}>
                     Costo: 
@@ -106,8 +111,8 @@ const ProdAny = () => {
 
                         sx={{
                             position: 'absolute',
-                            width:isMobile? '15vh':'30vh',
-                            right: isMobile?'1.5vh':100,
+                            width:isMobile? '15vh':'25vh',
+                            right: isMobile?'1.5vh':60,
                             bottom: isMobile?10:20,
                             backgroundColor: '#215bf0',
                             color: '#fff',

@@ -11,16 +11,22 @@ const Inicio = () => {
       <Categ />
 
       <Grid container spacing={3} sx={{height:'auto',mt:5}}>
-        <Grid item xs={6} sm={6} md={12} lg={6}>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
           <ProdAny />
         </Grid>
-        <Grid item xs={6} sm={6} md={12} lg={6}>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
           <ProdAny />
         </Grid>
-        <Grid item xs={6} sm={6} md={12} lg={6}>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
           <ProdAny />
         </Grid>
-        <Grid item xs={6} sm={6} md={12} lg={6}>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
+          <ProdAny />
+        </Grid>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
+          <ProdAny />
+        </Grid>
+        <Grid item xs={6} sm={6} md={12} lg={3}>
           <ProdAny />
         </Grid>
       </Grid>
