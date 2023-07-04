@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   AppBar,
@@ -22,6 +22,11 @@ import EmpName from './SubMenuNavBar/EmpName'
 import CarritoNav from './SubMenuNavBar/CarritoNav'
 import { useSelector } from 'react-redux'
 import '../../estilos/font.css';
+import { Dominio,ApiPerfil } from '../Tools/var'
+import fetchData from '../Service/feetchApi'
+
+
+const apiUrl=`${Dominio}/${ApiPerfil}`
 
 
 
@@ -29,12 +34,28 @@ const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
 
 
 function NavBar() {
-
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
  
- const userExist =  useSelector(state=>state.user.userExist);
+const [anchorElUser, setAnchorElUser] = React.useState(null)
+
+ const [data, setData] = useState(null);
+ const userExist = useSelector(state => state.user.userExist);
+ 
+ useEffect(() => {
+   const fetchDataFromApi = async () => {
+     const responseData = await fetchData(apiUrl);
+     setData(responseData);
+   };
+ 
+   if (userExist) {
+     fetchDataFromApi();
+   }
+ }, [userExist]);
 //const userExist = true;
   console.log(userExist);
+  
+
+ 
+
  
 
 
@@ -101,9 +122,11 @@ function NavBar() {
             <>
                <CarritoNav/>
               
-              <Tooltip title="Configuración">
+              <Tooltip title={data.name}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar 
+                  alt={data.name} 
+                  src={data.image_url.url}/>
                   <ArrowDropDownIcon />
                 </IconButton>
               </Tooltip>

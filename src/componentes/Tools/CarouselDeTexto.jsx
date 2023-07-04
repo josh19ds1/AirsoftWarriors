@@ -50,7 +50,7 @@ const CarouselText = () => {
         <SwiperSlide key={index}>
           <Container sx={{textDecoration:'none'}}>
 
-          <Link to="/Catalogo"  >
+          <Link to="/Catalogo"  style={{ textDecoration: 'none', color: 'inherit' }} >
             <CardActionArea sx={{textDecoration:'none'}}>
 
             <Box sx={{ width: '100%', height: isMobile ? 250 : 400,textDecoration:'none' }}>

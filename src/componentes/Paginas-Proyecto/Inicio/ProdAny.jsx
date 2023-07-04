@@ -98,7 +98,7 @@ const ProdAny = () => {
                     position:'absolute',
                     bottom:isMobile?'4':'13vh',
                     mt:isMobile?1:'',
-                  backgroundColor:'red'
+               
 
                 }}>
                     Costo: 
