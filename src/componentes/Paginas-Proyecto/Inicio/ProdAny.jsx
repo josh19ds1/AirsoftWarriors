@@ -1,14 +1,16 @@
-import { Button, CardMedia, Container, Typography } from '@mui/material';
+import {useMediaQuery, useTheme,Button, CardMedia, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import fetchData from '../../Service/feetchApi';
 import { Link } from 'react-router-dom';
-import { Dominio,ApiProducto } from '../../Tools/var';
+import { Dominio, ApiProducto } from '../../Tools/var';
 
 
 const apiUrl = `${Dominio}/${ApiProducto}`
 
 const ProdAny = () => {
     const [data, setData] = useState(null);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         const fetchDataFromApi = async () => {
@@ -32,22 +34,21 @@ const ProdAny = () => {
         return (
             <Container sx={{
                 overflow: 'hidden',
-                background: '#ffff',
-                width: 1201,
-                height: 600,
+                background: '#252939',
+                width: '100%',
+                height: isMobile ? '60vh ': '70vh',
                 borderRadius: 5,
                 position: 'relative',
-                right: 50
+                left: 5
             }}>
 
 
                 <Typography variant="h3" component='div' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    textAlign: 'start',
-
-
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'center',
+                    fontSize: '2.5rem',
+                    height:isMobile? '10vh':'16vh',
                 }}>
                     {Product.name}
                 </Typography>
@@ -59,74 +60,63 @@ const ProdAny = () => {
                     alt={Product.description}
 
                     sx={{
-                        width: 500,
-                        height: 400,
+                        width: '50vh',
+                        height: '30vh',
                         position: 'relative',
-                        left: 1,
-                        borderRadius: 5
+                        left:isMobile?'5vh':'20vh',
+                    borderRadius: 5
 
                     }}
                 />
 
-                <Typography variant="h4" component='p' color="text.secondary"
-                    sx={{
-                        position: 'absolute',
-                        right: 290,
-                        top: 95
 
-
-
-                    }}
-
-
-                >Descripción</Typography>
 
                 <Typography variant="h6" component='p' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    position: 'absolute',
-                    fontSize: 17,
-                    left: 600,
-                    top: 150,
-                    textAlign: 'center'
-
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'justify',
+                    fontSize: '1rem',
+                    mt: 2,
 
                 }}>
+            
                     {Product.description}
                 </Typography>
 
                 <Typography variant="h2" component='p' color="text.secondary" sx={{
-                    m: (0, 2, 0, 2), whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    position: 'absolute',
-                    right: 280,
-                    bottom: 250
+                    color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
+                    textAlign: 'justify',
+                    fontSize: '2.5rem',
+                    position:'absolute',
+                    bottom:20
 
 
 
                 }}>
+                    Costo: 
                     {Product.price}$
                 </Typography>
 
                 <Link to="/catalogo">
                     <Button
-                        variant="contained"
                         sx={{
                             position: 'absolute',
-                            width: 150,
-                            height: 50,
-                            right: 270,
-                            bottom: 100,
-                            background: '#2F1E2F',
+                            width:isMobile? '25vh':'30vh',
+                            right: 100,
+                            bottom: 20,
+                            backgroundColor: '#215bf0',
+                            color: '#fff',
+                            fontFamily: '"Rubik", sans-serif',
+                            fontSize:'1rem'
                         }}
                     >
                         VER MAS
                     </Button>
                 </Link>
 
-                {/* Agrega aquí cualquier otra información que desees mostrar */}
+
+
             </Container>
         );
     };

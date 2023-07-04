@@ -1,4 +1,4 @@
-import { useMediaQuery, Box, CardMedia, Container, Grid, Paper, useTheme, Typography, CardActionArea } from '@mui/material';
+import { useMediaQuery, Box, CardMedia, Container,  useTheme, Typography, CardActionArea } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -33,7 +33,7 @@ const CarouselText = () => {
   }
 
   // Obtener una lista aleatoria de 3 productos
-  const randomProducts = data.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const randomProducts = data.sort(() => 0.5 - Math.random()).slice(4, 7);
 
   return (
     <Swiper

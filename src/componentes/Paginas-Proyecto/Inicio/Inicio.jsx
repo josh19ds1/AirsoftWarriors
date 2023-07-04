@@ -1,34 +1,39 @@
-import React from 'react'
-import Carusel from "../../Tools/Carousel";
-import { Container} from '@mui/system';
-import { Box, Typography } from '@mui/material'
-import Tags from './Tags';
+import React from 'react';
 import ProdAny from './ProdAny';
-import Targeta from '../Evento/Targeta';
-import Lugares from '../Evento/Lugares';
-import { Dominio,ApiEvento } from '../../Tools/var';
 import CarouselText from '../../Tools/CarouselDeTexto';
 import Categ from './Categ';
-
-
-const url = `${Dominio}/${ApiEvento}`;
-
+import { Grid } from '@mui/material';
 
 const Inicio = () => {
-
-
   return (
     <>
+      <CarouselText />
+      <Categ />
 
-      <CarouselText/>
+      <Grid container spacing={3} sx={{height:'auto',mt:5}}>
+        <Grid item xs={12} sm={6} md={12} lg={6}>
+          <ProdAny />
+        </Grid>
+        <Grid item xs={12} sm={6} md={12} lg={6}>
+          <ProdAny />
+        </Grid>
+        <Grid item xs={12} sm={6} md={12} lg={6}>
+          <ProdAny />
+        </Grid>
+        <Grid item xs={12} sm={6} md={12} lg={6}>
+          <ProdAny />
+        </Grid>
+      </Grid>
 
-        <Categ/>
+
+
+
+
+
+
 
     </>
-
-
-
-  )
+  );
 }
 
-export default Inicio
+export default Inicio;

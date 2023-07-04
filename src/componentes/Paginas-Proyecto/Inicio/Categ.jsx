@@ -26,7 +26,7 @@ const Categ = () => {
   }
 
   return (
-    <Box component={Link} to="/Catalogo">
+    <Box component={Link} to="/Catalogo" sx={{position:'relative',display:'block',height:'117vh'}}>
       <Container sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '15vh', width: '100%', mt: 2 }}>
         <CardActionArea sx={{ gridColumn: '1 / span 2', background: 'black', position: 'relative',height:'60vh'}}>
           <CardMedia
