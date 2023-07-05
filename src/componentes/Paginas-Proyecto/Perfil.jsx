@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState} from 'react'
+import { useState, useEffect } from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
 import { Dominio,ApiPerfil } from '../Tools/var'
@@ -10,6 +10,7 @@ const Perfil = () => {
 
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  
   const handleImageLoad = (e) => {
     setImageLoaded(true);
     const formData = new FormData(e.target);
@@ -61,7 +62,7 @@ const Perfil = () => {
       />
          
         </div>
-        <div className="square-text">
+        <div class="square-text">
           <h1>Isabella Gonzales</h1>
 
           <h3>29 años</h3>
@@ -78,9 +79,9 @@ const Perfil = () => {
       </div>
 
 
-      <h1 className="title-teams">los tigres del sur</h1>
-      <div className="teams-perfil">
-        <div className="logo-teams">
+      <h1 class="title-teams">los tigres del sur</h1>
+      <div class="teams-perfil">
+        <div class="logo-teams">
         {imageLoaded ? (
         <img src="../../" alt="Imagen" />
       ) : (

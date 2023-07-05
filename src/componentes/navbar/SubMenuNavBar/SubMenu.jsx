@@ -55,17 +55,20 @@ const SubMenu = () => {
             sx={{
                 display: { xs: 'block', md: 'none' },
                 color: '#ffff',
+
             }}
             PaperProps={{
                 sx: {
                     padding: 0,
-                    background: '#12644c',
+                    margin:0,
+                    background: '#215bf0',
                     color: '#ffff',
+                    fontFamily: '"Rubik", sans-serif',
                 },
             }}
         >
             {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{backgroundColor:'#0A1D4D', fontFamily: '"Rubik", sans-serif',}}>
                     <Link
                         to={`/${page}`}
                         style={{ textDecoration: 'none', color: 'inherit' }}
@@ -88,3 +91,5 @@ const SubMenu = () => {
 }
 
 export default SubMenu
+
+

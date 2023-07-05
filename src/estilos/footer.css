@@ -4,11 +4,13 @@
 }
 
 .footer{
+
     background: #111;
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 0;
-
+    margin-top: 15px;
+    text-Decoration:none;
 }
 
 .footer .box-container{

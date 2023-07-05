@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { increaseQuantity, decreaseQuantity } from '../../../Store/carrito/carritoSlice';
+import EnvioCarrito from './EnvioCarrito';
 
 
 const Carrito = () => {
@@ -37,8 +38,8 @@ const Carrito = () => {
     <Container>
 
       {cart.length === 0 ? (
-        <Alert severity="info" 
-       >
+        <Alert severity="info"
+        >
           <AlertTitle>Informacion</AlertTitle>
           No cuenta con productos para mostrar — <strong>¡¡AGREGA PRODUCTOS PARA VISUALIZAR!!</strong>
         </Alert>
@@ -118,6 +119,17 @@ const Carrito = () => {
                     {calculateTotalPrice()}
                   </Typography>
                 </TableCell>
+              </TableRow>
+              <TableRow>
+
+              <TableCell colSpan={3} align="right">
+                  <Typography variant="h6">Pagar ya </Typography>
+                </TableCell>
+                
+                <TableCell align='right'>
+                  <EnvioCarrito/>
+                </TableCell>
+
               </TableRow>
             </TableBody>
           </Table>

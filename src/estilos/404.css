@@ -1,0 +1,34 @@
+.nfp-body {
+    background-color:#1a170e;
+    height: 100%;
+    width: 100%;
+    padding: 100px;
+}
+
+.nfp-body-two {
+    background-color:  #030203;
+    height: 800px;
+    width: 100%;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.nfp-body-two h1, p {
+    text-align: center;
+    font-size: 50px;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.nfp-body-two i {
+    font-size: 200px;
+    padding-top: 65px;
+    color: #215bf0;
+    padding-bottom: 100px;
+    background-color: transparent;
+}
+
+.nfp-body-two a{
+    color: #ffffff;
+    text-decoration: none;
+}

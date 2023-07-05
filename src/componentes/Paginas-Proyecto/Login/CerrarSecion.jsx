@@ -1,12 +1,10 @@
-import  { useEffect, useState } from 'react';
-import { Dominio, ApiUserExist } from '../../Tools/var';
-import { useDispatch } from 'react-redux';
-import { setUserExist } from '../../../Store/userLogin/userExist';
+import { useEffect, useState } from "react";
+import { Dominio, ApiLogout } from "../../Tools/var";
+import { setUserExist } from "../../../Store/userLogin/userExist";
+import { useDispatch } from "react-redux";
+const apiUrl = `${Dominio}/${ApiLogout}`;
 
-
-const apiUrl = `${Dominio}/${ApiUserExist}`;
-
-const UserExist = () => {
+const CerrarSesion = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
 
@@ -29,9 +27,9 @@ const UserExist = () => {
   
         const responseData = await response.json();
         setData(responseData);
-  
-        if (responseData.url) {
-          console.log("data-url=" + responseData.url);
+        
+        if (responseData && responseData.url) {
+          console.log(responseData.url)
           window.location.href = responseData.url;
         }
       } catch (error) {
@@ -55,4 +53,4 @@ const UserExist = () => {
   } 
 };
 
-export default UserExist;
+export default CerrarSesion;
