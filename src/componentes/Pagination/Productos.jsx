@@ -16,6 +16,7 @@ import { Dominio, ApiProducto } from '../Tools/var';
 const getApiData = (orden, dinero, tipo) => {
   let apiData = '';
   apiData = `${Dominio}/${ApiProducto}?p=1&name=${orden}&tags=${tipo}&price=${dinero}`;
+  console.log('api:'+apiData);
   return apiData;
 };
 
@@ -28,7 +29,7 @@ const Productos = () => {
 
   const dispatch = useDispatch();
  
-
+  
 
   useEffect(() => {
     const apiData = getApiData(orden, dinero, tipo);
@@ -39,7 +40,7 @@ const Productos = () => {
 
     fetchDataFromApi();
   }, [orden, dinero, tipo]);
-
+ 
   const handleAddToCart = (id, name,price,image,quantity) => {
       const producto = { id, name ,price,image,quantity};
       dispatch(addToCart(producto));
@@ -47,7 +48,7 @@ const Productos = () => {
   };
 
 
- 
+  
 
 
   return (
