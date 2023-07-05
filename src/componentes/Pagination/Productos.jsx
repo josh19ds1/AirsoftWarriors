@@ -7,22 +7,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
 import {Button} from '@mui/material'
 import { Dominio, ApiProducto } from '../Tools/var';
 
 
-const getApiData = (ordenValue, dineroValue, tipoValue) => {
+const getApiData = (orden, dinero, tipo) => {
   let apiData = '';
-  apiData = `${Dominio}/${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
+  apiData = `${Dominio}/${ApiProducto}?p=1&name=${orden}&tags=${tipo}&price=${dinero}`;
   return apiData;
 };
 
-const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
+const Productos = () => {
   const [data, setData] = useState(null);
   const colors = ['#EB965D', '#79EB5D', '#B5EB5D', '#5DEBA7'];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const { orden, dinero, tipo } = useSelector((state) => state.listaDeCheck);
 
 
   const dispatch = useDispatch();
@@ -30,14 +31,14 @@ const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
 
 
   useEffect(() => {
-    const apiData = getApiData(ordenValue, dineroValue, tipoValue);
+    const apiData = getApiData(orden, dinero, tipo);
     const fetchDataFromApi = async () => {
       const responseData = await fetchData(apiData);
       setData(responseData);
     };
 
     fetchDataFromApi();
-  }, [ordenValue, dineroValue, tipoValue]);
+  }, [orden, dinero, tipo]);
 
   const handleAddToCart = (id, name,price,image,quantity) => {
       const producto = { id, name ,price,image,quantity};

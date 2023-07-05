@@ -1,9 +1,8 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import "../../estilos/Perfil.css"
 import "../../Imagenes/portada.png"
 import { Dominio,ApiPerfil } from '../Tools/var'
-import UserExist from './Login/UserExist'
 
 
 const Perfil = () => {
