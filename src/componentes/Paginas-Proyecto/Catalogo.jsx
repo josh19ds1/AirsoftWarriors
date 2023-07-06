@@ -1,7 +1,8 @@
 import React from 'react'
-import ListaDeCheck from '../Pagination/ListaDeCheck'
+
 import Productos from '../Pagination/Productos'
 import { Container } from '@mui/material'
+import OrdenaMiento from '../Pagination/OrdenaMiento'
 
 
 const Catalogo = () => {
@@ -14,11 +15,10 @@ const Catalogo = () => {
 
   return (
 
-    <div style={{
-      display:'flex',
+    <div
     
-      }}>
-    <ListaDeCheck    />
+      >
+        <OrdenaMiento/>
 
       <Container  sx={{
         position:'relative',
