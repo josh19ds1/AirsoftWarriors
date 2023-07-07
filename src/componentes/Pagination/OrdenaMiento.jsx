@@ -56,9 +56,9 @@ const OrdenaMiento = () => {
   return (
     <div>
       <Box sx={{ width: '100%' }}>
-        <AppBar position="static" sx={{ background: '#0A1D4D', m: 0, p: 1 }}>
-          <Toolbar sx={{ p: 0, display: 'flex',justifyContent:'space-around', alignItems: 'baseline' }}>
-            <Accordion sx={{ m: 0, background: '#2057E7' }}>
+        <AppBar position="static" sx={{ background: '#0A1D4D', m: 0, p:0 }}>
+          <Toolbar sx={{ p: 0, display: 'flex',justifyContent:'space-around', alignItems: 'baseline',flexGrow:'0' }}>
+            <Accordion  sx={{ m: 0, background: '#2057E7' }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
