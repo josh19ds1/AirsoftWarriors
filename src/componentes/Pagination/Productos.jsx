@@ -127,8 +127,8 @@ const Productos = () => {
                       width: isMobile ? '100%' : '',
                       fontSize: isMobile ? '2rem' : 20,
                       fontFamily: '"Rubik", sans-serif',
-                      ml:isMobile? 7:16,
-                      textAlign: 'match-parent',
+                      ml:isMobile? 1:15,
+                      
                       color: '#010101'
                     }}
                   >{producto.id_category}</Typography>
@@ -177,7 +177,7 @@ const Productos = () => {
                     height: isMobile ? 'auto' : '50',
                     position: 'relative',
                     left: isMobile ? '2vh' : '28vh',
-                    bottom:isMobile?'':'5vh',
+                    bottom:isMobile?'':'7vh',
                     background: '#2057E7',
                     mb:1,
                
