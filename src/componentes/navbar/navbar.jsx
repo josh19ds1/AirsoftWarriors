@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import React from 'react'
-import '../../estilos/navbar.css'
+import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   AppBar,
   Container,
@@ -11,62 +11,93 @@ import {
   Avatar,
   Box,
   Menu,
-  Tooltip
-  
-} from '@mui/material'
-import MenuItem from '@mui/material/MenuItem'
-import StoreIcon from '@mui/icons-material/Store'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import SubMenu from './SubMenuNavBar/SubMenu'
-import EmpName from './SubMenuNavBar/EmpName'
-import CarritoNav from './SubMenuNavBar/CarritoNav'
-import { useSelector } from 'react-redux'
+  Tooltip,
+} from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import StoreIcon from '@mui/icons-material/Store';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import SubMenu from './SubMenuNavBar/SubMenu';
+import EmpName from './SubMenuNavBar/EmpName';
+import CarritoNav from './SubMenuNavBar/CarritoNav';
+import { useSelector } from 'react-redux';
+import '../../estilos/font.css';
+import { Dominio, ApiPerfil } from '../Tools/var';
+import CerrarSesion from '../Paginas-Proyecto/Login/CerrarSecion';
+import { setUserExist } from '../../Store/userLogin/userExist';
 
+const apiUrl = `${Dominio}/${ApiPerfil}`;
 
-const settings = ['Perfil', 'Carrito', 'Cerrar Sesion']
-
+const settings = ['Perfil', 'Carrito', 'Cerrar Sesión'];
 
 function NavBar() {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [data, setData] = useState({});
+  const dispatch = useDispatch();
 
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
- 
-  const userExist =  useSelector(state=>state.user.userExist);
+  const userExist = useSelector((state) => state.user.userExist);
+  useEffect(() => {
+    if (userExist) {
+      const fetchDataFromApi = async () => {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            redirect: 'follow',
+          });
 
-  console.log(userExist);
- 
+          if (!response.ok) {
+            throw new Error(`Request failed with status ${response.status}`);
+          }
 
+          const responseData = await response.json();
+          setData(responseData);
+
+          if (responseData.url) {
+            console.log('data-url=' + responseData.url);
+            window.location.href = responseData.url;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      fetchDataFromApi();
+    }
+  }, [userExist]);
+
+  // funciones que maneja el navBar
+  const handleLogout = () => {
+    dispatch(setUserExist(false));
+  };
 
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
+    setAnchorElUser(null);
+  };
 
   return (
-    //contenedor del navBar
-    <AppBar position="static" sx={{ backgroundColor: '#12644c' }}>
-     
+    <AppBar position="static" sx={{ backgroundColor: '#215bf0' }}>
       <Container maxWidth="xl">
-        {/* Primer menu */}
         <Toolbar disableGutters>
+          {/* Primer menú */}
           <Box
             sx={{
               flexGrow: 2,
               display: { xs: 'flex', md: 'none' },
               justifyContent: 'initial',
+              fontFamily: '"Rubik", sans-serif',
             }}
           >
-            {/* //Primer menu */}
             <SubMenu />
           </Box>
-          {/* Primer menu del mobile*/}
 
-
-          {/* aqui se mostrara el nombre del negocio*/}
-          <StoreIcon
-            sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-          />
+          {/* Nombre del negocio */}
+          <StoreIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -79,46 +110,51 @@ function NavBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontFamily: '"Rubik", sans-serif',
             }}
           >
             Airsoft warrior
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <EmpName />
           </Box>
 
-
-
-          {/* segundo menu donde mostrara el avatar en caso de no estar iniciado */}
+          {/* Segundo menú */}
           <Box sx={{ flexGrow: 0 }}>
-            {/* se evalua se existe el usuario  */}
-        
             {userExist ? (
-            <>
-               <CarritoNav/>
-              
-              <Tooltip title="Configuración">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  <ArrowDropDownIcon />
-                </IconButton>
-              </Tooltip>
-             
+              <>
+                <CarritoNav />
+
+                {/* Avatar y menú desplegable */}
+                {data && data.name && (
+                  <Tooltip title={data.name}>
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      <Avatar alt={data.name} src={data.image_url.url} />
+                      <ArrowDropDownIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
+
               </>
             ) : (
-              <Button component={Link} to="/login" sx={{ color: 'white' }}>
+              <Button
+                component={Link}
+                to="/login"
+                sx={{ color: 'white', fontFamily: '"Rubik", sans-serif' }}
+              >
                 Iniciar sesión
               </Button>
             )}
 
-            {/* Aqui se desplegara las navegaciones del usuario conectado */}
+            {/* Menú desplegable */}
             <Menu
-
               PaperProps={{
                 sx: {
                   padding: 0,
-                  background: '#12644c',
+                  background: '#215bf0',
                   color: '#ffff',
+                  fontFamily: '"Rubik", sans-serif',
                 },
               }}
               id="menu-appbar"
@@ -139,17 +175,26 @@ function NavBar() {
                 <MenuItem
                   key={setting}
                   onClick={handleCloseUserMenu}
-                  sx={{ justifyContent: 'center', width: 95 }}
-
+                  sx={{ justifyContent: 'center', 
+                  
+                  width: 'auto' }}
                 >
-                  <Link
-                    to={`/${setting}`}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    <Typography sx={{ width: 75, textAlign: 'center' }}>
-                      {setting}
-                    </Typography>
-                  </Link>
+                  {/* Renderizar el botón de cerrar sesión en "Cerrar Sesión" */}
+                  {setting === 'Cerrar Sesión' ? (
+                    <Button onClick={handleLogout} sx={{ color: 'white' }}>
+                      Cerrar sesión
+                      <CerrarSesion/>
+                    </Button>
+                  ) : (
+                    <Link
+                      to={`/${setting}`}
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      <Typography sx={{ width: 75, textAlign: 'center' }}>
+                        {setting}
+                      </Typography>
+                    </Link>
+                  )}
                 </MenuItem>
               ))}
             </Menu>
@@ -157,7 +202,7 @@ function NavBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
