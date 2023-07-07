@@ -10,7 +10,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
 import { Button, useMediaQuery, useTheme, } from '@mui/material'
-import { Dominio, ApiProducto } from '../Tools/var';
+import { Dominio, ApiProducto} from '../Tools/var';
+
+
 
 
 const getApiData = (orden, dinero, tipo) => {
@@ -24,41 +26,34 @@ const Productos = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [data, setData] = useState(null);
- 
- 
   const { orden, dinero, tipo } = useSelector((state) => state.listaDeCheck);
-
-
   const dispatch = useDispatch();
 
-
-
+//Productos
   useEffect(() => {
     const apiData = getApiData(orden, dinero, tipo);
     const fetchDataFromApi = async () => {
       const responseData = await fetchData(apiData);
       setData(responseData);
     };
-
     fetchDataFromApi();
   }, [orden, dinero, tipo]);
 
   const handleAddToCart = (id, name, price, image, quantity) => {
     const producto = { id, name, price, image, quantity };
     dispatch(addToCart(producto));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   };
 
 
 
-
-
   return (
     <>
-      <Grid container spacing={1} justifyContent="center">
+      <Grid container spacing={1} justifyContent="center" >
         <Suspense fallback={<div>Loading....</div>}>
           {data?.map((producto) => (
-            <Grid item xs={4} sm={3} md={3} lg={3} key={producto.id} >
+            <Grid item xs={4} sm={2} md={3} lg={3} key={producto.id}  >
               <Card
                 sx={{
                   width: isMobile ? '13vh' : '43vh',
