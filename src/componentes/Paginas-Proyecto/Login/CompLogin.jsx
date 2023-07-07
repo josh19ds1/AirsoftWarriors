@@ -45,7 +45,7 @@ const CompLogin = () => {
         fontSize: '20px',
         borderRadius: '3px',
         padding: '15px',
-        marginLeft: '26.5%',
+        marginLeft: '34.5%',
         color: '#ffff',
         background: '#E67D06'
       }}

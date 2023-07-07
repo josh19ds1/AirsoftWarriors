@@ -32,3 +32,25 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+@media (max-width: 650px) {
+    .nfp-body-two h1, p {
+        text-align: center;
+        font-size: 2.7rem;
+        color: #ffffff;
+        background-color: transparent;
+    }
+    
+    .nfp-body-two i {
+        font-size: 15rem;
+        padding-top: 65px;
+        color: #215bf0;
+        padding-bottom: 100px;
+        background-color: transparent;
+    }
+    
+    .nfp-body-two a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+}

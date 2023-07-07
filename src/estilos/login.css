@@ -84,7 +84,8 @@
     background-color: #E3600D;
     border-radius: 5px;
     padding: 15px 100px 15px 100px;
-    margin-left: 33%;
+    margin-left: 38.5%;
+    cursor: pointer;
 }
 
 .p-register {
@@ -95,6 +96,7 @@
 .a-register {
     text-decoration: none;
     color: #E3600D;
+    cursor: pointer;
 }
 
 @media (max-width: 650px) {
