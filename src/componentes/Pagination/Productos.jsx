@@ -7,139 +7,186 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Store/carrito/carritoSlice';
-import {Button} from '@mui/material'
+import { Button, useMediaQuery, useTheme, } from '@mui/material'
 import { Dominio, ApiProducto } from '../Tools/var';
 
 
-const getApiData = (ordenValue, dineroValue, tipoValue) => {
+const getApiData = (orden, dinero, tipo) => {
   let apiData = '';
-  apiData = `${Dominio}/${ApiProducto}?p=1&name=${ordenValue}&tags=${tipoValue}&price=${dineroValue}`;
+  apiData = `${Dominio}/${ApiProducto}?p=1&name=${orden}&tags=${tipo}&price=${dinero}`;
+
   return apiData;
 };
 
-const Productos = ({ ordenValue, dineroValue, tipoValue }) => {
+const Productos = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [data, setData] = useState(null);
-  const colors = ['#EB965D', '#79EB5D', '#B5EB5D', '#5DEBA7'];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+ 
+ 
+  const { orden, dinero, tipo } = useSelector((state) => state.listaDeCheck);
 
 
   const dispatch = useDispatch();
- 
+
 
 
   useEffect(() => {
-    const apiData = getApiData(ordenValue, dineroValue, tipoValue);
+    const apiData = getApiData(orden, dinero, tipo);
     const fetchDataFromApi = async () => {
       const responseData = await fetchData(apiData);
       setData(responseData);
     };
 
     fetchDataFromApi();
-  }, [ordenValue, dineroValue, tipoValue]);
+  }, [orden, dinero, tipo]);
 
-  const handleAddToCart = (id, name,price,image,quantity) => {
-      const producto = { id, name ,price,image,quantity};
-      dispatch(addToCart(producto));
-      
+  const handleAddToCart = (id, name, price, image, quantity) => {
+    const producto = { id, name, price, image, quantity };
+    dispatch(addToCart(producto));
+
   };
 
 
- 
+
 
 
   return (
     <>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={1} justifyContent="center">
         <Suspense fallback={<div>Loading....</div>}>
           {data?.map((producto) => (
-            <Grid item xs={12} sm={6} md={3} key={producto.id}>
+            <Grid item xs={4} sm={3} md={3} lg={3} key={producto.id} >
               <Card
                 sx={{
-                  maxWidth: 260,
-                  ml: 1,
-                  borderRadius: 5,
-                  background: '#',
+                  width: isMobile ? '13vh' : '43vh',
+                  height: isMobile ? 'auto' : 'auto',
+                  ml: 0,
+                  borderRadius: 2,
+                  background: '#B4C7F7',
                   textDecoration: 'none'
                 }}
               >
-                <Link to={`/DescripcionProducto/${producto.id}` } style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <CardActionArea sx={{ background: randomColor ,textDecoration: 'none'}}>
-                    <Typography
-                      gutterBottom
-                      variant="h1"
-                      component="div"
-                      textAlign="center"
-                      sx={{
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                        textDecoration: 'none',
-                        color: '#0F0A0F',
-                        fontSize: 35,
-                      }}
-                    >
-                      {producto.name}
-                    </Typography>
+                <Link to={`/DescripcionProducto/${producto.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <CardActionArea sx={{ textDecoration: 'none', background: '#ffff', height: isMobile ? '14vh' : '30vh' }}>
+
                     <CardMedia
                       component="img"
                       image={producto.image_url.url}
                       alt={producto.description}
                       sx={{
-                        width: 181,
-                        height: 130,
+
+                        width: isMobile ? '12vh' : '100%',
+                        height: isMobile ? '8vh' : '100%',
                         position: 'relative',
-                        left: 34,
+                        left: isMobile ? '0.5vh' : 0.5,
+                    
                       }}
                     />
-                    <Typography
-                      variant="body2"
-                      component="p"
-                      color="text.secondary"
-                      sx={{
-                        m: (0, 2, 0, 2),
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        
-                        textDecoration: 'none',
-                      }}
-                    >
-                      {producto.description}
-                    </Typography>
+
                   </CardActionArea>
                 </Link>
-                <CardContent>
-                  <Typography variant="h6" component="h5" sx={{ fontSize: 20 }}>
-                    Precio:
+                <CardContent sx={{ p: 0, m: 0, width: isMobile ? '100%' : '100%' }}>
+
+
+                  <Typography
+                    gutterBottom
+                    variant="h1"
+                    component="div"
+                    textAlign="center"
+                    sx={{
+                      height: isMobile ? '4.5vh' : '10vh',
+                      overflow: 'hidden',
+                      color: 'black',
+                      justifyContent: 'initial',
+                      fontFamily: '"Rubik", sans-serif',
+                      fontSize: isMobile ? '1.5rem' : '1.5rem',
+                    
+
+                    }}
+                  >
+                    {producto.name}
                   </Typography>
-                  <Typography component="p">{producto.price}</Typography>
+
                 </CardContent>
-                <CardContent>
-                  <Typography variant="h6" component="h5" sx={{ fontSize: 20 }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Typography variant="h6"
+                    sx={{
+                      width: isMobile ? '100%' : '100%',
+                      fontSize: isMobile ? '1.5rem' : 20,
+                      fontFamily: '"Rubik", sans-serif',
+                  
+
+                    }}>
                     Categoria:
                   </Typography>
-                  <Typography component="p">{producto.id_category}</Typography>
+                  <Typography component="p"
+                    sx={{
+                      width: isMobile ? '100%' : '',
+                      fontSize: isMobile ? '2rem' : 20,
+                      fontFamily: '"Rubik", sans-serif',
+                      ml:isMobile? 1:15,
+                      
+                      color: '#010101'
+                    }}
+                  >{producto.id_category}</Typography>
+
+                  <Typography variant="h6"
+                    sx={{
+                      fontSize: isMobile ? '1.5rem' : 20,
+                      fontFamily: '"Rubik", sans-serif',
+                    }}>
+                    Precio:
+                  </Typography>
+                  <Typography component="p"
+                    sx={{
+                      fontSize: isMobile ? '2rem' : '1.5rem',
+                      color: '#010101',
+                      textAlign:'initial',
+                      ml:isMobile?'1vh':'2vh',
+                      fontFamily: '"Rubik", sans-serif',
+                    }}
+                  >{producto.price}$ 
+                  <Typography component="span"
+                  sx={{
+                    fontSize:isMobile?'1rem':'',
+                    fontFamily: '"Rubik", sans-serif',
+                    ml:1,
+                    color:'black',
+                    opacity:.5
+                  }}
+                  >
+                      NO ITBMS
+                  </Typography>
+                 
+                  
+                  </Typography>
+
+
                 </CardContent>
+
+
+
                 <Button
                   variant='primary'
-                  onClick={() => handleAddToCart(producto.id, producto.name,producto.price,producto.image_url.url,1)}
+                  onClick={() => handleAddToCart(producto.id, producto.name, producto.price, producto.image_url.url, 1)}
                   sx={{
-                      width:50,
-                      height:50,
-                      position:'relative',
-                      bottom:80,
-                      left:150,
-                      borderRadius:'50%',
-                      background:'#5DEBA7'
+                    width: isMobile ? '9vh' : '50',
+                    height: isMobile ? 'auto' : '50',
+                    position: 'relative',
+                    left: isMobile ? '2vh' : '28vh',
+                    bottom:isMobile?'':'7vh',
+                    background: '#2057E7',
+                    mb:1,
+               
 
-
-                  }}  
+                  }}
                 >
                   <AddShoppingCartIcon
                     sx={{
-                      color: 'black',
+                      color: '#ffff',
                     }}
                   />
                 </Button>

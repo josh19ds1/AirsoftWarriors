@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import "../../estilos/Perfil.css";
-import prueba from "../../Imagenes/portada.png";
-import { Dominio, ApiPerfil } from '../Tools/var';
+import React from 'react'
+import { useState } from 'react'
+import "../../estilos/Perfil.css"
+import "../../Imagenes/portada.png"
+
+import { Dominio, ApiPerfil } from '../Tools/var'
+import UserExist from './Login/UserExist'
+
 
 const Perfil = () => {
   const [perfil, setPerfil] = useState([]);
