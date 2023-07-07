@@ -97,13 +97,13 @@ const Productos = () => {
                     component="div"
                     textAlign="center"
                     sx={{
-                      height: isMobile ? '3vh' : '10vh',
+                      height: isMobile ? '3vh' : '12vh',
                       overflow: 'hidden',
                       color: 'black',
                       justifyContent: 'initial',
                       fontFamily: '"Rubik", sans-serif',
                       fontSize: isMobile ? '1.5rem' : '1.5rem',
-                    
+                     
 
                     }}
                   >
