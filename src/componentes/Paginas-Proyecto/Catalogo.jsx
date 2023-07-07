@@ -1,42 +1,24 @@
-import React, { useState } from 'react'
-import ListaDeCheck from '../Pagination/ListaDeCheck'
+import React from 'react'
+
 import Productos from '../Pagination/Productos'
 import { Container } from '@mui/material'
+import OrdenaMiento from '../Pagination/OrdenaMiento'
 
 
 const Catalogo = () => {
 
-  const [ordenValue, setOrdenValue] = useState('');
-  const [dineroValue, setDineroValue] = useState('');
-  const [tipoValue, setTipoValue] = useState('');
-
-  const handleToggleOrden = (group, value) => {
-    setOrdenValue(value);
-  };
-
-  const handleToggleDinero = (group, value) => {
-    setDineroValue(value);
-  };
-
-  const handleToggleTipo = (group, value) => {
-    setTipoValue(value);
-  };
   
+
 
 
 
 
   return (
 
-    <div style={{
-      display:'flex',
+    <div
     
-      }}>
-    <ListaDeCheck 
-          handleToggleOrden={handleToggleOrden}
-          handleToggleDinero={handleToggleDinero}
-          handleToggleTipo={handleToggleTipo}
-        />
+      >
+        <OrdenaMiento/>
 
       <Container  sx={{
         position:'relative',
@@ -46,10 +28,6 @@ const Catalogo = () => {
 
       
         <Productos
-          ordenValue={ordenValue}
-          dineroValue={dineroValue}
-          tipoValue={tipoValue}
-
         />
 
    
