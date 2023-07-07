@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "../../estilos/Perfil.css"
-import "../../Imagenes/portada.png"
+import prueba from "../../Imagenes/portada.png"
 import { Dominio, ApiPerfil } from '../Tools/var'
 
 const Perfil = () => {

@@ -101,7 +101,8 @@
 
 @media (max-width: 650px) {
     .btn-login-google {
-        max-width: 200px;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .line-login{
