@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
+
 import {
   Divider,
   FormControl,
@@ -10,27 +11,20 @@ import {
 import { Box } from "@mui/system";
 import  fetchData  from '../Service/feetchApi';
 import { Dominio,ApiCategorias } from '../Tools/var';
-
+import { useDispatch, useSelector} from 'react-redux';
+import {setOrden,setDinero,setTipo} from '../../Store/checks/Checks'
 
 
 const apiData = `${Dominio}/${ApiCategorias} `;
 
-const ListaDeCheck = ({
-  handleToggleOrden,
-  handleToggleDinero,
-  handleToggleTipo
-}) => {
-  const [orden, setOrden] = useState('Normal');
-  const [dinero, setDinero] = useState('Normal');
-  const [tipo, setTipo] = useState('Normal');
-  const [data, setData] = useState(null);
-
+const ListaDeCheck = () => {
+  const [data,setData] = useState(null);
+  const dispatch = useDispatch();
+  const { orden, dinero, tipo } = useSelector((state) => state.listaDeCheck);
 
   useEffect(() => {
-
-     // Asignar los valores iniciales a las variables correspondientes
-     setOrden(''); // Establecer el valor inicial para el orden
-     setDinero(''); // Establecer el valor inicial para el dinero
+     setOrden('');
+     setDinero('');
      setTipo('all'); // Establecer el valor inicial para el tipo (en este caso, "all")
  
     const fetchDataFromApi = async () => {
@@ -46,20 +40,22 @@ const ListaDeCheck = ({
     fetchDataFromApi();
   }, []);
 
+
   const handleChangeOrden = (event) => {
-    setOrden(event.target.value);
-    handleToggleOrden('Orden', event.target.value);
+    const value = event.target.value;
+    dispatch(setOrden(value));
   };
-
+  
   const handleChangeDinero = (event) => {
-    setDinero(event.target.value);
-    handleToggleDinero('Dinero', event.target.value);
+    const value = event.target.value;
+    dispatch(setDinero(value));
   };
-
+  
   const handleChangeTipo = (event) => {
-    setTipo(event.target.value);
-    handleToggleTipo('Tipo', event.target.value);
+    const value = event.target.value;
+    dispatch(setTipo(value));
   };
+  
 
   return (
     <Box

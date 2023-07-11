@@ -18,7 +18,7 @@ import Carrito from "./componentes/Paginas-Proyecto/CarritoDeCompras/Carrito";
 import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
 import Success from "./componentes/Paginas-Proyecto/CarritoDeCompras/Success";
 import Failed from "./componentes/Paginas-Proyecto/CarritoDeCompras/Failed";
-import NotFoundPage from "./componentes/NotFoundPage/404";
+import NotFoundPage from "./componentes/NotFoundPage/NotPage404";
 
 
 function App() {
@@ -29,26 +29,30 @@ function App() {
     <main>
 
 
-      <UserExist/>
+      <UserExist />
 
       <NavBar />
-      <Routes>
-        <Route path='/' element={<Inicio />} />
-        <Route path='/Eventos' element={<Eventos />} />
-        <Route path='/Evento' element={<Evento />} />
-        <Route path='/Catalogo' element={<Catalogo />} />
-        <Route path='/Tutores' element={<Tutores />} />
-        <Route path='/Ranking' element={<Ranking />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Carrito' element={<Carrito />} />
-        <Route path='/Registrar' element={<Registrar />} />
-        <Route path='/Perfil' element={<Perfil />} />
-        <Route path='/DescripcionProducto/:id' Component={DescripProducto} />
-        <Route path='/Success' element={<Success />} />
-        <Route path='/Failed' element={<Failed />} />
-        <Route path='/404' element={<NotFoundPage />} />
-      </Routes>
 
+
+
+
+
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/Evento" element={<Evento />} />
+        <Route path="/Catalogo" element={<Catalogo />} />
+        <Route path="/Tutores" element={<Tutores />} />
+        <Route path="/Ranking" element={<Ranking />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Carrito" element={<Carrito />} />
+        <Route path="/Registrar" element={<Registrar />} />
+        <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/DescripcionProducto/:id" element={<DescripProducto />} />
+        <Route path="/Success" element={<Success />} />
+        <Route path="/Failed" element={<Failed />} />
+        {/* Ruta para todas las demás rutas */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
 
       <Footer />
 
