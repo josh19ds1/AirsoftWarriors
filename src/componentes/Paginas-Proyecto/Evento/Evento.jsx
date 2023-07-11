@@ -148,7 +148,7 @@ const Evento = () => {
         <div className="box-container">
           <div className="box">
             <h3 className="title">Package 1</h3>
-            <h3 className="amount">$250.99</h3>
+            <h3 className="amount">$69.99</h3>
             <ul>
               <li><i className="fa fa-check"></i>Full services</li>
               <li><i className="fa fa-check"></i>Full services</li>
@@ -161,7 +161,7 @@ const Evento = () => {
 
           <div className="box">
             <h3 className="title">Package 2</h3>
-            <h3 className="amount">$250.99</h3>
+            <h3 className="amount">$99.99</h3>
             <ul>
               <li><i className="fa fa-check"></i>Full services</li>
               <li><i className="fa fa-check"></i>Full services</li>

@@ -3,6 +3,14 @@
 :root{
     --main-color:#f3a20d;
     --main-color2:#3867d6;
+    --btn-color:#215bf0;
+    --btn-color2:#252939;
+    --text-color: #ffffff;
+    --bg-color: #0a0a0b;
+    --text2-color: #b84a22;
+    --text3-color: #4b7794;
+    --bg-color2: #030203;
+    --bg-color3: #333;
 }
 
 
@@ -18,7 +26,7 @@ section{
     padding: .8rem 3rem;
     font-size: 1.7rem;
     border-radius: .5rem;
-    background: #666;
+    background: var(--btn-color);
     color: #fff;
     cursor: pointer;
     font-weight: 600;
@@ -26,7 +34,7 @@ section{
 }
 
 .btn:hover{
-    background: var(--main-color);
+    background: var(--btn-color2);
 }
 
 /* Bottom CSS Ends */
@@ -49,7 +57,7 @@ section{
 }
 
 .home .content h3 span{
-    color: var(--main-color);
+    color: var(--btn-color);
     text-transform: uppercase;
     
 }
@@ -80,7 +88,7 @@ section{
 }
 
 .heading span{
-    color: var(--main-color);
+    color: var(--btn-color);
     text-transform: uppercase;
 
 }
@@ -105,7 +113,7 @@ section{
     line-height: 6rem;
     border-radius: 50%;
     font-size: 2.5rem;
-    background: var(--main-color);
+    background: var(--btn-color);
     color: #fff;
 
 }
@@ -207,14 +215,14 @@ section{
     font-size: 2rem;
 }
 
-.gallery .box-container .box:hover .title{
+/* .gallery .box-container .box:hover .title{
     top: 0;
 }
 
 
 .gallery .box-container .box .icons a:hover{
     color: var(--main-color);
-}
+} */
 
 /* Gallery section Ends */
 
@@ -240,7 +248,7 @@ section{
 }
 
 .price .box-container .box .title{
-    background: var(--main-color);
+    background: var(--btn-color);
     color: #fff;
     padding: 1.5rem 0;
     font-size: 2rem;
@@ -266,7 +274,7 @@ section{
 }
 
 .price .box-container .box ul li i{
-    color: var(--main-color);
+    color: var(--btn-color);
     padding-right: .5rem;
 }
 
