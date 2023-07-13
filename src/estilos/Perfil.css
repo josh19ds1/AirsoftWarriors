@@ -73,3 +73,13 @@
     font-weight: bolder;
     list-style: none;
 }
+
+@media (max-width: 650px) {
+    .square-photo{
+        width: 150px;
+    border-radius: 5px;
+    flex: 1;
+    margin: 10%;
+    }
+    /*aq2*/
+}
