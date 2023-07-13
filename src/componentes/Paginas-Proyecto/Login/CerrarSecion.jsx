@@ -20,14 +20,14 @@ const CerrarSesion = () => {
           credentials: 'include',
           redirect: 'follow',
         });
-  
+
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }
-  
+
         const responseData = await response.json();
         setData(responseData);
-        
+        console.log(responseData);
         if (responseData && responseData.url) {
           console.log(responseData.url)
           window.location.href = responseData.url;
@@ -43,14 +43,14 @@ const CerrarSesion = () => {
 
 
   if (data && typeof data.isSuccess === 'boolean') {
-   
-   
+
+
     if (data.isSuccess) {
       dispatch(setUserExist(true));
     } else {
       dispatch(setUserExist(false))
     }
-  } 
+  }
 };
 
 export default CerrarSesion;
