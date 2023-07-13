@@ -133,7 +133,8 @@
     border-color: #E3600D;
     border-radius: 17px;
     padding: 15px 90px 15px 90px;
-    margin-left: 35.5%;
+    margin-left: 37.5%;
+    cursor: pointer;
 }
 
 .p-register {
