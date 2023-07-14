@@ -24,10 +24,10 @@ const CerrarSesion = () => {
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }
-
+        console.log('pase2')
         const responseData = await response.json();
         setData(responseData);
-        console.log(responseData);
+        console.log('res:'+responseData);
         if (responseData && responseData.url) {
           console.log(responseData.url)
           window.location.href = responseData.url;
