@@ -8,7 +8,7 @@ const apiUrl = `https://nodejs-restapi-airsoft-warrior-production-8daf.up.railwa
 const CerrarSesion = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
-  console.log(data.url)
+  console.log(apiUrl)
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
