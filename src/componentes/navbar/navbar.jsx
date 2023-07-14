@@ -69,10 +69,7 @@ function NavBar() {
   }, [userExist]);
 
   // funciones que maneja el navBar
-  const handleLogout = () => {
-    CerrarSesion();
-    dispatch(setUserExist(false));
-  };
+ 
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -182,10 +179,9 @@ function NavBar() {
                 >
                   {/* Renderizar el botón de cerrar sesión en "Cerrar Sesión" */}
                   {setting === 'Cerrar Sesión' ? (
-                    <Button onClick={handleLogout} sx={{ color: 'white' }}>
-                      Cerrar sesión
-                      <CerrarSesion/>
-                    </Button>
+                    <Button component={Link} to="/CerrarSecion" variant="contained" color="primary">
+                    Cerrar Sesión
+                  </Button>
                   ) : (
                     <Link
                       to={`/${setting}`}

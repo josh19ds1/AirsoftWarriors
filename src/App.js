@@ -18,7 +18,7 @@ import UserExist from "./componentes/Paginas-Proyecto/Login/UserExist";
 import Success from "./componentes/Paginas-Proyecto/CarritoDeCompras/Success";
 import Failed from "./componentes/Paginas-Proyecto/CarritoDeCompras/Failed";
 import NotFoundPage from "./componentes/NotFoundPage/NotPage404";
-
+import CerrarSesion from "./componentes/Paginas-Proyecto/Login/CerrarSecion";
 
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
         <Route path="/DescripcionProducto/:id" element={<DescripProducto />} />
         <Route path="/Success" element={<Success />} />
         <Route path="/Failed" element={<Failed />} />
+        <Route path="/CerrarSecion" element={<CerrarSesion />} />
         {/* Ruta para todas las demás rutas */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
