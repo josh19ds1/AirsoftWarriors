@@ -39,10 +39,11 @@ const CerrarSesion = () => {
   if (data && typeof data.isSuccess === 'boolean') {
 
     if (data.isSuccess) {
-
-      dispatch(setUserExist(true));
-    } else {
-   
+        console.log('verdadero')
+        dispatch(setUserExist(true));
+      } else {
+        console.log('falso')
+        
       dispatch(setUserExist(false))
     }
   }
