@@ -13,7 +13,7 @@ const CerrarSesion = () => {
     const fetchDataFromApi = async () => {
       try {
         const response = await fetch(apiUrl, {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -40,7 +40,7 @@ const CerrarSesion = () => {
     fetchDataFromApi();
   }, []);
 
-
+console.log("data tiene "+data );
 console.log('sali del fetch')
   if (data && typeof data.isSuccess === 'boolean') {
 
