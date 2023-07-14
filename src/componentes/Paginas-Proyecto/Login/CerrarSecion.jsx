@@ -38,6 +38,9 @@ const CerrarSesion = () => {
     if (data.isSuccess === false) {
       dispatch(setUserExist(true));
       window.location.href = data.url;
+    }else{
+      dispatch(setUserExist(false));
+      window.location.href = data.url;
     }
     
   }
