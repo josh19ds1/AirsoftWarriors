@@ -17,30 +17,35 @@ const CerrarSesion = () => {
           credentials: 'include',
         
         });
-
+          console.log('1');
         if (!response.ok) {
+          console.log('2');
           throw new Error(`Request failed with status ${response.status}`);
         }
 
         const responseData = await response.json();
         setData(responseData);
-
+        console.log('3');
         if (responseData.url) {
           console.log("data-url=" + responseData.url);
           window.location.href = responseData.url;
         }
       } catch (error) {
+        console.log('4');
         console.log(error);
       }
     };
-
+    console.log('5');
     fetchDataFromApi();
   }, []);
 
   if (data && typeof data.isSuccess === 'boolean') {
+    console.log('6');
     if (data.isSuccess) {
+      console.log('7');
       dispatch(setUserExist(true));
     } else {
+      console.log('8');
       dispatch(setUserExist(false))
     }
   }
