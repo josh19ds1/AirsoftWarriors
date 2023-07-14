@@ -84,9 +84,9 @@ const OrdenaMiento = () => {
                   onChange={handleChangeOrden}
                   name="orden-group"
                 >
-                  <FormControlLabel value="" control={<Radio />} label="Normal" />
-                  <FormControlLabel value="1" control={<Radio />} label="A-Z" />
-                  <FormControlLabel value="0" control={<Radio />} label="Z-A" />
+                  <FormControlLabel value="" control={<Radio />} label="Normal" sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}} />
+                  <FormControlLabel value="1" control={<Radio />} label="A-Z" sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}/>
+                  <FormControlLabel value="0" control={<Radio />} label="Z-A" sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}/>
                 </RadioGroup>
               </AccordionDetails>
             </Accordion>
@@ -118,8 +118,8 @@ const OrdenaMiento = () => {
                   name="orden-group"
                 >
                   <FormControlLabel value="" control={<Radio />} label="Normal"  sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}/>
-                  <FormControlLabel value="1" control={<Radio />} label="1-9999" />
-                  <FormControlLabel value="0" control={<Radio />} label="9999-1" />
+                  <FormControlLabel value="1" control={<Radio />} label="1-9999"sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}} />
+                  <FormControlLabel value="0" control={<Radio />} label="9999-1" sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}/>
                 </RadioGroup>
               </AccordionDetails>
             </Accordion>
@@ -150,13 +150,14 @@ const OrdenaMiento = () => {
                   onChange={handleChangeTipo}
                   name="orden-group"
                 >
-                  <FormControlLabel value="all" control={<Radio />} label="Normal" />
+                  <FormControlLabel value="all" control={<Radio />} label="Normal" sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}/>
                   {data?.map((category) => (
                     <FormControlLabel
                       key={category.id}
                       value={category.id}
                       control={<Radio />}
                       label={category.name}
+                      sx={{ color: '#ffff',fontFamily: '"Rubik", sans-serif',}}
                     />
                   ))}
                 </RadioGroup>

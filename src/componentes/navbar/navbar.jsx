@@ -70,6 +70,7 @@ function NavBar() {
 
   // funciones que maneja el navBar
   const handleLogout = () => {
+    CerrarSesion();
     dispatch(setUserExist(false));
   };
 
