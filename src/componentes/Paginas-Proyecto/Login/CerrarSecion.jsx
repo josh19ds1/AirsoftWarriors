@@ -26,6 +26,7 @@ const CerrarSesion = () => {
         if (responseData.url) {
       
           window.location.href = responseData.url;
+          dispatch(setUserExist(false))
         }
       } catch (error) {
       
