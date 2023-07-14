@@ -36,8 +36,10 @@ const CerrarSesion = () => {
   if (data && typeof data.isSuccess === 'boolean') {
     console.log(data)
     if (data.isSuccess===true) {
-        window.location.href = data.url;
-        dispatch(setUserExist(false));
+      console.log('aqui pase')
+    
+        dispatch(setUserExist(false)); 
+           window.location.href = data.url;
     } 
   }
 
