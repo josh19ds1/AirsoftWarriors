@@ -23,11 +23,11 @@ const CerrarSesion = () => {
         const responseData = await response.json();
         setData(responseData);
   
-        if (responseData.url) {
-      
-          window.location.href = responseData.url;
-          dispatch(setUserExist(false))
-        }
+        // if (responseData.url) {
+        
+        //   window.location.href = responseData.url;
+        
+        // }
       } catch (error) {
       
         console.log(error);
@@ -38,15 +38,11 @@ const CerrarSesion = () => {
   }, []);
 
   if (data && typeof data.isSuccess === 'boolean') {
-
+    console.log(data)
     if (data.isSuccess) {
-        console.log('verdadero')
-        dispatch(setUserExist(true));
-      } else {
-        console.log('falso')
-        
-      dispatch(setUserExist(false))
-    }
+  
+        dispatch(setUserExist(false));
+    } 
   }
 
   return null; // Devuelve un componente vacío o puedes reemplazarlo con otro elemento JSX si es necesario.
