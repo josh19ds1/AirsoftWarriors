@@ -41,14 +41,22 @@ const CerrarSesion = () => {
   }, []);
 
 
-
+console.log('sali del fetch')
   if (data && typeof data.isSuccess === 'boolean') {
 
-
+      console.log('entre aqui')
     if (data.isSuccess) {
-      dispatch(setUserExist(true));
+
+      dispatch(setUserExist(false));
+
+      console.log('entre aqui2')
+
+
+
     } else {
-      dispatch(setUserExist(false))
+      dispatch(setUserExist(true))
+      console.log('entre aqui 3')
+
     }
   }
 };
