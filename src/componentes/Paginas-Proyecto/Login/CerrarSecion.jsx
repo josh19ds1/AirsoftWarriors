@@ -18,11 +18,15 @@ const CerrarSesion = () => {
         
         });
           console.log('1');
-        if (!response.ok) {
+
+
+        if (response.ok) {
           console.log('2');
            console.log('response: '+response.ok);
           throw new Error(`Request failed with status ${response.status}`);
         }
+
+
        
         const responseData = await response.json();
         setData(responseData);
