@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 import {
   AppBar,
   Container,
@@ -22,6 +22,8 @@ import CarritoNav from './SubMenuNavBar/CarritoNav';
 import { useSelector } from 'react-redux';
 import '../../estilos/font.css';
 import { Dominio, ApiPerfil } from '../Tools/var';
+import CerrarSesion from '../Paginas-Proyecto/Login/CerrarSecion';
+import { setUserExist } from '../../Store/userLogin/userExist';
 
 const apiUrl = `${Dominio}/${ApiPerfil}`;
 
@@ -30,7 +32,7 @@ const settings = ['Perfil', 'Carrito', 'Cerrar Sesión'];
 function NavBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [data, setData] = useState({});
-
+  const dispatch = useDispatch();
 
   const userExist = useSelector((state) => state.user.userExist);
   useEffect(() => {
@@ -67,7 +69,9 @@ function NavBar() {
   }, [userExist]);
 
   // funciones que maneja el navBar
- 
+  const handleLogout = () => {
+    dispatch(setUserExist(false));
+  };
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -177,9 +181,10 @@ function NavBar() {
                 >
                   {/* Renderizar el botón de cerrar sesión en "Cerrar Sesión" */}
                   {setting === 'Cerrar Sesión' ? (
-                    <Button component={Link} to="/CerrarSecion" variant="contained" color="primary">
-                    Cerrar Sesión
-                  </Button>
+                    <Button onClick={handleLogout} sx={{ color: 'white' }}>
+                      Cerrar sesión
+                      <CerrarSesion/>
+                    </Button>
                   ) : (
                     <Link
                       to={`/${setting}`}

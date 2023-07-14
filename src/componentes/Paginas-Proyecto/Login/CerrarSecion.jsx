@@ -1,31 +1,38 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Dominio, ApiLogout } from "../../Tools/var";
 import { setUserExist } from "../../../Store/userLogin/userExist";
 import { useDispatch } from "react-redux";
-
 const apiUrl = `${Dominio}/${ApiLogout}`;
 
 const CerrarSesion = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
         const response = await fetch(apiUrl, {
           method: 'GET',
-          credentials: 'include',      
-        }); 
-        if (response.ok) {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          redirect: 'follow',
+        });
+  
+        if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }
-
+  
         const responseData = await response.json();
         setData(responseData);
-  
-       
+        
+        if (responseData && responseData.url) {
+          console.log(responseData.url)
+          window.location.href = responseData.url;
+        }
       } catch (error) {
-      
         console.log(error);
       }
     };
@@ -33,15 +40,17 @@ const CerrarSesion = () => {
     fetchDataFromApi();
   }, []);
 
-  if (data && typeof data.isSuccess === 'boolean') {
-    console.log(data)
-    if (data.isSuccess===true) {
-        window.location.href = data.url;
-        dispatch(setUserExist(false));
-    } 
-  }
 
-  return null; // Devuelve un componente vacío o puedes reemplazarlo con otro elemento JSX si es necesario.
+
+  if (data && typeof data.isSuccess === 'boolean') {
+   
+   
+    if (data.isSuccess) {
+      dispatch(setUserExist(true));
+    } else {
+      dispatch(setUserExist(false))
+    }
+  } 
 };
 
 export default CerrarSesion;
