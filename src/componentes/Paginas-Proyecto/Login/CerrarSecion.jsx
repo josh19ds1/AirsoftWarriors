@@ -14,11 +14,8 @@ const CerrarSesion = () => {
       try {
         const response = await fetch('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/auth/Logout', {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
           credentials: 'include',
-          redirect: 'follow',
+        
         });
 
         if (!response.ok) {
