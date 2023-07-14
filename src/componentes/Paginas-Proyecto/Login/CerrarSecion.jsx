@@ -3,12 +3,12 @@ import { Dominio, ApiLogout } from "../../Tools/var";
 import { setUserExist } from "../../../Store/userLogin/userExist";
 import { useDispatch } from "react-redux";
 
-const apiUrl = `https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/auth/Logout`;
+const apiUrl = `${Dominio}/${ApiLogout}`;
 
 const CerrarSesion = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
-  console.log(apiUrl)
+
   useEffect(() => {
     const fetchDataFromApi = async () => {
       try {
@@ -35,14 +35,10 @@ const CerrarSesion = () => {
 
   if (data && typeof data.isSuccess === 'boolean') {
     console.log(data)
-    if (data.isSuccess === false) {
-      dispatch(setUserExist(true));
-      window.location.href = data.url;
-    }else{
-      dispatch(setUserExist(false));
-      window.location.href = data.url;
-    }
-    
+    if (data.isSuccess===true) {
+        window.location.href = data.url;
+        dispatch(setUserExist(false));
+    } 
   }
 
   return null; // Devuelve un componente vacío o puedes reemplazarlo con otro elemento JSX si es necesario.
