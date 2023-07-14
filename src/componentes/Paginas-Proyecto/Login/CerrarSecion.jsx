@@ -7,7 +7,7 @@ const apiUrl = `${Dominio}/${ApiLogout}`;
 const CerrarSesion = () => {
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
-
+ console.log('pase')
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
