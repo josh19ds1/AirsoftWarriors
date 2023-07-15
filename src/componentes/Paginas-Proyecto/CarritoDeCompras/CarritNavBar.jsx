@@ -1,4 +1,4 @@
-import { Button, CardMedia, MenuItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { useMediaQuery, useTheme,Button, CardMedia, MenuItem, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { removeFromCart } from '../../../Store/carrito/carritoSlice';
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 const CarritNavBar = () => {
   const cart = useSelector((state) => state.cart.products);
+  const theme =useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const dispatch = useDispatch();
 
   // Borrar producto
@@ -19,7 +21,7 @@ const CarritNavBar = () => {
       {cart.map((product) => (
         <MenuItem key={product.id}>
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ Width:isMobile?'15vh':250 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ color: 'black',fontFamily: '"Rubik", sans-serif'}}>Producto</TableCell>
@@ -35,8 +37,9 @@ const CarritNavBar = () => {
                       image={product.image}
                       alt={product.id}
                       sx={{
-                        width: 195,
-                        height: 75,
+                        width:isMobile?'100px' :160,
+                        height:isMobile?'auto': 75,
+                   
                       }}
                     />
                     <Typography>{product.name}</Typography>

@@ -35,6 +35,7 @@ function NavBar() {
   const dispatch = useDispatch();
 
   const userExist = useSelector((state) => state.user.userExist);
+
   useEffect(() => {
     if (userExist) {
       const fetchDataFromApi = async () => {

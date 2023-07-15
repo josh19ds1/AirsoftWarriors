@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../../../Store/carrito/carritoSlice';
-import { Alert, AlertTitle, Box, Button, CardMedia, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Alert, AlertTitle, Box, Button, CardMedia, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useMediaQuery, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -12,6 +12,8 @@ import EnvioCarrito from './EnvioCarrito';
 const Carrito = () => {
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart.products);
+  const theme =useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart({ id: productId }));
@@ -46,63 +48,99 @@ const Carrito = () => {
       ) : (
         <TableContainer component={Paper}>
           <Typography variant='h5' textAlign={'center'} >ARTICULOS EN EL CARRITO</Typography>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ Width:isMobile?'9vh': 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Producto</TableCell>
-                <TableCell align="center">Precio</TableCell>
+                <TableCell align="left">Producto</TableCell>
+                <TableCell align="right">Precio</TableCell>
                 <TableCell align="center">Cantidad</TableCell>
-                <TableCell align="center">Precio Final</TableCell>
-                <TableCell align="right">Eliminar</TableCell>
+                <TableCell align="center" sx={{p:'2px',m:0}}>Precio Final</TableCell>
+                <TableCell align="center" sx={{p:0,m:0}}>Eliminar</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {cart.map((product) => (
-                <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell align="right">
+                <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 ,} }}>
+                  <TableCell align="center" sx={{p:isMobile?1:''}}>
                     <CardMedia
                       component="img"
                       image={product.image}
                       alt={product.id}
                       sx={{
-                        width: 215,
-                        height: 95,
+                        width:isMobile?'55px': 215,
+                        height:isMobile?'35px':95,
                         margin: 0,
-                        marginRight: 5
+                        marginRight:0,
+
                       }}
                     />
-                    <Typography align="left" sx={{
+                    <Typography align="left¿" sx={{
                       marginTop: 2,
-                      position: 'relative',
-                      bottom: '76px',
-                      left: '236px',
+                      textAlign:isMobile?'center':'left',
+                      color: 'black',fontFamily: '"Rubik", sans-serif',
+                      fontSize:isMobile?'0.5rem':''
                     }}>
                       {product.name}
                     </Typography>
                   </TableCell>
-                  <TableCell align="center">
-                    <Typography>{product.price}</Typography>
+                  <TableCell align="center"
+                     sx={{p:isMobile?1:''}}
+                  >
+                    <Typography
+                    sx={{ marginTop: 1,
+                      textAlign:'center',
+                      color: 'black',fontFamily: '"Rubik", sans-serif',
+                      fontSize:isMobile?'0.8rem':'',
+                    
+                    
+                    }}
+                    
+                    >{product.price}</Typography>
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="center"  sx={{p:isMobile?1:''}}>
                     <Box sx={{
                       display: 'flex',
                       flexDirection: 'row',
                       alignContent: 'center',
                       justifyContent: 'center'
                     }}>
-                      <Button sx={{ mr: 2 }} onClick={() => handleDecreaseQuant(product.id)}>
+                      <Button sx={{ 
+                        
+                        minWidth:isMobile?'5px':'', 
+                      mr:isMobile?'0' :2,
+                     
+                     
+
+                    }} onClick={() => handleDecreaseQuant(product.id)}>
                         <RemoveIcon />
                       </Button>
-                      <Typography sx={{ margin: 0 }}>{product.quantity}</Typography>
-                      <Button sx={{ ml: 2 }} onClick={() => handleIncreaseQuant(product.id)}>
+                      <Typography sx={{ 
+                        marginTop:isMobile? 1:'' ,
+                      textAlign:'center',
+                      color: 'black',
+                      fontFamily: '"Rubik", sans-serif',
+                      fontSize:'0.8rem'
+                      
+                      }}>{product.quantity}</Typography>
+                      <Button sx={{ ml:isMobile?'0': 2 , 
+                        minWidth:isMobile?'5px':'', 
+                      mr:isMobile?'0' :2, }} onClick={() => handleIncreaseQuant(product.id)}>
                         <AddIcon />
                       </Button>
                     </Box>
                   </TableCell>
-                  <TableCell>
-                    <Typography textAlign="center">{product.newPrice}</Typography>
+                  <TableCell  sx={{p:isMobile?1:''}}>
+                    <Typography textAlign="left" 
+                    sx={{
+                    
+
+                      textAlign:'center',
+                      color: 'black',
+                      fontFamily: '"Rubik", sans-serif',
+                      fontSize:isMobile?'0.8rem':'auto',
+                      }}>{product.newPrice}</Typography>
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="left"  sx={{p:isMobile?1:'',minWidth:isMobile?'14px':''}}>
                     <Button onClick={() => handleRemoveFromCart(product.id)}>
                       <CloseIcon />
                     </Button>
