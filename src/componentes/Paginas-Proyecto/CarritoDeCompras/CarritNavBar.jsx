@@ -22,9 +22,9 @@ const CarritNavBar = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Producto</TableCell>
-                  <TableCell>Precio</TableCell>
-                  <TableCell>Eliminar</TableCell>
+                  <TableCell sx={{ color: 'black',fontFamily: '"Rubik", sans-serif'}}>Producto</TableCell>
+                  <TableCell sx={{ color: 'black',fontFamily: '"Rubik", sans-serif'}}>Precio</TableCell>
+                  <TableCell sx={{ color: 'black',fontFamily: '"Rubik", sans-serif'}}>Eliminar</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -42,7 +42,7 @@ const CarritNavBar = () => {
                     <Typography>{product.name}</Typography>
                   </TableCell>
                   <TableCell align='right'>
-                    <Typography>{product.price}</Typography>
+                    <Typography sx={{ color: 'black',fontFamily: '"Rubik", sans-serif'}}>{product.price}</Typography>
                   </TableCell>
                   <TableCell align='right'>
                     <Button onClick={() => handleRemoveFromCart(product.id)}>
