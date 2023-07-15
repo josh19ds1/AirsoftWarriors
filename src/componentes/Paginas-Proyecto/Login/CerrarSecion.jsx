@@ -27,11 +27,7 @@ const CerrarSesion = () => {
   
         const responseData = await response.json();
         setData(responseData);
-        
-        if (responseData && responseData.url) {
-          console.log(responseData.url)
-          window.location.href = responseData.url;
-        }
+       
       } catch (error) {
         console.log(error);
       }
@@ -46,6 +42,7 @@ const CerrarSesion = () => {
    
    
     if (data.isSuccess) {
+      window.location.href = data.url;
       dispatch(setUserExist(true));
     } else {
       dispatch(setUserExist(false))
