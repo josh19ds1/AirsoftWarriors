@@ -21,7 +21,7 @@ const CerrarSesion = () => {
           redirect: 'follow',
         });
   
-        if (!response.ok) {
+        if (response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }
   
