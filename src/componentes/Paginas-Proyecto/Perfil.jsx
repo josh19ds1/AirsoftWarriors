@@ -1,12 +1,10 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import "../../estilos/Perfil.css"
-import { Dominio, ApiPerfil } from '../Tools/var'
-import { Image } from '@mui/icons-material'
-import { Alert } from '@mui/material'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import '../../estilos/Perfil.css';
+import { Dominio, ApiPerfil } from '../Tools/var';
+import { Alert } from '@mui/material';
 
-
-const apiUrl = `${Dominio}/${ApiPerfil}`
+const apiUrl = `${Dominio}/${ApiPerfil}`;
 const Perfil = () => {
   const [data, setData] = useState([]);
 
@@ -28,15 +26,13 @@ const Perfil = () => {
 
         const responseData = await response.json();
         setData(responseData);
-
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchDataFromApi();
-  }
-  );
+  }, []);
 
   return (
     <div>
@@ -46,7 +42,7 @@ const Perfil = () => {
             {/* Esto es para arreglar el diseño, luego se puede eliminar */}
             {data ? (
               <div>
-                <Image src={data.image_url.url} alt={data.image_url.id} />
+                <img src={data.image_url.url} alt={data.image_url.id} />
                 <div className="square-text">
                   <h1>Nombre: {data.name}</h1>
                   <h1>Apellido: {data.lastname}</h1>
@@ -60,7 +56,6 @@ const Perfil = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
