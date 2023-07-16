@@ -1,9 +1,9 @@
 .perfil-body{
-    background-color: #5E5E3D;
+    background-color: #1a170e;
     padding: 25px;
 }
 .square-perfil {
-    background-color: #1a170e;
+    background-color: #030203;
     display: flex;
     width: 95%;
     border-radius: 25px;
@@ -36,7 +36,6 @@
     }
 
     .square-perfil {
-        background-color: #1a170e;
         display: flex;
         width: 95%;
         border-radius: 25px;

@@ -34,16 +34,16 @@
 
 @media (max-width: 650px) {
     .back-one-failed {
-        height: 800px;
+        height: 550px;
         width: 100%;
-        padding: 100px;
+        padding: 50px;
     }
 
     .back-two-failed {
         height: 100%;
         width: 100%;
         padding: 30px;
-        border-radius: 20px;
+        border-radius: 25px;
     }
 
     .back-two-failed h1 {
@@ -54,6 +54,6 @@
         font-size: 15rem;
         padding-top: 65px;
         color: #f01111;
-        padding-bottom: 100px;
+        padding-bottom: 60px;
     }
 }

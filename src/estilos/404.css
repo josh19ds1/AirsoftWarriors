@@ -34,6 +34,19 @@
 }
 
 @media (max-width: 650px) {
+    .nfp-body {
+        height: 550px;
+        width: 100%;
+        padding: 50px;
+    }
+
+    .nfp-body-two {
+        height: 100%;
+        width: 100%;
+        padding: 35px;
+        border-radius: 25px;
+    }
+
     .nfp-body-two h1, p {
         text-align: center;
         font-size: 2.7rem;
@@ -43,9 +56,9 @@
     
     .nfp-body-two i {
         font-size: 15rem;
-        padding-top: 65px;
+        padding-top: 25px;
         color: #215bf0;
-        padding-bottom: 100px;
+        padding-bottom: 25px;
         background-color: transparent;
     }
     

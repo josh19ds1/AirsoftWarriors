@@ -7,20 +7,36 @@
     text-align: center;
     padding: 5px;
     font-size: 5rem;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .success-message{
     color: #ffff;
     font-size: xx-large;
-    font-weight: 400;
+    font-weight: 700;
     text-decoration: underline;
     text-align: center;
 }
 
+.btn-regrs-log{
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: #215bf0;
+    border-color: #215bf0;
+    border-radius: 17px;
+    padding: 15px 50px 15px 50px;
+    cursor: pointer;
+}
+
+.a-regresar{
+    text-decoration: none;
+    color: #ffff;
+}
+
 .label-name-r{
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-name-r{
@@ -29,13 +45,13 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
 
 .label-lastname-r{
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-lastname-r{
@@ -44,13 +60,13 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
 
 .label-photo-r{
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-photo-r{
@@ -59,28 +75,32 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
 
-/*.label-edad{
+.label-edad-r{
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
-.input-edad{
+.input-edad-r{
     margin-left: 35%;
-    width: 30%;
+    width: 35%;
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
-}*/
+}
+
+.error-message-r{
+    color: #f01111;
+}
 
 .label-email-r {
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-email-r{
@@ -89,13 +109,13 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
 
 .label-pasw-r {
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-pasw-r{
@@ -104,23 +124,13 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
 
-/*input {
-    margin-left: 35.5%;
-    border-radius: 5px;
-    padding: 15px 100px 15px 100px;
-    text-decoration: underline;
-    text-decoration-color: #E3600D;
-    background-color: #ffff;
-    border-color: #ffff;
-}*/
-
 .line-register {
-    background-color: #E3600D;
-    border-color: #E3600D;
+    background-color: #215bf0;
+    border-color: #215bf0;
     height: 5px;
     width: 95%;
     margin: 25px;
@@ -129,8 +139,8 @@
 .btn-send-register{
     font-size: 2rem;
     font-weight: 700;
-    background-color: #E3600D;
-    border-color: #E3600D;
+    background-color: #215bf0;
+    border-color: #215bf0;
     border-radius: 17px;
     padding: 15px 90px 15px 90px;
     margin-left: 37.5%;
@@ -144,7 +154,7 @@
 
 .a-register {
     text-decoration: none;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 @media (max-width: 650px){
@@ -172,6 +182,16 @@
     }
 
     .input-photo-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .label-edad-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .input-edad-r{
         margin-left: 20%;
         width: 60%;
     }

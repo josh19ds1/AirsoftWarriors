@@ -13,7 +13,7 @@ const Success = () => {
                 <h1>Felicidades su compra se ha llevado con éxito</h1>
                 <center><i className="fa-sharp fa-solid fa-check fa-2xl"></i></center>
                 <div className="d-grid gap-2 col-6 mx-auto">
-                    <center><button class="btn btn-info" type="button"><Link to="/Evento">Pulse aqui para regresar a la pantalla principal</Link></button></center>
+                    <center><button class="btn btn-info" type="button"><Link to="/">Pulse aqui para regresar a la pantalla principal</Link></button></center>
                 </div>
             </div>
         </div>

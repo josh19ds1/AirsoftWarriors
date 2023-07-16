@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import "../../estilos/Perfil.css"
-import prueba from "../../Imagenes/portada.png"
 import { Dominio, ApiPerfil } from '../Tools/var'
 
 const Perfil = () => {
@@ -46,8 +45,8 @@ const Perfil = () => {
       <div className="perfil-body">
         <div className="square-perfil">
           <div className="square-photo">
-            {/**esto es par arreglar el diseño el img luego lo borro */}
-            <img src={prueba} alt="" />
+            {/**Aqui debe salir la imagen y los datos */}
+            {/**  <img src={prueba} alt="" />  */}
             {perfil?.map((profile) => (
               <div key={profile.name}>
                 {profile.image && <img src={profile.image} alt="Foto de perfil" />}

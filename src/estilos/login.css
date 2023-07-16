@@ -7,7 +7,7 @@
     text-align: center;
     padding: 5px;
     font-size: 5rem;
-    color: #E3600D;
+    color: #215bf0;
     padding: 25px;
 }
 
@@ -30,7 +30,8 @@
 }
 
 .line-login {
-    background-color: #E3600D;
+    background-color: #215bf0;
+    border-color: #215bf0;
     height: 5px;
     width: 95%;
     margin: 25px;
@@ -38,12 +39,12 @@
 
 .label-email-l {
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .label-pasw-l {
     margin-left: 35%;
-    color: #E3600D;
+    color: #215bf0;
 }
 
 .input-email-l {
@@ -52,7 +53,7 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 
 }
@@ -63,25 +64,15 @@
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     text-decoration: underline;
-    text-decoration-color: #E3600D;
+    text-decoration-color: #215bf0;
     background-color: #ffff;
 }
-
-/*input {
-    margin-left: 35.5%;
-    text-align: left;
-    border-radius: 5px;
-    padding: 15px 100px 15px 100px;
-    text-decoration: underline;
-    text-decoration-color: #E3600D;
-    background-color: #ffff;
-}*/
 
 .btn-send-login {
     text-transform: uppercase;
     font-size: 25px;
     font-weight: 700;
-    background-color: #E3600D;
+    background-color: #215bf0;
     border-radius: 5px;
     padding: 15px 100px 15px 100px;
     margin-left: 38.5%;

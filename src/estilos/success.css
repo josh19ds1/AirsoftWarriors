@@ -33,16 +33,16 @@
 
 @media (max-width: 650px) {
     .back-one-success {
-        height: 750px;
+        height: 550px;
         width: 100%;
-        padding: 100px;
+        padding: 50px;
     }
-/*aqui quede*/
+
     .back-two-success {
         height: 100%;
         width: 100%;
         padding: 30px;
-        border-radius: 20px;
+        border-radius: 25px;
     }
 
     .back-two-success h1 {
@@ -50,7 +50,7 @@
     }
 
     .back-two-success i {
-        font-size: 15rem;
+        font-size: 20rem;
         padding-top: 65px;
         color: #0ce44d;
         padding-bottom: 100px;

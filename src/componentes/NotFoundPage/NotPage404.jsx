@@ -12,7 +12,7 @@ const NotFoundPage = () => {
                 <p>Lo sentimos, la página que estás buscando no existe.</p>
                 <center><i class="fa-solid fa-face-sad-tear"></i></center>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <center><button className="btn btn-primary" type="button"><Link to="/Evento">Pulse aqui para regresar</Link></button></center>
+                    <center><button className="btn btn-primary" type="button"><Link to="/">Pulse aqui para regresar</Link></button></center>
                 </div>
             </div>
         </div>
