@@ -1,43 +1,37 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import "../../estilos/Perfil.css"
-import { Dominio, ApiPerfil } from '../Tools/var'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import '../../estilos/Perfil.css';
+import { Dominio, ApiPerfil } from '../Tools/var';
+import { Alert } from '@mui/material';
 
+const apiUrl = `${Dominio}/${ApiPerfil}`;
 const Perfil = () => {
-  const [perfil, setPerfil] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataFromApi = async () => {
       try {
-        const response = await fetch('https://nodejs-restapi-airsoft-warrior-production-8daf.up.railway.app/api/auth/profile');
+        const response = await fetch(apiUrl, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          redirect: 'follow',
+        });
+
         if (!response.ok) {
-          throw new Error('No se pudo obtener el perfil');
+          throw new Error(`Request failed with status ${response.status}`);
         }
-        const perfilData = await response.json();
-        setPerfil([perfilData]);
+
+        const responseData = await response.json();
+        setData(responseData);
       } catch (error) {
-        console.log('Error al obtener el perfil:', error);
+        console.log(error);
       }
     };
 
-    fetchData();
-
-    fetch(`${Dominio}/${ApiPerfil}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: "include",
-      redirect: 'follow',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.url) {
-          window.location.href = data.url;
-        }
-      })
-      .catch((error) => console.log(error));
+    fetchDataFromApi();
   }, []);
 
   return (
@@ -45,22 +39,23 @@ const Perfil = () => {
       <div className="perfil-body">
         <div className="square-perfil">
           <div className="square-photo">
-            {/**Aqui debe salir la imagen y los datos */}
-            {/**  <img src={prueba} alt="" />  */}
-            {perfil?.map((profile) => (
-              <div key={profile.name}>
-                {profile.image && <img src={profile.image} alt="Foto de perfil" />}
-              </div>
-            ))}
-            <div className="square-text">
-              {perfil?.map((profile) => (
-                <div key={profile.name}>
-                  <h1>Nombre: {profile.name}</h1>
-                  <h1>Apellido: {profile.lastname}</h1>
-                  <h1>Email: {profile.email}</h1>
+            {/* Esto es para arreglar el diseño, luego se puede eliminar */}
+            {data ? (
+              <div>
+                {data.image_url?.url ? (
+                  <img src={data.image_url.url} alt={data.image_url.id} />
+                ) : (
+                  <Alert>No hay imagen disponible</Alert>
+                )}
+                <div className="square-text">
+                  <h1>Nombre: {data.name}</h1>
+                  <h1>Apellido: {data.lastname}</h1>
+                  <h1>Email: {data.email}</h1>
                 </div>
-              ))}
-            </div>
+              </div>
+            ) : (
+              <Alert>No hay datos disponibles</Alert>
+            )}
           </div>
         </div>
       </div>
