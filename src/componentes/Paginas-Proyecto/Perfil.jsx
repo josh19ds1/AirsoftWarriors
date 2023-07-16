@@ -29,10 +29,6 @@ const Perfil = () => {
         const responseData = await response.json();
         setData(responseData);
 
-        if (responseData.url) {
-          console.log('data-url=' + responseData.url);
-          window.location.href = responseData.url;
-        }
       } catch (error) {
         console.log(error);
       }
