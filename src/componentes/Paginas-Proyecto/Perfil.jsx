@@ -6,7 +6,7 @@ import { Alert } from '@mui/material';
 
 const apiUrl = `${Dominio}/${ApiPerfil}`;
 const Perfil = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchDataFromApi = async () => {
@@ -42,7 +42,11 @@ const Perfil = () => {
             {/* Esto es para arreglar el diseño, luego se puede eliminar */}
             {data ? (
               <div>
-                <img src={data.image_url.url} alt={data.image_url.id} />
+                {data.image_url?.url ? (
+                  <img src={data.image_url.url} alt={data.image_url.id} />
+                ) : (
+                  <Alert>No hay imagen disponible</Alert>
+                )}
                 <div className="square-text">
                   <h1>Nombre: {data.name}</h1>
                   <h1>Apellido: {data.lastname}</h1>
