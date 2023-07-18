@@ -114,6 +114,11 @@ body {
 .info {
     letter-spacing: 0.5px;
     margin-bottom: 6px;
+    
+}
+
+.info-t{
+    font-size: 30px !important;
 }
 
 .separator {
