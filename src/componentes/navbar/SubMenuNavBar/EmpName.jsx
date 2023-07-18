@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-const pages = ['Evento', 'Catalogo', 'Tutores', 'Ranking'];
+const pages = ['Eventos', 'Catalogo', 'Tutores', 'Ranking'];
 
 const EmpName = () => {
   const handleCloseNavMenu = () => {

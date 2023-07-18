@@ -153,7 +153,7 @@ function NavBar() {
               PaperProps={{
                 sx: {
                   padding: 0,
-                  background: '#215bf0',
+                  background: '#0A1D4D',
                   color: '#ffff',
                   fontFamily: '"Rubik", sans-serif',
                 },
