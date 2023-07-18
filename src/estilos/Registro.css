@@ -6,7 +6,7 @@
 .registro-title {
     text-align: center;
     padding: 5px;
-    font-size: 50px;
+    font-size: 5rem;
     color: #E3600D;
 }
 
@@ -18,32 +18,97 @@
     text-align: center;
 }
 
-.input-name{
+.label-name-r{
     margin-left: 35%;
     color: #E3600D;
 }
 
-.input-photo{
+.input-name-r{
+    margin-left: 35%;
+    width: 35%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}
+
+.label-lastname-r{
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+.input-lastname-r{
+    margin-left: 35%;
+    width: 35%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}
+
+.label-photo-r{
+    margin-left: 35%;
+    color: #E3600D;
+}
+
+.input-photo-r{
+    margin-left: 35%;
+    width: 35%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}
+
+/*.label-edad{
     margin-left: 35%;
     color: #E3600D;
 }
 
 .input-edad{
     margin-left: 35%;
-    color: #E3600D;
-}
+    width: 30%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}*/
 
-.input-email {
+.label-email-r {
     margin-left: 35%;
     color: #E3600D;
 }
 
-.input-pasw {
+.input-email-r{
+    margin-left: 35%;
+    width: 35%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}
+
+.label-pasw-r {
     margin-left: 35%;
     color: #E3600D;
 }
 
-input {
+.input-pasw-r{
+    margin-left: 35%;
+    width: 35%;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: underline;
+    text-decoration-color: #E3600D;
+    background-color: #ffff;
+}
+
+/*input {
     margin-left: 35.5%;
     border-radius: 5px;
     padding: 15px 100px 15px 100px;
@@ -51,23 +116,25 @@ input {
     text-decoration-color: #E3600D;
     background-color: #ffff;
     border-color: #ffff;
-}
+}*/
 
-.line {
+.line-register {
     background-color: #E3600D;
     border-color: #E3600D;
     height: 5px;
     width: 95%;
+    margin: 25px;
 }
 
-.btn-send {
-    font-size: 25px;
+.btn-send-register{
+    font-size: 2rem;
     font-weight: 700;
     background-color: #E3600D;
     border-color: #E3600D;
     border-radius: 17px;
-    padding: 15px 100px 15px 100px;
-    margin-left: 38%;
+    padding: 15px 90px 15px 90px;
+    margin-left: 37.5%;
+    cursor: pointer;
 }
 
 .p-register {
@@ -78,4 +145,65 @@ input {
 .a-register {
     text-decoration: none;
     color: #E3600D;
+}
+
+@media (max-width: 650px){
+    .label-name-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+    .input-name-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .label-lastname-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+    .input-lastname-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .label-photo-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .input-photo-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .label-email-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .input-email-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .label-pasw-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .input-pasw-r{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .line-register{
+        width: 90%;
+    }
+
+    .btn-send-register{
+        max-width: 500px;
+        margin: auto;
+        margin-left: 27.5%;
+        padding: 15px 50px 15px 50px;
+    }
 }

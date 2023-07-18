@@ -1,13 +1,13 @@
 .back-one-success {
-    background-color:#0a0a0b;
+    background-color: #0a0a0b;
     height: 750px;
     width: 100%;
     padding: 100px;
 }
 
 .back-two-success {
-    background-color:  #4b7794;
-    height: 500px;
+    background-color: #4b7794;
+    height: 550px;
     width: 100%;
     padding: 50px;
     border-radius: 20px;
@@ -15,18 +15,44 @@
 
 .back-two-success h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 4rem;
     color: #ffffff;
 }
 
 .back-two-success i {
-    font-size: 200px;
+    font-size: 13rem;
     padding-top: 65px;
     color: #0ce44d;
     padding-bottom: 100px;
 }
 
-.back-two-success a{
+.back-two-success a {
     color: #ffffff;
     text-decoration: none;
+}
+
+@media (max-width: 650px) {
+    .back-one-success {
+        height: 750px;
+        width: 100%;
+        padding: 100px;
+    }
+/*aqui quede*/
+    .back-two-success {
+        height: 100%;
+        width: 100%;
+        padding: 30px;
+        border-radius: 20px;
+    }
+
+    .back-two-success h1 {
+        font-size: 3.4rem;
+    }
+
+    .back-two-success i {
+        font-size: 15rem;
+        padding-top: 65px;
+        color: #0ce44d;
+        padding-bottom: 100px;
+    }
 }

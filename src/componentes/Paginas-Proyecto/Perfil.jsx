@@ -1,112 +1,66 @@
-import React from 'react'
-import { useState } from 'react'
-import "../../estilos/Perfil.css"
-import "../../Imagenes/portada.png"
-import { Dominio,ApiPerfil } from '../Tools/var'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import '../../estilos/Perfil.css';
+import { Dominio, ApiPerfil } from '../Tools/var';
+import { Alert } from '@mui/material';
 
-
+const apiUrl = `${Dominio}/${ApiPerfil}`;
 const Perfil = () => {
+  const [data, setData] = useState(null);
 
-  const [imageLoaded, setImageLoaded] = useState(false);
+  useEffect(() => {
+    const fetchDataFromApi = async () => {
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          redirect: 'follow',
+        });
 
-  
-  const handleImageLoad = (e) => {
-    setImageLoaded(true);
-    const formData = new FormData(e.target);
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-    console.log('La imagen se ha cargado');
-    fetch(`${Dominio}/${ApiPerfil}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: "include",
-      redirect: 'follow',
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.url) {
-          window.location.href = data.url;
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
         }
-      })
-      .catch((error) => console.log(error));
-  };
- 
+
+        const responseData = await response.json();
+        setData(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDataFromApi();
+  }, []);
 
   return (
-
     <div>
-       <div className="perfil-body">
-      <div className="square-perfil">
-        <div className="square-photo">
-      
-
-
-
-        {imageLoaded ? (
-        <img src="../../" alt="Imagen" />
-      ) : (
-        <p>Cargando imagen...</p>
-      )}
-      <img
-        src="../../Imagenes/portada.png"
-        alt="Imagen"
-        onLoad={handleImageLoad}
-        style={{ display: 'none' }}
-      />
-         
-        </div>
-        <div class="square-text">
-          <h1>Isabella Gonzales</h1>
-
-          <h3>29 años</h3>
-
-          <h3>Genero: Femenino</h3>
-          <h3>Nacionalidad: Panameña</h3>
-          <h3>Direccion: Calle Principla 123</h3>
-          <h3>Ciudad de Panama, Panama</h3>
-
-          <h3>Telefono: +507 7182-9364</h3>
-
-          <h3>emma.jones@example.com</h3>
+      <div className="perfil-body">
+        <div className="square-perfil">
+          <div className="square-photo">
+            {/* Esto es para arreglar el diseño, luego se puede eliminar */}
+            {data ? (
+              <div>
+                {data.image_url?.url ? (
+                  <img src={data.image_url.url} alt={data.image_url.id} />
+                ) : (
+                  <Alert>No hay imagen disponible</Alert>
+                )}
+                <div className="square-text">
+                  <h1>Nombre: {data.name}</h1>
+                  <h1>Apellido: {data.lastname}</h1>
+                  <h1>Email: {data.email}</h1>
+                </div>
+              </div>
+            ) : (
+              <Alert>No hay datos disponibles</Alert>
+            )}
+          </div>
         </div>
       </div>
-
-
-      <h1 class="title-teams">los tigres del sur</h1>
-      <div class="teams-perfil">
-        <div class="logo-teams">
-        {imageLoaded ? (
-        <img src="../../" alt="Imagen" />
-      ) : (
-        <p>Cargando logo...</p>
-      )}
-      <img
-        src="../../Imagenes/portada.png"
-        alt="Imagen"
-        onLoad={handleImageLoad}
-        style={{ display: 'none' }}
-      />
-        </div>
-        
-      </div>
     </div>
+  );
+};
 
-
-
-
-
-
-
-
-    </div>
-   
-  )
-}
-
-export default Perfil
+export default Perfil;
