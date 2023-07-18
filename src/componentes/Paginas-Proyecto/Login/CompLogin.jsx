@@ -95,7 +95,7 @@ const CompLogin = () => {
         <br />
 
         {showError && (
-          <p className="error-message">Contraseña incorrecta. Inténtalo de nuevo.</p>
+          <p className="error-message-r">Contraseña incorrecta. Inténtalo de nuevo.</p>
         )}
 
         <input className="btn-send-login" type="submit" id="submit" value="LOGIN" />

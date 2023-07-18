@@ -4,8 +4,11 @@ import '../../../estilos/Registro.css';
 
 const CompRegistrar = () => {
   const [isAccountCreated, setIsAccountCreated] = useState(false);
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState(null);
   const [showError, setShowError] = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordMatch, setPasswordMatch] = useState(true);
 
   const handleRegisterFormSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +28,16 @@ const CompRegistrar = () => {
       .catch((error) => console.log(error));
   };
 
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    setPasswordMatch(event.target.value === confirmPassword);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+    setPasswordMatch(event.target.value === password);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,6 +45,12 @@ const CompRegistrar = () => {
       handleRegisterFormSubmit(e);
     } else {
       setShowError(true);
+    }
+
+    if (passwordMatch) {
+      console.log('Contraseña y confirmación válidas');
+    } else {
+      console.log('Contraseña y confirmación no coinciden');
     }
   };
 
@@ -73,11 +92,12 @@ const CompRegistrar = () => {
           <input className='input-email-r' type="email" placeholder="Introduce tu correo" id="email" name='email' required />
 
           <label htmlFor="password" className="label-pasw-r">Contraseña</label>
-          <input className='input-pasw-r' type="password" placeholder="Introduce tu contraseña" id="password" name='password' required />
+          <input className='input-pasw-r' type="password" placeholder="Introduce tu contraseña" id="password" name='password' required value={password} onChange={handlePasswordChange} />
 
           <label htmlFor="cpassword" className="label-pasw-r">Confirmar Contraseña</label>
-          <input className='input-pasw-r' type="password" placeholder="Confirmar contraseña" id="cpassword" name='cpassword' required /><br /><br />
+          <input className='input-pasw-r' type="password" placeholder="Confirmar contraseña" id="cpassword" name='cpassword' required value={confirmPassword} onChange={handleConfirmPasswordChange} /><br /><br />
 
+          {!passwordMatch && <p className="error-message-r">Las contraseñas no coinciden</p>}
           <button className="btn-send-register" type="submit" id='submit'>Registrar</button>
         </form>
         <h4 className="p-register">
