@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import '../../../estilos/eventStart.css';
 import prueba from '../../../Imagenes/portada.png';
 import { Link } from 'react-router-dom';
+import { Dominio, ApiEvento } from '../../Tools/var';
+import fetchData from '../../Service/feetchApi';
+
+const apiUrl = `${Dominio}/${ApiEvento}`;
 
 const EventoStart = () => {
+
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        const fetchDataFromApi = async () => {
+          const responseData = await fetchData(apiUrl);
+          setData(responseData);
+        };
+    
+        fetchDataFromApi();
+      }, []);
+
+      console.log(data);
+
+      
+    
   return (
     <>
+    {data?.map((evento) => (
+                <div key={evento.id}>
+                  <img-container component="img" src={evento.place.image_url.url}/>
+                </div>
+    ))}
     <section className='home'>
         <div className="title">
           <h3>Airsoft <span>Event</span></h3>
@@ -13,10 +37,11 @@ const EventoStart = () => {
     </section>
     <div className="container">
         <div className="item-container">
-            <div className="img-container">
-                <img src={prueba} alt=""/>
-            </div>
-
+        {data?.map((evento) => (
+                <div key={evento.id}>
+                  <img-container component="img" src={evento.place.image_url.url}/>
+                </div>
+            ))}
             <div className="body-container">
                 <div className="overlay"></div>
 
