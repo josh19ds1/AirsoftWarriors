@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import './App.css';
 import NavBar from './componentes/navbar/navbar'
+import Eventos from "./componentes/Paginas-Proyecto/Evento/Eventos";
 import Evento from "./componentes/Paginas-Proyecto/Evento/Evento";
 import Tutores from "./componentes/Paginas-Proyecto/Tutores";
 import Ranking from "./componentes/Paginas-Proyecto/Ranking";
@@ -20,7 +21,6 @@ import Failed from "./componentes/Paginas-Proyecto/CarritoDeCompras/Failed";
 import NotFoundPage from "./componentes/NotFoundPage/NotPage404";
 
 
-
 function App() {
 
   return (
@@ -36,8 +36,10 @@ function App() {
 
 
 
+
       <Routes>
         <Route path="/" element={<Inicio />} />
+        <Route path="/Eventos" element={<Eventos />} />
         <Route path="/Evento" element={<Evento />} />
         <Route path="/Catalogo" element={<Catalogo />} />
         <Route path="/Tutores" element={<Tutores />} />
