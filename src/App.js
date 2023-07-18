@@ -49,8 +49,8 @@ function App() {
         <Route path="/Registrar" element={<Registrar />} />
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/DescripcionProducto/:id" element={<DescripProducto />} />
-        <Route path="/Success" element={<Success />} />
-        <Route path="/Failed" element={<Failed />} />
+        <Route path="/payed" element={<Success />} />
+        <Route path="/cancel" element={<Failed />} />
         {/* Ruta para todas las demás rutas */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

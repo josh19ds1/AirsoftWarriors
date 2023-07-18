@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../../../estilos/events.css';
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import 'swiper/css/free-mode';
-import prueba from '../../../Imagenes/portada.png';
-import { EffectCoverflow, Pagination } from "swiper";
+
 import SwiperCore, { Autoplay, FreeMode } from 'swiper';
 import 'font-awesome/css/font-awesome.min.css';
 import { Link } from 'react-router-dom';
