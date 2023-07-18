@@ -26,8 +26,7 @@ const Evento = () => {
         fetchDataFromApi();
       }, []);
 
-      console.log(data);
-
+   
 
   SwiperCore.use([Autoplay, FreeMode]);
 

@@ -18,7 +18,7 @@ const EventoStart = () => {
         fetchDataFromApi();
       }, []);
 
-      console.log(data);
+     
 
       
 
